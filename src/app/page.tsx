@@ -10,6 +10,8 @@ import { useState } from "react";
 import Image from "next/image";
 import ProfilePic from "@/images/ProfilePic.png";
 import DescribeMe from "./DescribeMe";
+import jobExperiences from "@/data/jobExperiences";
+import JobCard from "@/components/JobCard";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -113,9 +115,14 @@ export default function Home() {
           </p>
         </div>
         <div />
-        <div />
-        <div className="col-span-2 h-dvh text-right z-20">
+        <div className="col-span-2" />
+        <div className="h-dvh text-right z-20">
           <p className="text-4xl mb-3">So what brought me here?</p>
+          {
+            jobExperiences.map((jobExperience, jeIdx) => (
+              <JobCard key={jeIdx} jobExperience={jobExperience}/>
+            ))
+          }
         </div>
       </div>
     </div>

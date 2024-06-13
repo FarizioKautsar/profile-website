@@ -106,3 +106,14 @@ body {
     text-wrap: balance;
   }
 }
+
+.scrollbar-hide {
+  /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+  -webkit-overflow-scrolling: touch;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for other browsers (Firefox) */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
