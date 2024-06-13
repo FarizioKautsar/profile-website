@@ -38,8 +38,8 @@ export default function Home() {
 
   const x = useTransform(
     scrollY,
-    [window.innerHeight * 2, window.innerHeight * 3],
-    [0, -200]
+    [window.innerHeight * 2, window.innerHeight * 3,window.innerHeight * 4],
+    [100, -200, 200]
   );
 
   const [blurVal, setBlurVal] = useState(0);
@@ -116,7 +116,15 @@ export default function Home() {
         </div>
         <div />
         <div className="col-span-2" />
-        <div className="h-dvh text-right z-20">
+        <div className="min-h-dvh text-right z-20">
+          <p className="text-4xl mb-3">So what brought me here?</p>
+          {
+            jobExperiences.map((jobExperience, jeIdx) => (
+              <JobCard key={jeIdx} jobExperience={jobExperience}/>
+            ))
+          }
+        </div>
+        <div className="min-h-dvh text-right z-20">
           <p className="text-4xl mb-3">So what brought me here?</p>
           {
             jobExperiences.map((jobExperience, jeIdx) => (

@@ -19,6 +19,17 @@ export type JobExperience = {
   achievements?: string[];    // An array of notable achievements during the job (optional)
 };
 
+export type School = {
+  name: string;                // The name of the school
+  degree: string;              // The degree obtained
+  fieldOfStudy: string;        // The field of study
+  startDate: Date;             // The start date of the education period
+  endDate: Date;               // The end date of the education period
+  grade?: number;              // The grade (optional)
+  activitiesAndSocieties?: string; // Activities and societies (optional)
+  skills?: string[];           // An array of skills associated with the education (optional)
+};
+
 export type Project = {
   name: string;
   client: string;
