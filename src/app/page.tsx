@@ -6,12 +6,14 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProfilePic from "@/images/ProfilePic.png";
 import DescribeMe from "./DescribeMe";
 import jobExperiences from "@/data/jobExperiences";
 import JobCard from "@/components/JobCard";
+
+import Lenis from "lenis";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -38,7 +40,7 @@ export default function Home() {
 
   const x = useTransform(
     scrollY,
-    [window.innerHeight * 2, window.innerHeight * 3,window.innerHeight * 4],
+    [window.innerHeight * 2, window.innerHeight * 3, window.innerHeight * 4],
     [100, -200, 200]
   );
 
@@ -52,6 +54,15 @@ export default function Home() {
   useMotionValueEvent(picBlur, "change", (latest) => {
     setPicBlurVal(latest);
   });
+
+  useEffect(() => {
+    const lenis = new Lenis();
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <div className="relative">
@@ -94,7 +105,7 @@ export default function Home() {
             marginTop: picMarginTop,
             filter: `blur(${picBlurVal}px)`,
             opacity: picOpacity,
-            x
+            x,
           }}
           className="relative w-50 h-full"
         >
@@ -118,19 +129,15 @@ export default function Home() {
         <div className="col-span-2" />
         <div className="min-h-dvh text-right z-20">
           <p className="text-4xl mb-3">So what brought me here?</p>
-          {
-            jobExperiences.map((jobExperience, jeIdx) => (
-              <JobCard key={jeIdx} jobExperience={jobExperience}/>
-            ))
-          }
+          {jobExperiences.map((jobExperience, jeIdx) => (
+            <JobCard key={jeIdx} jobExperience={jobExperience} />
+          ))}
         </div>
         <div className="min-h-dvh text-right z-20">
           <p className="text-4xl mb-3">So what brought me here?</p>
-          {
-            jobExperiences.map((jobExperience, jeIdx) => (
-              <JobCard key={jeIdx} jobExperience={jobExperience}/>
-            ))
-          }
+          {jobExperiences.map((jobExperience, jeIdx) => (
+            <JobCard key={jeIdx} jobExperience={jobExperience} />
+          ))}
         </div>
       </div>
     </div>
