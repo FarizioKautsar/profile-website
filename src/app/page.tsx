@@ -14,6 +14,7 @@ import jobExperiences from "@/data/jobExperiences";
 import JobCard from "@/components/JobCard";
 
 import Lenis from "lenis";
+import EducationCard from "@/components/EducationCard";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -134,9 +135,9 @@ export default function Home() {
           ))}
         </div>
         <div className="min-h-dvh text-left z-20">
-          <p className="text-4xl mb-3 font-serif" >What's my history?</p>
+          <p className="text-4xl mb-3 font-serif" >What's my educations?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
-            <JobCard key={jeIdx} jobExperience={jobExperience} />
+            <EducationCard key={jeIdx} education={jobExperience} />
           ))}
         </div>
       </div>

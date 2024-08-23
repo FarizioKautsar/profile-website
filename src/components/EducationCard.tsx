@@ -7,10 +7,10 @@ import remarkGfm from "remark-gfm";
 const CARD_WIDTH = 700;
 const CARD_MARGIN = 24;
 
-export default function JobCard({
-  jobExperience,
+export default function EducationCard({
+  education,
 }: {
-  jobExperience: JobExperience;
+  education: JobExperience;
 }) {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -24,24 +24,24 @@ export default function JobCard({
       onMouseLeave={() => setIsHovering(false)}
     >
       <p className="text-sm text-neutral-500">
-        {jobExperience.startDate.getFullYear()}{" "}
-        {jobExperience.endDate
-          ? " - " + jobExperience.endDate.getFullYear()
+        {education.startDate.getFullYear()}{" "}
+        {education.endDate
+          ? " - " + education.endDate.getFullYear()
           : ""}
       </p>
-      <p className="text-xl font-bold">{jobExperience.jobTitle}</p>
-      <p className="text-lg text-neutral-500">{jobExperience.companyName}</p>
+      <p className="text-xl font-bold">{education.jobTitle}</p>
+      <p className="text-lg text-neutral-500">{education.companyName}</p>
       <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}
         style={{
           top: cardRef.current?.offsetTop || 0,
-          left: cardRef.current ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px` : 0,
+          left: cardRef.current ? `${(CARD_WIDTH + CARD_MARGIN)}px` : 0,
           width: CARD_WIDTH,
         }}
       >
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {jobExperience.jobDescription}
+          {education.jobDescription}
         </ReactMarkdown>
       </Modal>
     </div>
