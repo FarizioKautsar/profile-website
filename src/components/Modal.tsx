@@ -20,14 +20,18 @@ export default function Modal({
   useEffect(() => {
     if (isOpen) {
       animate(
-        "div",
+        ref.current,
         { y: 0, opacity: 100, display: "block" },
-        { damping: 0, ease: 'easeIn', bounce: 0 }
+        { ease: "easeOut" }
       );
     } else {
-      animate("div", { y: 50, opacity: 0, display: "none" });
+      animate(
+        ref.current,
+        { y: 50, opacity: 0, display: "none" },
+        { ease: "easeInOut" }
+      );
     }
-  }, [isOpen, animate]);
+  }, [isOpen, animate, ref]);
 
   return (
     <div className="absolute z-50" style={style} ref={ref}>
