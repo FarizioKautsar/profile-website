@@ -1,18 +1,18 @@
-import { JobExperience } from "@/types";
+import { Education } from "@/types";
 import { useRef, useState } from "react";
-import Modal from "./Modal";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+// import Modal from "./Modal";
+// import ReactMarkdown from "react-markdown";
+// import remarkGfm from "remark-gfm";
 
-const CARD_WIDTH = 700;
-const CARD_MARGIN = 24;
+// const CARD_WIDTH = 700;
+// const CARD_MARGIN = 24;
 
 export default function EducationCard({
   education,
 }: {
-  education: JobExperience;
+  education: Education;
 }) {
-  const [isHovering, setIsHovering] = useState(false);
+  // const [isHovering, setIsHovering] = useState(false);
 
   const cardRef = useRef<HTMLDivElement>(null);
 
@@ -20,8 +20,8 @@ export default function EducationCard({
     <div
       className="text-left mb-4"
       ref={cardRef}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      // onMouseEnter={() => setIsHovering(true)}
+      // onMouseLeave={() => setIsHovering(false)}
     >
       <p className="text-sm text-neutral-500">
         {education.startDate.getFullYear()}{" "}
@@ -29,9 +29,9 @@ export default function EducationCard({
           ? " - " + education.endDate.getFullYear()
           : ""}
       </p>
-      <p className="text-xl font-bold">{education.jobTitle}</p>
-      <p className="text-lg text-neutral-500">{education.companyName}</p>
-      <Modal
+      <p className="text-xl font-bold">{education.degree}</p>
+      <p className="text-lg text-neutral-500">{education.name}</p>
+      {/* <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}
         style={{
@@ -41,9 +41,9 @@ export default function EducationCard({
         }}
       >
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
-          {education.jobDescription}
+          {education.}
         </ReactMarkdown>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
