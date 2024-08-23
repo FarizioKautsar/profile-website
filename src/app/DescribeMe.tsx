@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const DESCS = ["creative", "annoying", "techy", "stupid", "a fucking idiot"];
+const DESCS = ["creative", "geeky", "techy", "detailed", "talkative"];
 
 const PAUSE = 1;
 const HEIGHT = "160px";
