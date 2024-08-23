@@ -128,13 +128,13 @@ export default function Home() {
         <div />
         <div className="col-span-2" />
         <div className="min-h-dvh text-right z-20">
-          <p className="text-4xl mb-3">So what brought me here?</p>
+          <p className="text-4xl mb-3 font-serif">So what brought me here?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
             <JobCard key={jeIdx} jobExperience={jobExperience} />
           ))}
         </div>
-        <div className="min-h-dvh text-right z-20">
-          <p className="text-4xl mb-3">So what brought me here?</p>
+        <div className="min-h-dvh text-left z-20">
+          <p className="text-4xl mb-3 font-serif" >What's my history?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
             <JobCard key={jeIdx} jobExperience={jobExperience} />
           ))}
