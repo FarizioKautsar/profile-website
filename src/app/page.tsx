@@ -25,7 +25,7 @@ export default function Home() {
   const picMarginTop = useTransform(
     scrollY,
     [window.innerHeight, window.innerHeight * 2],
-    [120, 0]
+    [120, 40]
   );
   const picBlur = useTransform(
     scrollY,
