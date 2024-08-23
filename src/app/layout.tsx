@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Plus_Jakarta_Sans, Yeseva_One } from "next/font/google";
 import "./globals.css";
+import clsx from "clsx";
 
-const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"] });
+const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: '--font-jakarta' });
+const yesevaOne = Yeseva_One({ subsets: ["latin"], weight: '400', variable: '--font-yeseva' });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      
-      <body className={plusJakarta.className}>{children}</body>
+      <body className={clsx(plusJakarta.className, yesevaOne.variable)}>{children}</body>
     </html>
   );
 }

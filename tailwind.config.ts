@@ -18,6 +18,9 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        serif: ['var(--font-yeseva)', 'sans-serif']
+      },
       listStyleType: {
         disc: "disc",
       },
