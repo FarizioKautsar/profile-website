@@ -1,6 +1,6 @@
 import { TechStack } from "@/types";
 import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiExpress, SiNestjs, SiShadcnui, SiTypeform } from "react-icons/si";
+import { SiExpress, SiNestjs, SiShadcnui, SiStrapi, SiTypeform } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 const TECH_STACKS = {
@@ -45,6 +45,12 @@ const TECH_STACKS = {
     icon: RiTailwindCssFill,
     url: "https://tailwindcss.com/",
     type: ["FRONTEND", "UI_FRAMEWORK"],
+  } as TechStack,
+  STRAPI: {
+    name: "Strapi",
+    icon: SiStrapi,
+    url: "https://strapi.io/",
+    type: ["BACKEND", "DATABASE"],
   } as TechStack,
   TYPEORM: {
     name: "TypeORM",

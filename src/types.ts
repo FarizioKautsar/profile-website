@@ -34,10 +34,11 @@ export type Project = {
   name: string;
   subTitle: string;
   client: string;
-  shortDescription: string;
+  shortDescription?: string;
   description?: string | React.ReactNode;
   websiteUrl?: string;
   yearFrom: number;
   yearTo: number;
   techStack: TechStack[];
+  imageUrls?: string[];
 }
