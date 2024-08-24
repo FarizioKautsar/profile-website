@@ -53,7 +53,7 @@ const ProjectModal = ({
       data-lenis-ignore
     >
       <motion.div
-        className="backdrop-blur-md border border-neutral-300 rounded-2xl p-8 z-40 overflow-hidden"
+        className="backdrop-blur-md border border-neutral-300 bg-opacity-30 bg-black rounded-2xl p-8 z-40 overflow-hidden"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         initial={{
           x: cardRect
@@ -106,8 +106,9 @@ const ProjectModal = ({
           <div
             className={clsx(project.imageUrls ? "col-span-3" : "col-span-3")}
           >
-            <h2 className="text-3xl font-bold">{project.name}</h2>
-            <h3 className="text-xl">{project.subTitle}</h3>
+            <h2 className="text-3xl mb-2 font-bold">{project.name}</h2>
+            <h3 className="text-xl"><b>{project.client}</b> - {project.subTitle}</h3>
+            <h3 className="text-sm mt-2">{project.yearFrom} - {project.yearTo}</h3>
             <div className="flex flex-wrap gap-2 my-4">
               {project.techStack.map((tech, tIdx) => (
                 <Tooltip key={tIdx}>

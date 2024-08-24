@@ -110,7 +110,7 @@ export default function ProjectCard({ project }: { project: Project }) {
         )}
         <div className="p-3">
           <div className="text-2xl font-bold">{project.name}</div>
-          <div className="text-xl font-bold">{project.subTitle}</div>
+          <div>{project.subTitle}</div>
         </div>
       </motion.div>
       <AnimatePresence>

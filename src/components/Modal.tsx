@@ -81,7 +81,7 @@ export default function Modal({
 
   return (
     <motion.div
-      className="absolute z-50"
+      className="absolute z-50 backdrop-blur-md"
       style={{ ...style, rotateX, rotateY, transformPerspective: 1800 }}
       ref={ref}
       onMouseMove={handleMouseMove}
@@ -98,7 +98,7 @@ export default function Modal({
       <div
         className={clsx(
           "rounded-xl border-neutral-500 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4",
-          "bg-gradient-to-tr from-neutral-900 to-neutral-800 border"
+          "bg-gradient-to-tr from-neutral-900/40 to-neutral-800/60 border "
         )}
       >
         {children}
