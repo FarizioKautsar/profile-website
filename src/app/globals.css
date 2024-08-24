@@ -117,3 +117,39 @@ body {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
+
+/* WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffffff; /* White thumb */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent track */
+  border-radius: 10px;
+}
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #ffffff rgba(0, 0, 0, 0.2); /* White thumb on a semi-transparent track */
+}
+
+/* Edge and IE */
+::-ms-scrollbar {
+  width: 12px;
+}
+
+::-ms-scrollbar-thumb {
+  background-color: #ffffff; /* White thumb */
+  border-radius: 10px;
+}
+
+::-ms-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); /* Semi-transparent track */
+  border-radius: 10px;
+}
