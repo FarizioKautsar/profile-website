@@ -1,6 +1,7 @@
 import { TechStack } from "@/types";
-import { RiNextjsFill, RiReactjsFill } from "react-icons/ri";
-import { SiExpress, SiNestjs } from "react-icons/si";
+import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiExpress, SiNestjs, SiShadcnui, SiTypeform } from "react-icons/si";
+import { BiLogoPostgresql } from "react-icons/bi";
 
 const TECH_STACKS = {
   NEXTJS: {
@@ -8,6 +9,18 @@ const TECH_STACKS = {
     icon: RiNextjsFill,
     url: "https://nextjs.org/",
     type: ["FULLSTACK"],
+  } as TechStack,
+  POSTGRESQL: {
+    name: "PostgreSQL",
+    icon: BiLogoPostgresql,
+    url: "https://www.postgresql.org/",
+    type: ["DATABASE"],
+  } as TechStack,
+  FIREBASE: {
+    name: "Firebase",
+    icon: RiFirebaseFill,
+    url: "https://firebase.google.com/",
+    type: ["BACKEND", "DATABASE"],
   } as TechStack,
   NESTJS: {
     name: "NestJS",
@@ -20,6 +33,24 @@ const TECH_STACKS = {
     icon: RiReactjsFill,
     url: "https://react.dev/",
     type: ["FRONTEND"],
+  } as TechStack,
+  SHADCN: {
+    name: "Shadcn",
+    icon: SiShadcnui,
+    url: "https://ui.shadcn.com/",
+    type: ["FRONTEND", "UI_FRAMEWORK"],
+  } as TechStack,
+  TAILWIND: {
+    name: "TailwindCSS",
+    icon: RiTailwindCssFill,
+    url: "https://tailwindcss.com/",
+    type: ["FRONTEND", "UI_FRAMEWORK"],
+  } as TechStack,
+  TYPEORM: {
+    name: "TypeORM",
+    icon: SiTypeform,
+    url: "https://typeorm.io/",
+    type: ["BACKEND", "DATABASE"],
   } as TechStack,
   REACT_NATIVE: {
     name: "React Native",
