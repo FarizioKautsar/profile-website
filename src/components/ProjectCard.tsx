@@ -1,6 +1,12 @@
 import { Project } from "@/types";
 import clsx from "clsx";
-import { useMotionValue, useSpring, motion, useTransform, AnimatePresence } from "framer-motion";
+import {
+  useMotionValue,
+  useSpring,
+  motion,
+  useTransform,
+  AnimatePresence,
+} from "framer-motion";
 import Image from "next/image";
 import { useRef, useState } from "react";
 import ProjectModal from "./ProjectModal";
@@ -8,7 +14,8 @@ import ProjectModal from "./ProjectModal";
 export default function ProjectCard({ project }: { project: Project }) {
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalExiting, setIsModalExiting] = useState(false);
 
   const mouseX = useMotionValue(150);
   const mouseY = useMotionValue(150);
@@ -50,7 +57,15 @@ export default function ProjectCard({ project }: { project: Project }) {
   };
 
   const handleCardClick = () => {
-    setModalOpen(true);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalExiting(true);
+    setIsModalOpen(false);
+    setTimeout(() => {
+      setIsModalExiting(false);
+    }, 200);
   };
 
   return (
@@ -71,6 +86,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           rotateX,
           rotateY,
           scale,
+          opacity: isModalExiting || isModalOpen ? 0 : 1,
           transformPerspective: 1000,
         }}
       >
@@ -100,7 +116,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       <AnimatePresence>
         {isModalOpen && (
           <ProjectModal
-            onClose={() => setModalOpen(false)}
+            onClose={closeModal}
             project={project}
             cardRef={cardRef}
           />

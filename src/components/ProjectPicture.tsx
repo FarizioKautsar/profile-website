@@ -20,7 +20,6 @@ const ProjectPicture = ({
     height: number;
   } | null>(null);
   const [isModalExiting, setIsModalExiting] = useState(false);
-  const controls = useAnimation();
 
   const openModal = (
     imageUrl: string,
@@ -29,7 +28,6 @@ const ProjectPicture = ({
     setSelectedImage(imageUrl);
     setInitialPosition(position);
     setIsModalOpen(true);
-    controls.start({ opacity: 0 });
   };
 
   const closeModal = () => {
@@ -53,8 +51,6 @@ const ProjectPicture = ({
       height: rect.height,
     });
   };
-
-  console.log(isModalExiting);
 
   return (
     <div>
