@@ -5,6 +5,8 @@ import {
   useScroll,
   useTransform,
   motion,
+  useMotionValue,
+  useSpring,
 } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -82,8 +84,27 @@ export default function Home() {
     requestAnimationFrame(raf);
   }, []);
 
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  // Update the mouse position state on mouse move
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePosition({ x: e.pageX, y: e.pageY });
+  };
+
+  useEffect(() => {
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
+
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      style={{
+        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${window.innerWidth - mousePosition.x}px ${window.innerHeight - mousePosition.y}px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+      }}
+    >
       <div className="w-full h-screen sticky top-0 flex justify-center items-center">
         <motion.div
           style={{
@@ -92,7 +113,9 @@ export default function Home() {
             scale,
           }}
         >
-          <h1 className="text-8xl">
+          <h1 className="text-8xl font-serif text-center">
+            <span className="text-4xl font-sans">Hi, I'm</span>
+            <br />
             {"farizio".split("").map((letter, lIdx) => (
               <motion.span
                 key={lIdx}
@@ -103,7 +126,7 @@ export default function Home() {
                   delay: (lIdx + 5) * 0.1,
                   duration: 0.5,
                 }}
-                className="font-serif"
+                className="mx-0 hover:mx-5 ease-in-out transition-all"
               >
                 {letter}
               </motion.span>
@@ -162,11 +185,9 @@ export default function Home() {
         <div className="h-dvh text-left w-full z-20 col-span-3">
           <p className="text-4xl mb-6 font-serif text-center">My Creations</p>
           <div className="grid grid-cols-3 gap-4">
-            {
-              projects.map((project, pIdx) => (
-                <ProjectCard project={project} key={pIdx}/>
-              ))
-            }
+            {projects.map((project, pIdx) => (
+              <ProjectCard project={project} key={pIdx} />
+            ))}
           </div>
         </div>
       </div>
