@@ -16,6 +16,8 @@ import JobCard from "@/components/JobCard";
 import Lenis from "lenis";
 import EducationCard from "@/components/EducationCard";
 import educations from "@/data/educations";
+import projects from "@/data/projects";
+import ProjectCard from "@/components/ProjectCard";
 
 export default function Home() {
   const { scrollY } = useScroll();
@@ -151,7 +153,7 @@ export default function Home() {
           ))}
         </div>
         <div className="min-h-dvh w-full text-left z-20">
-          <p className="text-4xl mb-3 font-serif">What's my educations?</p>
+          <p className="text-4xl mb-3 font-serif">What&apos;s my educations?</p>
           {educations.map((education, eIdx) => (
             <EducationCard key={eIdx} education={education} />
           ))}
@@ -159,8 +161,12 @@ export default function Home() {
         <div className="col-span-2" />
         <div className="h-dvh text-left w-full z-20 col-span-3">
           <p className="text-4xl mb-3 font-serif text-center">My Creations</p>
-          <div className="grid grid-cols-3">
-            
+          <div className="grid grid-cols-3 gap-4">
+            {
+              projects.map((project, pIdx) => (
+                <ProjectCard project={project} key={pIdx}/>
+              ))
+            }
           </div>
         </div>
       </div>
