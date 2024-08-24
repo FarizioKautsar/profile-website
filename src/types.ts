@@ -38,7 +38,7 @@ export type Project = {
   description?: string | React.ReactNode;
   websiteUrl?: string;
   yearFrom: number;
-  yearTo: number;
+  yearTo?: number;
   techStack: TechStack[];
   imageUrls?: string[];
 }

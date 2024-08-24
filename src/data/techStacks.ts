@@ -1,6 +1,6 @@
 import { TechStack } from "@/types";
 import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiBootstrap, SiExpress, SiNestjs, SiShadcnui, SiStrapi, SiTypeform } from "react-icons/si";
+import { SiBootstrap, SiExpress, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 const TECH_STACKS = {
@@ -75,6 +75,18 @@ const TECH_STACKS = {
     icon: SiExpress,
     url: "https://expressjs.com/",
     type: ["BACKEND"],
+  } as TechStack,
+  MONGODB: {
+    name: "MongoDB",
+    icon: SiMongodb,
+    url: "https://www.mongodb.com/",
+    type: ["BACKEND", "DATABASE"],
+  } as TechStack,
+  WORDPRESS: {
+    name: "WordPress",
+    icon: SiWordpress,
+    url: "https://wordpress.com/",
+    type: ["BACKEND", "DATABASE", "FULLSTACK"],
   } as TechStack,
 };
 

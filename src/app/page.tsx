@@ -160,7 +160,7 @@ export default function Home() {
         </div>
         <div className="col-span-2" />
         <div className="h-dvh text-left w-full z-20 col-span-3">
-          <p className="text-4xl mb-3 font-serif text-center">My Creations</p>
+          <p className="text-4xl mb-6 font-serif text-center">My Creations</p>
           <div className="grid grid-cols-3 gap-4">
             {
               projects.map((project, pIdx) => (
