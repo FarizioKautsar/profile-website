@@ -61,6 +61,10 @@ const projects: Project[] = [
     yearFrom: 2024,
     yearTo: 2024,
     techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.SHADCN],
+    imageUrls: [
+      require("@/images/projects/personal-website/personal-website1.png"),
+      require("@/images/projects/personal-website/personal-website2.png"),
+    ],
   },
   {
     name: "Bina Bangsa LMS",
@@ -93,6 +97,40 @@ const projects: Project[] = [
     imageUrls: [
       require("@/images/projects/vimb/vimb1.png"),
       require("@/images/projects/vimb/vimb2.png"),
+    ],
+  },
+  {
+    name: "TLDR.pls",
+    subTitle: "Personal Project",
+    shortDescription:
+      "TLDR.pls is a place where you can talk to your favorite media.",
+    description:
+      "This is a personal project of mine that originates from my day-to-day problem. I have a hard time remembering the characters of a book or a TV show, so I often ask ChatGPT for those. Because I find myself often have to describe a media to ChatGPT, I decided just to make my own tool to ask around about the current book I'm reading.",
+    client: "Myself",
+    websiteUrl: "https://tldrpls-fariziokautsars-projects.vercel.app/",
+    yearFrom: 2024,
+    yearTo: 2024,
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.CHATGPT, TECH_STACKS.TAILWIND],
+    imageUrls: [
+      require("@/images/projects/tldr/tldr1.png"),
+      require("@/images/projects/tldr/tldr2.png"),
+    ],
+  },
+  {
+    name: "John Conway's Game of Life",
+    subTitle: "Personal Project",
+    shortDescription:
+      "This is a challenge I put on to myself",
+    description:
+      `This is a challenge I put on to myself. I've watched a Veritasium video about the issue of computer predictability. In said video, he explains John Conway's Game of Life, which is a zero-player game (a game that does not need any player). This is a simple "game" in which a cell came to life if it has less than 2 or more than 3 neighbors and dies if it has exactly 3 neighbors. With how simple the game is, we would think that we can predict if the game would stop or goes on forever. The thing is, just as Turing Machine paradox showcase, it is impossible for any algorithm to predict if it'll go on forever or not. Neat (for me).`,
+    client: "Myself",
+    websiteUrl: "https://game-of-life-fariziokautsar.vercel.app/",
+    yearFrom: 2024,
+    yearTo: 2024,
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.CHATGPT, TECH_STACKS.TAILWIND],
+    imageUrls: [
+      require("@/images/projects/gameoflife/gameoflife1.png"),
+      require("@/images/projects/gameoflife/gameoflife2.png"),
     ],
   },
 ];

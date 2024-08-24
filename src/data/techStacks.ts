@@ -2,6 +2,7 @@ import { TechStack } from "@/types";
 import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiBootstrap, SiExpress, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
 const TECH_STACKS = {
   NEXTJS: {
@@ -87,6 +88,12 @@ const TECH_STACKS = {
     icon: SiWordpress,
     url: "https://wordpress.com/",
     type: ["BACKEND", "DATABASE", "FULLSTACK"],
+  } as TechStack,
+  CHATGPT: {
+    name: "ChatGPT",
+    icon: IoChatbubbleEllipsesOutline,
+    url: "https://chatgpt.com/",
+    type: ["BACKEND"],
   } as TechStack,
 };
 
