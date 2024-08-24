@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
+import ProjectPicture from "./ProjectPicture";
 
 const ProjectModal = ({
   onClose,
@@ -94,14 +95,9 @@ const ProjectModal = ({
                   transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
                   className="mb-6"
                 >
-                  <Image
-                    src={url}
-                    alt={project.name}
-                    style={{
-                      objectFit: "cover",
-                    }}
-                    // objectFit="cover"
-                    className="rounded-md"
+                  <ProjectPicture
+                    project={project}
+                    url={url}
                   />
                 </motion.div>
               ))}
