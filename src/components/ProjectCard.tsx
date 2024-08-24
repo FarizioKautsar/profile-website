@@ -29,8 +29,11 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const background = useTransform(
     [springX, springY],
-    ([latestX, latestY]) =>
-      `radial-gradient(circle at ${latestX}px ${latestY}px, rgba(255, 255, 255, 0.2), transparent 80%)`
+    ([latestX, latestY]) => {
+      const gradientX = cardRef.current?.offsetWidth! - Number(latestX);
+      const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
+      return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(255, 255, 255, 0.2), transparent 80%)`
+    }
   );
 
   const handleMouseEnter = () => {
@@ -51,7 +54,8 @@ export default function ProjectCard({ project }: { project: Project }) {
       className={clsx(
         "rounded-md border border-slate-300 overflow-hidden",
         "bg-gradient-to-tr from-transparent to-neutral-700",
-        "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10"
+        "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
+        "hover:cursor-pointer"
       )}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
