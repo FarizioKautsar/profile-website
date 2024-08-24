@@ -1,16 +1,71 @@
 import { Project } from "@/types";
 import clsx from "clsx";
+import { useMotionValue, useSpring, motion, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProjectCard({ project }: { project: Project }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const mouseX = useMotionValue(150);
+  const mouseY = useMotionValue(150);
+
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 20 });
+
+  const rotateX = useTransform(springY, [0, 300], [15, -15]);
+  const rotateY = useTransform(springX, [0, 300], [-15, 15]);
+
+  const opacity = useSpring(0, { stiffness: 300, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = cardRef.current;
+    if (card) {
+      const rect = card.getBoundingClientRect();
+      mouseX.set(e.clientX - rect.left);
+      mouseY.set(e.clientY - rect.top);
+    }
+  };
+
+  const background = useTransform(
+    [springX, springY],
+    ([latestX, latestY]) =>
+      `radial-gradient(circle at ${latestX}px ${latestY}px, rgba(255, 255, 255, 0.2), transparent 80%)`
+  );
+
+  const handleMouseEnter = () => {
+    opacity.set(1);
+  };
+
+  const handleMouseLeave = () => {
+    opacity.set(0);
+    springX.set(150);
+    springY.set(150);
+  };
+
   return (
-    <div
+    <motion.div
+      ref={cardRef}
       className={clsx(
         "rounded-md border border-slate-300 overflow-hidden",
         "bg-gradient-to-tr from-transparent to-neutral-700",
         "hover:scale-105 transition-all backdrop-blur-md"
       )}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 1000,
+      }}
     >
+      <motion.div
+        className="absolute inset-0"
+        style={{
+          background,
+          opacity
+        }}
+      />
       {project.imageUrls && (
         <Image
           src={project.imageUrls[0]}
@@ -26,6 +81,6 @@ export default function ProjectCard({ project }: { project: Project }) {
         <div className="text-2xl font-bold">{project.name}</div>
         <div className="text-xl font-bold">{project.subTitle}</div>
       </div>
-    </div>
+    </motion.div>
   );
 }
