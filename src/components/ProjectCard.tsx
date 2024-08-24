@@ -1,11 +1,15 @@
 import { Project } from "@/types";
 import clsx from "clsx";
-import { useMotionValue, useSpring, motion, useTransform } from "framer-motion";
+import { useMotionValue, useSpring, motion, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import ProjectModal from "./ProjectModal";
 
 export default function ProjectCard({ project }: { project: Project }) {
   const cardRef = useRef<HTMLDivElement>(null);
+
+  const [isModalOpen, setModalOpen] = useState(false);
+
   const mouseX = useMotionValue(150);
   const mouseY = useMotionValue(150);
 
@@ -27,14 +31,11 @@ export default function ProjectCard({ project }: { project: Project }) {
     }
   };
 
-  const background = useTransform(
-    [springX, springY],
-    ([latestX, latestY]) => {
-      const gradientX = cardRef.current?.offsetWidth! - Number(latestX);
-      const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
-      return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(255, 255, 255, 0.2), transparent 80%)`
-    }
-  );
+  const background = useTransform([springX, springY], ([latestX, latestY]) => {
+    const gradientX = cardRef.current?.offsetWidth! - Number(latestX);
+    const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(255, 255, 255, 0.2), transparent 80%)`;
+  });
 
   const handleMouseEnter = () => {
     opacity.set(1);
@@ -48,47 +49,63 @@ export default function ProjectCard({ project }: { project: Project }) {
     springY.set(150);
   };
 
+  const handleCardClick = () => {
+    setModalOpen(true);
+  };
+
   return (
-    <motion.div
-      ref={cardRef}
-      className={clsx(
-        "rounded-md border border-slate-300 overflow-hidden",
-        "bg-gradient-to-tr from-transparent to-neutral-700",
-        "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
-        "hover:cursor-pointer"
-      )}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      onMouseEnter={handleMouseEnter}
-      style={{
-        rotateX,
-        rotateY,
-        scale,
-        transformPerspective: 1000,
-      }}
-    >
+    <>
       <motion.div
-        className="absolute inset-0"
+        ref={cardRef}
+        className={clsx(
+          "rounded-md border border-slate-300 overflow-hidden",
+          "bg-gradient-to-tr from-transparent to-neutral-700",
+          "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
+          "hover:cursor-pointer"
+        )}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onMouseEnter={handleMouseEnter}
+        onClick={handleCardClick}
         style={{
-          background,
-          opacity
+          rotateX,
+          rotateY,
+          scale,
+          transformPerspective: 1000,
         }}
-      />
-      {project.imageUrls && (
-        <Image
-          src={project.imageUrls[0]}
-          alt={project.name}
-          // height={200}
-          className="h-52"
+      >
+        <motion.div
+          className="absolute inset-0"
           style={{
-            objectFit: "cover",
+            background,
+            opacity,
           }}
         />
-      )}
-      <div className="p-3">
-        <div className="text-2xl font-bold">{project.name}</div>
-        <div className="text-xl font-bold">{project.subTitle}</div>
-      </div>
-    </motion.div>
+        {project.imageUrls && (
+          <Image
+            src={project.imageUrls[0]}
+            alt={project.name}
+            // height={200}
+            className="h-52"
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        )}
+        <div className="p-3">
+          <div className="text-2xl font-bold">{project.name}</div>
+          <div className="text-xl font-bold">{project.subTitle}</div>
+        </div>
+      </motion.div>
+      <AnimatePresence>
+        {isModalOpen && (
+          <ProjectModal
+            onClose={() => setModalOpen(false)}
+            project={project}
+            cardRef={cardRef}
+          />
+        )}
+      </AnimatePresence>
+    </>
   );
 }
