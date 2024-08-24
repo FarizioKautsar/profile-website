@@ -29,6 +29,7 @@ const projects: Project[] = [
       require("@/images/projects/timas/timas1.png"),
       require("@/images/projects/timas/timas2.png"),
       require("@/images/projects/timas/timas3.png"),
+      require("@/images/projects/timas/timas4.png"),
     ],
   },
   {
@@ -46,6 +47,7 @@ const projects: Project[] = [
     imageUrls: [
       require("@/images/projects/klabs/klabs1.png"),
       require("@/images/projects/klabs/klabs2.png"),
+      require("@/images/projects/klabs/klabs3.png"),
     ],
   },
   {
