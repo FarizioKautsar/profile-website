@@ -97,7 +97,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           <div className="text-xl font-bold">{project.subTitle}</div>
         </div>
       </motion.div>
-      <AnimatePresence>
+      {/* <AnimatePresence> */}
         {isModalOpen && (
           <ProjectModal
             onClose={() => setModalOpen(false)}
@@ -105,7 +105,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             cardRef={cardRef}
           />
         )}
-      </AnimatePresence>
+      {/* </AnimatePresence> */}
     </>
   );
 }

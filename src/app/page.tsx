@@ -6,7 +6,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import ProfilePic from "@/images/ProfilePic.png";
 import DescribeMe from "./DescribeMe";

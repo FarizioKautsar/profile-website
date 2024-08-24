@@ -49,6 +49,7 @@ const ProjectModal = ({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
+      data-lenis-ignore
     >
       <motion.div
         className="backdrop-blur-md border border-neutral-300 rounded-2xl p-8 z-40 overflow-hidden"
@@ -83,7 +84,7 @@ const ProjectModal = ({
       >
         <div className="grid grid-cols-4 gap-8 h-full">
           {project.imageUrls && (
-            <div className="h-full overflow-y-scroll">
+            <div className="h-full overflow-y-scroll" data-lenis-prevent-wheel>
               {project.imageUrls.map((url, index) => (
                 <motion.div
                   key={index}
