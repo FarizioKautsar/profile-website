@@ -176,7 +176,7 @@ export default function Home() {
         <div />
         <div className="col-span-2" />
         <div className="min-h-dvh text-right z-20">
-          <p className="text-4xl mb-3 font-serif">So what brought me here?</p>
+          <p className="text-4xl mb-3 font-serif">Where Have I Left My Mark?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
             <motion.div
               key={jeIdx}
@@ -190,14 +190,22 @@ export default function Home() {
           ))}
         </div>
         <div className="min-h-dvh w-full text-left z-20">
-          <p className="text-4xl mb-3 font-serif">What&apos;s my educations?</p>
+          <p className="text-4xl mb-3 font-serif">And What Brought Me Here?</p>
           {educations.map((education, eIdx) => (
-            <EducationCard key={eIdx} education={education} />
+            <motion.div
+              key={eIdx}
+              initial={{ x: "-100%", opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              className="pointer-events-auto"
+            >
+              <EducationCard key={eIdx} education={education} />
+            </motion.div>
           ))}
         </div>
         <div className="col-span-2" />
         <div className="h-dvh text-left w-full z-20 col-span-3">
-          <p className="text-4xl mb-6 font-serif text-center">My Creations</p>
+          <p className="text-4xl mb-8 font-serif text-center">My Ideas That Has Come to Life</p>
           <div className="grid grid-cols-3 gap-4">
             {projects.map((project, pIdx) => (
               <ProjectCard project={project} key={pIdx} />

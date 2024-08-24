@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  overflow-x: hidden;
   background: rgb(var(--background-end-rgb));
   /* background: radial-gradient(#fff,var(--background-start-rgb) 40%, rgb(var(--background-end-rgb)) 140%); */
   /* background: linear-gradient(
