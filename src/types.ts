@@ -5,7 +5,7 @@ export type TechStack = {
   logoUrl?: string;
   url?: string;
   icon: IconType;
-  type: ("BACKEND" | "FRONTEND" | "FULLSTACK" | "UTILITY" | "UI_FRAMEWORK" | "MOBILE")[]
+  type: ("BACKEND" | "FRONTEND" | "FULLSTACK" | "UTILITY" | "UI_FRAMEWORK" | "MOBILE" | "DATABASE")[]
 }
 
 export type JobExperience = {
@@ -32,6 +32,7 @@ export type Education = {
 
 export type Project = {
   name: string;
+  subTitle: string;
   client: string;
   shortDescription: string;
   description?: string | React.ReactNode;
