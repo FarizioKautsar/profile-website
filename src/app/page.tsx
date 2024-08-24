@@ -200,7 +200,7 @@ export default function Home() {
               key={jeIdx}
               initial={{ x: "100%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}123
+              viewport={{ once: true }}
               className="pointer-events-auto"
             >
               <JobCard jobExperience={jobExperience} />
