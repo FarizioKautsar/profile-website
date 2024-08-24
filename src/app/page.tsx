@@ -102,7 +102,13 @@ export default function Home() {
     <div
       className="relative"
       style={{
-        background: `radial-gradient(circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${window.innerWidth - mousePosition.x}px ${window.innerHeight - mousePosition.y}px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+        background: `radial-gradient(circle at ${mousePosition.x}px ${
+          mousePosition.y
+        }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
+          window.innerWidth - mousePosition.x
+        }px ${
+          window.innerHeight - mousePosition.y
+        }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
       }}
     >
       <div className="w-full h-screen sticky top-0 flex justify-center items-center">
@@ -172,7 +178,15 @@ export default function Home() {
         <div className="min-h-dvh text-right z-20">
           <p className="text-4xl mb-3 font-serif">So what brought me here?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
-            <JobCard key={jeIdx} jobExperience={jobExperience} />
+            <motion.div
+              key={jeIdx}
+              initial={{ x: "100%", opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              viewport={{ once: true }}
+              className="pointer-events-auto"
+            >
+              <JobCard jobExperience={jobExperience} />
+            </motion.div>
           ))}
         </div>
         <div className="min-h-dvh w-full text-left z-20">
