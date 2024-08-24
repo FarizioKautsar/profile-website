@@ -3,6 +3,8 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "./ui/button";
 
 const ProjectModal = ({
   onClose,
@@ -14,10 +16,12 @@ const ProjectModal = ({
   cardRef: React.RefObject<HTMLDivElement>;
 }) => {
   // Get the card's position and size
-  const [modalSize, setModalSize] = useState<{ width: number; height: number }>({
-    width: window.innerWidth * 0.8,
-    height: window.innerHeight * 0.8,
-  });
+  const [modalSize, setModalSize] = useState<{ width: number; height: number }>(
+    {
+      width: window.innerWidth * 0.8,
+      height: window.innerHeight * 0.8,
+    }
+  );
 
   // Update modal size on resize
   useEffect(() => {
@@ -29,11 +33,11 @@ const ProjectModal = ({
     };
 
     // Add event listener
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Cleanup event listener on component unmount
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
   const cardRect = cardRef.current?.getBoundingClientRect();
@@ -106,30 +110,36 @@ const ProjectModal = ({
             className={clsx(project.imageUrls ? "col-span-3" : "col-span-3")}
           >
             <h2 className="text-3xl font-bold">{project.name}</h2>
-            <h3 className="text-xl mb-4">{project.subTitle}</h3>
-            <div>Techs Used</div>
-            <div className="flex flex-wrap">
+            <h3 className="text-xl">{project.subTitle}</h3>
+            <div className="flex flex-wrap gap-2 my-4">
               {project.techStack.map((tech, tIdx) => (
-                <>
-                  <Tooltip>
-                    <TooltipTrigger>
+                <Tooltip key={tIdx}>
+                  <TooltipTrigger>
+                    <a
+                      target="_blank"
+                      href={tech.url}
+                      rel="noopener noreferrer"
+                    >
                       {tech.icon({ size: 32, color: "white" })}
-                    </TooltipTrigger>
-                  </Tooltip>
-                </>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>{tech.name}</TooltipContent>
+                </Tooltip>
               ))}
             </div>
-            <p>
-              {project.description}
-            </p>
+            <p className="mb-4">{project.description}</p>
+            {project.websiteUrl && (
+              <a
+                target="_blank"
+                href={project.websiteUrl}
+                rel="noopener noreferrer"
+                className="mt-4"
+              >
+                <Button color="white">Visit Website</Button>
+              </a>
+            )}
           </div>
         </div>
-        <button
-          className="absolute top-2 right-2 p-2 bg-gray-800 text-white rounded-full"
-          onClick={onClose}
-        >
-          Close
-        </button>
       </motion.div>
     </motion.div>
   );

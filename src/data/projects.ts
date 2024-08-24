@@ -29,6 +29,15 @@ const projects: Project[] = [
       require('@/images/projects/timas/timas1.png'),
       require('@/images/projects/timas/timas2.png'),
       require('@/images/projects/timas/timas3.png'),
+      require('@/images/projects/timas/timas1.png'),
+      require('@/images/projects/timas/timas2.png'),
+      require('@/images/projects/timas/timas3.png'),
+      require('@/images/projects/timas/timas1.png'),
+      require('@/images/projects/timas/timas2.png'),
+      require('@/images/projects/timas/timas3.png'),
+      require('@/images/projects/timas/timas1.png'),
+      require('@/images/projects/timas/timas2.png'),
+      require('@/images/projects/timas/timas3.png'),
     ]
 
   },
