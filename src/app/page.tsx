@@ -155,14 +155,32 @@ export default function Home() {
             opacity: picOpacity,
             x,
           }}
-          className="relative w-50 h-full"
+          className="relative w-50 h-full "
         >
           <Image
             src={ProfilePic.src}
             fill
             alt="Farizio Kautsar Heruzy"
             objectFit="contain"
+            className="!grayscale"
           />
+          {/* <div
+            className="z-50 w-full h-full"
+            style={{
+              background: `radial-gradient(circle at ${mousePosition.x}px ${
+                mousePosition.y
+              }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
+                window.innerWidth - mousePosition.x
+              }px ${
+                window.innerHeight - mousePosition.y
+              }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+              WebkitMaskImage: `url(${ProfilePic.src})`, // Use the image as the mask
+              WebkitMaskSize: "contain", // Ensure the mask covers the entire div
+              WebkitMaskRepeat: "no-repeat", // Prevent the mask from repeating
+              WebkitMaskPosition: "center", // Center the mask
+              zIndex: 1000,
+            }}
+          /> */}
         </motion.div>
       </div>
       <div className="container mx-auto grid grid-cols-3">
@@ -205,7 +223,9 @@ export default function Home() {
         </div>
         <div className="col-span-2" />
         <div className="h-dvh text-left w-full z-20 col-span-3">
-          <p className="text-4xl mb-8 font-serif text-center">My Ideas That Has Come to Life</p>
+          <p className="text-4xl mb-8 font-serif text-center">
+            My Ideas That Has Come to Life
+          </p>
           <div className="grid grid-cols-3 gap-4">
             {projects.map((project, pIdx) => (
               <ProjectCard project={project} key={pIdx} />

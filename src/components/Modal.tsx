@@ -75,7 +75,7 @@ export default function Modal({
     ([latestX, latestY]) => {
       const gradientX = ref.current?.offsetWidth! - Number(latestX);
       const gradientY = ref.current?.offsetHeight! - Number(latestY);
-      return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(255, 255, 255, 0.2), transparent 80%)`
+      return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`
     }
   );
 
@@ -98,7 +98,7 @@ export default function Modal({
       <div
         className={clsx(
           "rounded-xl border-neutral-500 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4",
-          "bg-gradient-to-tr from-neutral-900/40 to-neutral-800/60 border "
+          "bg-gradient-to-tr from-blue-900/40 to-black/60 border "
         )}
       >
         {children}
