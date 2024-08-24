@@ -47,7 +47,7 @@ const ProjectModal = ({
       exit={{ opacity: 0 }}
     >
       <motion.div
-        className="relative backdrop-blur-md border border-neutral-300 rounded-2xl p-8"
+        className="backdrop-blur-md border border-neutral-300 rounded-2xl p-8 z-40 overflow-hidden"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         initial={{
           x: cardRect
@@ -77,9 +77,9 @@ const ProjectModal = ({
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <div className="grid grid-cols-4 gap-4">
+        <div className="grid grid-cols-4 gap-8 h-full">
           {project.imageUrls && (
-            <div>
+            <div className="h-full overflow-y-scroll">
               {project.imageUrls.map((url, index) => (
                 <motion.div
                   key={index}
@@ -87,7 +87,7 @@ const ProjectModal = ({
                   animate={{ opacity: 1, y: 0 }} // Slide to its original position
                   exit={{ opacity: 0, y: 100 }} // Slide out when exiting
                   transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
-                  className="mb-3"
+                  className="mb-6"
                 >
                   <Image
                     src={url}
@@ -105,8 +105,23 @@ const ProjectModal = ({
           <div
             className={clsx(project.imageUrls ? "col-span-3" : "col-span-3")}
           >
-            <div className="text-3xl font-bold">{project.name}</div>
-            <div className="text-xl font-bold">{project.subTitle}</div>
+            <h2 className="text-3xl font-bold">{project.name}</h2>
+            <h3 className="text-xl mb-4">{project.subTitle}</h3>
+            <div>Techs Used</div>
+            <div className="flex flex-wrap">
+              {project.techStack.map((tech, tIdx) => (
+                <>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      {tech.icon({ size: 32, color: "white" })}
+                    </TooltipTrigger>
+                  </Tooltip>
+                </>
+              ))}
+            </div>
+            <p>
+              {project.description}
+            </p>
           </div>
         </div>
         <button
