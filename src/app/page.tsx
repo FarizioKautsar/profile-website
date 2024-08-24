@@ -120,7 +120,7 @@ export default function Home() {
           }}
         >
           <h1 className="text-8xl font-serif text-center">
-            <span className="text-4xl font-sans">Hi, I'm</span>
+            <span className="text-4xl font-sans">Hi, I&apos;m</span>
             <br />
             {"farizio".split("").map((letter, lIdx) => (
               <motion.span
@@ -200,7 +200,7 @@ export default function Home() {
               key={jeIdx}
               initial={{ x: "100%", opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: true }}123
               className="pointer-events-auto"
             >
               <JobCard jobExperience={jobExperience} />
