@@ -26,20 +26,10 @@ const projects: Project[] = [
       TECH_STACKS.TYPEORM,
     ],
     imageUrls: [
-      require('@/images/projects/timas/timas1.png'),
-      require('@/images/projects/timas/timas2.png'),
-      require('@/images/projects/timas/timas3.png'),
-      require('@/images/projects/timas/timas1.png'),
-      require('@/images/projects/timas/timas2.png'),
-      require('@/images/projects/timas/timas3.png'),
-      require('@/images/projects/timas/timas1.png'),
-      require('@/images/projects/timas/timas2.png'),
-      require('@/images/projects/timas/timas3.png'),
-      require('@/images/projects/timas/timas1.png'),
-      require('@/images/projects/timas/timas2.png'),
-      require('@/images/projects/timas/timas3.png'),
-    ]
-
+      require("@/images/projects/timas/timas1.png"),
+      require("@/images/projects/timas/timas2.png"),
+      require("@/images/projects/timas/timas3.png"),
+    ],
   },
   {
     name: "KotakodeLabs Company Profile",
@@ -52,9 +42,10 @@ const projects: Project[] = [
     websiteUrl: "https://labs.kotakode.com/",
     yearFrom: 2023,
     yearTo: 2023,
-    techStack: [
-      TECH_STACKS.NEXTJS,
-      TECH_STACKS.STRAPI,
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.STRAPI],
+    imageUrls: [
+      require("@/images/projects/klabs/klabs1.png"),
+      require("@/images/projects/klabs/klabs2.png"),
     ],
   },
   {
@@ -62,15 +53,28 @@ const projects: Project[] = [
     subTitle: "Company Profile Website",
     shortDescription:
       "The website I use to showcase my experiences and portfolio.",
-    description:
-      "The website I use to showcase my experiences and portfolio.",
+    description: "The website I use to showcase my experiences and portfolio.",
     client: "Myself",
     websiteUrl: "https://fariz.io/",
     yearFrom: 2024,
     yearTo: 2024,
-    techStack: [
-      TECH_STACKS.NEXTJS,
-      TECH_STACKS.TAILWIND,
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.SHADCN],
+  },
+  {
+    name: "Bina Bangsa LMS",
+    subTitle: "Learning Management System",
+    shortDescription:
+      "With KotakodeLabs, I've contributed a number of features in the LMS.",
+    description:
+      "As a part of KotakodeLabs, we take pride in showcasing our ongoing project, a cutting-edge Learning Management System (LMS) web application designed specifically for an international school. Our tailored solution empowers educational institutions with a suite of features that redefine the learning experience.",
+    client: "Bina Bangsa School",
+    websiteUrl: "https://labs.kotakode.com/",
+    yearFrom: 2023,
+    yearTo: 2023,
+    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.NESTJS, TECH_STACKS.POSTGRESQL, TECH_STACKS.BOOTSTRAP],
+    imageUrls: [
+      require("@/images/projects/bbs/bbs1.png"),
+      require("@/images/projects/bbs/bbs2.png"),
     ],
   },
 ];

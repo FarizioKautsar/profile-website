@@ -1,6 +1,6 @@
 import { TechStack } from "@/types";
 import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiExpress, SiNestjs, SiShadcnui, SiStrapi, SiTypeform } from "react-icons/si";
+import { SiBootstrap, SiExpress, SiNestjs, SiShadcnui, SiStrapi, SiTypeform } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 const TECH_STACKS = {
@@ -38,6 +38,12 @@ const TECH_STACKS = {
     name: "Shadcn",
     icon: SiShadcnui,
     url: "https://ui.shadcn.com/",
+    type: ["FRONTEND", "UI_FRAMEWORK"],
+  } as TechStack,
+  BOOTSTRAP: {
+    name: "Bootstrap",
+    icon: SiBootstrap,
+    url: "https://getbootstrap.com/",
     type: ["FRONTEND", "UI_FRAMEWORK"],
   } as TechStack,
   TAILWIND: {
