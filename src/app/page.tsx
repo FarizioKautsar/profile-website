@@ -34,10 +34,20 @@ export default function Home() {
     [window.innerHeight, window.innerHeight * 2],
     [10, 0]
   );
+  const picBlurOut = useTransform(
+    scrollY,
+    [window.innerHeight * 4, window.innerHeight * 5],
+    [0, 10]
+  );
   const picOpacity = useTransform(
     scrollY,
-    [window.innerHeight, window.innerHeight * 2],
-    [0, 1]
+    [
+      window.innerHeight,
+      window.innerHeight * 2,
+      window.innerHeight * 4,
+      window.innerHeight * 5,
+    ],
+    [0, 1, 1, 0]
   );
 
   const x = useTransform(
@@ -54,6 +64,10 @@ export default function Home() {
   });
 
   useMotionValueEvent(picBlur, "change", (latest) => {
+    setPicBlurVal(latest);
+  });
+
+  useMotionValueEvent(picBlurOut, "change", (latest) => {
     setPicBlurVal(latest);
   });
 
@@ -87,6 +101,7 @@ export default function Home() {
                   delay: (lIdx + 5) * 0.1,
                   duration: 0.5,
                 }}
+                className="font-serif"
               >
                 {letter}
               </motion.span>
@@ -135,11 +150,18 @@ export default function Home() {
             <JobCard key={jeIdx} jobExperience={jobExperience} />
           ))}
         </div>
-        <div className="min-h-dvh text-left z-20">
-          <p className="text-4xl mb-3 font-serif" >What's my educations?</p>
+        <div className="min-h-dvh w-full text-left z-20">
+          <p className="text-4xl mb-3 font-serif">What's my educations?</p>
           {educations.map((education, eIdx) => (
             <EducationCard key={eIdx} education={education} />
           ))}
+        </div>
+        <div className="col-span-2" />
+        <div className="h-dvh text-left w-full z-20 col-span-3">
+          <p className="text-4xl mb-3 font-serif text-center">My Creations</p>
+          <div className="grid grid-cols-3">
+            
+          </div>
         </div>
       </div>
     </div>

@@ -19,13 +19,13 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-end-rgb));
-  /* background: radial-gradient(20.40% 40.55% at 0.76% 90.29%,var(--background-start-rgb) 40%, rgb(var(--background-end-rgb)) 140%) */
-  /* background: linear-gradient(
+  background: radial-gradient(#fff,var(--background-start-rgb) 40%, rgb(var(--background-end-rgb)) 140%);
+  background: linear-gradient(
     to bottom,
     transparent,
     rgb(var(--background-end-rgb))
   )
-  rgb(var(--background-start-rgb)); */
+  rgb(var(--background-start-rgb));
 }
 
 @layer base {

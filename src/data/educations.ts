@@ -4,13 +4,13 @@ const educations: Education[] = [
   {
     name: "Monash University",
     degree: "Master of Information Technology",
-    fieldOfStudy: "Information Technology",
+    fieldOfStudy: "Information Technology, Web Development, Mobile Development",
     startDate: new Date("2024-03-01"),
     endDate: new Date("2025-12-31"),
   },
   {
     name: "University of Indonesia",
-    degree: "Graduate",
+    degree: "Bachelor of Business Information System",
     fieldOfStudy: "Computer and Information Sciences and Support Services",
     startDate: new Date("2018-01-01"),
     endDate: new Date("2022-12-31"),
