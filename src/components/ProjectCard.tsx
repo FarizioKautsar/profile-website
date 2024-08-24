@@ -16,6 +16,7 @@ export default function ProjectCard({ project }: { project: Project }) {
   const rotateY = useTransform(springX, [0, 300], [-15, 15]);
 
   const opacity = useSpring(0, { stiffness: 300, damping: 20 });
+  const scale = useSpring(1, { stiffness: 300, damping: 20 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const card = cardRef.current;
@@ -34,9 +35,11 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const handleMouseEnter = () => {
     opacity.set(1);
+    scale.set(1.1);
   };
 
   const handleMouseLeave = () => {
+    scale.set(1);
     opacity.set(0);
     springX.set(150);
     springY.set(150);
@@ -48,7 +51,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       className={clsx(
         "rounded-md border border-slate-300 overflow-hidden",
         "bg-gradient-to-tr from-transparent to-neutral-700",
-        "hover:scale-105 transition-all backdrop-blur-md"
+        "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10"
       )}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -56,6 +59,7 @@ export default function ProjectCard({ project }: { project: Project }) {
       style={{
         rotateX,
         rotateY,
+        scale,
         transformPerspective: 1000,
       }}
     >
