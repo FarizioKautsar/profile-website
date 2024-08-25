@@ -16,8 +16,8 @@ const jobExperiences: JobExperience[] = [
       "* Made KotakodeLabs' company profile website that is responsive and packed with smooth animations (klabs.dev).\n" +
       "* Created a billing and invoicing system for a web application which will be used for an international school.\n" +
       "* Supervising and mentoring two highly capable college students in a web development project.\n", 
-    location: "Jakarta, Jakarta, Indonesia · Remote",
-    technologies: ["User Interface Design", "React.js", "NestJS", "JavaScript", "Node.js", "Software Development", "Next.js", "Web Development", "Front-End Development", "Team Management"],
+    location: "Jakarta, Indonesia · Remote",
+    skills: ["User Interface Design", "Software Development", "Web Development", "Front-End Development", "Team Management"],
     achievements: [
       "Building reusable codes and components for an easier and smoother development.\n",
       "Intense focus on building reusable code-bases and components to streamline the development process.\n",
@@ -39,8 +39,8 @@ const jobExperiences: JobExperience[] = [
       "* Created front end implementation for a company’s profile website alongside its backend website.\n" +
       "* Creating a learning management system for a school.\n" +
       "* Creates model and backend implementation for some feature.\n",
-    location: "Jakarta, Jakarta, Indonesia · Remote",
-    technologies: ["React.js", "JavaScript", "Node.js", "Express.js", "Software Development", "Web Development", "Front-End Development"]
+    location: "Jakarta, Indonesia · Remote",
+    skills: ["Software Development", "Web Development", "Front-End Development"]
   },
   {
     companyName: "Lembaga Pengelola Dana Pendidikan",
@@ -52,7 +52,7 @@ const jobExperiences: JobExperience[] = [
       "Along the PK (Persiapan Keberangkatan) event, I was trusted to be one of the five representatives or PAs of the class of 299 awardees. My role is as the supervisor for the administration and the treasury team, the supporting team that made sure the great people behind PK-226 can work effectively and efficiently. Other tasks include tending to the needs and questions of the awardees regarding departures, rundowns, task submissions, etc."
     ,
     location: "Jakarta, Indonesia · On-site",
-    technologies: []
+    skills: []
   },
   {
     companyName: "Sayurbox",
@@ -65,8 +65,8 @@ const jobExperiences: JobExperience[] = [
       "* Contributed to Sayurbox's Sayurfluencer program.\n" +
       "* Fixed a number of problems in Sayurbox's internal CMS.\n" +
       "* Worked with Springboot, Svelte, and GraphQL.\n",
-    location: "Jakarta, Indonesia",
-    technologies: ["Spring Boot", "Svelte", "Software Development", "Front-End Development", "Java", "Back-End Web Development"]
+    location: "Jakarta, Indonesia · Remote",
+    skills: ["Spring Boot", "Svelte", "Software Development", "Front-End Development", "Java", "Back-End Web Development"]
   },
   {
     companyName: "Kotakode",
@@ -77,8 +77,8 @@ const jobExperiences: JobExperience[] = [
       "* Implemented Kotakode's design guideline to their website by creating consistent and documented React UI components.\n" +
       "* Initialized the Kotakode Back Office front-end and integrated it with the existing back-end.\n" +
       "* Developed Kotakode Academy's back-end and front-end codebase.\n",
-    location: "Jakarta, Indonesia",
-    technologies: ["Software Development"]
+    location: "Jakarta, Indonesia · Remote",
+    skills: ["Software Development"]
   },
   {
     companyName: "Bukit Vista Hospitality Services",
@@ -88,8 +88,8 @@ const jobExperiences: JobExperience[] = [
     jobDescription: 
       "* Developed parts of Bukit Vista's BIGRR platform with React and Redux.\n" +
       "* Managed their WordPress website: Setting timeline, collecting team, and monitoring progress.\n",
-    location: "Remote",
-    technologies: []
+    location: "Bali, Indonesia · Remote",
+    skills: []
   }
 ];
 

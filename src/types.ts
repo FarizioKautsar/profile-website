@@ -15,8 +15,9 @@ export type JobExperience = {
   endDate?: Date | null;             // The end date of the job (optional, can be null if currently employed)
   jobDescription: string;     // A description of the job responsibilities and achievements
   location?: string;          // The location of the job (optional)
-  technologies?: string[];    // An array of technologies used in the job (optional)
+  skills?: string[];    // An array of technologies used in the job (optional)
   achievements?: string[];    // An array of notable achievements during the job (optional)
+  techStack?: TechStack[];
 };
 
 export type Education = {

@@ -59,7 +59,6 @@ export default function Modal({
     }
   }, [isOpen, animate, ref]);
 
-
   const handleMouseEnter = () => {
     opacity.set(1);
   };
@@ -70,14 +69,11 @@ export default function Modal({
     springY.set(150);
   };
 
-  const background = useTransform(
-    [springX, springY],
-    ([latestX, latestY]) => {
-      const gradientX = ref.current?.offsetWidth! - Number(latestX);
-      const gradientY = ref.current?.offsetHeight! - Number(latestY);
-      return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`
-    }
-  );
+  const background = useTransform([springX, springY], ([latestX, latestY]) => {
+    const gradientX = ref.current?.offsetWidth! - Number(latestX);
+    const gradientY = ref.current?.offsetHeight! - Number(latestY);
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`;
+  });
 
   return (
     <motion.div
@@ -88,11 +84,11 @@ export default function Modal({
       onMouseLeave={handleMouseLeave}
       onMouseEnter={handleMouseEnter}
     >
-            <motion.div
+      <motion.div
         className="absolute inset-0"
         style={{
           background,
-          opacity
+          opacity,
         }}
       />
       <div

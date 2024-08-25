@@ -36,13 +36,20 @@ export default function JobCard({
         onClose={() => setIsHovering(false)}
         style={{
           top: cardRef.current?.offsetTop || 0,
-          left: cardRef.current ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px` : 0,
+          left: cardRef.current
+            ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px`
+            : 0,
           width: CARD_WIDTH,
         }}
       >
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {jobExperience.jobDescription}
         </ReactMarkdown>
+        {jobExperience.skills && (
+          <div className="mt-3">
+            <b>Skills:</b> {jobExperience.skills?.join(", ")}
+          </div>
+        )}
       </Modal>
     </div>
   );
