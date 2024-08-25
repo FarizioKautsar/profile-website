@@ -5,8 +5,6 @@ import {
   useScroll,
   useTransform,
   motion,
-  useMotionValue,
-  useSpring,
 } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -20,14 +18,16 @@ import EducationCard from "@/components/EducationCard";
 import educations from "@/data/educations";
 import projects from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
+import dynamic from "next/dynamic";
 
-export default function Home() {
+function Home() {
   const { scrollY } = useScroll();
 
   // Map the scroll position to the desired animation range
   const blur = useTransform(scrollY, [0, window.innerHeight / 2], [0, 10]);
   const scale = useTransform(scrollY, [0, window.innerHeight / 2], [1, 0.9]);
   const opacity = useTransform(scrollY, [0, window.innerHeight], [1, 0]);
+
   const picMarginTop = useTransform(
     scrollY,
     [window.innerHeight, window.innerHeight * 2],
@@ -236,3 +236,7 @@ export default function Home() {
     </div>
   );
 }
+
+export default dynamic(() => Promise.resolve(Home), {
+  ssr: false
+})
