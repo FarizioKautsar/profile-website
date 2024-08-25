@@ -240,7 +240,7 @@ function Home() {
           </div>
         </div>
         <div className="h-dvh text-left w-full z-20 col-span-3 flex flex-col items-center justify-center">
-          <h1 className="text-2xl mb-4">Interested in working with me?</h1>
+          <h1 className="text-2xl mb-4">Interested in working together?</h1>
           <span className="font-serif text-4xl mb-8">
             Feel free to get in touch!
           </span>
