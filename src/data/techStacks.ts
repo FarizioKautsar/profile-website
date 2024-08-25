@@ -1,7 +1,7 @@
 import { TechStack } from "@/types";
-import { RiFirebaseFill, RiNextjsFill, RiReactjsFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiBootstrap, SiExpress, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
-import { BiLogoPostgresql } from "react-icons/bi";
+import { RiFirebaseFill, RiJavaFill, RiNextjsFill, RiReactjsFill, RiSvelteFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiBootstrap, SiExpress, SiGraphql, SiMaterialdesign, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
+import { BiLogoPostgresql, BiLogoSpringBoot } from "react-icons/bi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
 const TECH_STACKS = {
@@ -94,6 +94,36 @@ const TECH_STACKS = {
     icon: IoChatbubbleEllipsesOutline,
     url: "https://chatgpt.com/",
     type: ["BACKEND"],
+  } as TechStack,
+  JAVA: {
+    name: "Java",
+    icon: RiJavaFill,
+    url: "https://www.java.com/en/",
+    type: ["BACKEND"],
+  } as TechStack,
+  SPRING_BOOT: {
+    name: "Spring Boot",
+    icon: BiLogoSpringBoot,
+    url: "https://spring.io/projects/spring-boot/",
+    type: ["BACKEND"],
+  } as TechStack,
+  GRAPHQL: {
+    name: "GraphQL",
+    icon: SiGraphql,
+    url: "https://graphql.org",
+    type: ["BACKEND", "DATABASE"],
+  } as TechStack,
+  SVELTE: {
+    name: "Svelte",
+    icon: RiSvelteFill,
+    url: "https://svelte.dev/",
+    type: ["FRONTEND"],
+  } as TechStack,
+  MATERIAL_UI: {
+    name: "Material UI",
+    icon: SiMaterialdesign,
+    url: "https://mui.com/",
+    type: ["FRONTEND"],
   } as TechStack,
 };
 
