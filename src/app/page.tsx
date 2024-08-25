@@ -19,6 +19,9 @@ import educations from "@/data/educations";
 import projects from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import dynamic from "next/dynamic";
+import ContactLink from "@/components/ContactLink";
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { IoDocumentAttachOutline } from "react-icons/io5";
 
 function Home() {
   const { scrollY } = useScroll();
@@ -232,11 +235,34 @@ function Home() {
             ))}
           </div>
         </div>
+        <div className="h-dvh text-left w-full z-20 col-span-3 flex flex-col items-center justify-center">
+          <h1 className="text-2xl mb-4">Interested in working with me?</h1>
+          <span className="font-serif text-4xl mb-8">
+            Feel free to get in touch!
+          </span>
+          <div className="flex gap-8">
+            <ContactLink
+              href="mailto:kheruzy@gmail.com"
+              label="Email Me"
+              icon={FaEnvelope}
+            />
+            <ContactLink
+              href="https://wa.me/6281282100255"
+              label="WhatsApp Me"
+              icon={FaWhatsapp}
+            />
+            <ContactLink
+              href="https://docs.google.com/document/d/1Sppdy_wIc2ddyFRqmI4iFYf_G0nLr5nm1o-Pnoy79ZE"
+              label="View My CV"
+              icon={IoDocumentAttachOutline}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
 export default dynamic(() => Promise.resolve(Home), {
-  ssr: false
-})
+  ssr: false,
+});
