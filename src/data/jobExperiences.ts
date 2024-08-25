@@ -1,4 +1,6 @@
-const jobExperiences = [
+import { JobExperience } from "@/types";
+
+const jobExperiences: JobExperience[] = [
   {
     companyName: "Kotakode",
     jobTitle: "Full Stack Developer/Intern Mentor",
