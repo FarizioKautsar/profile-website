@@ -91,7 +91,6 @@ const projects: Project[] = [
     client: "VIMB (Voices in My Brain)",
     websiteUrl: "https://klabs.dev/bbs-lms",
     yearFrom: 2023,
-    yearTo: null,
     techStack: [TECH_STACKS.REACTJS, TECH_STACKS.MONGODB],
     imageUrls: [
       require("@/images/projects/vimb/vimb1.png"),
