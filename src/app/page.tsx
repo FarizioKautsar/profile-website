@@ -107,6 +107,10 @@ function Home() {
       style={{
         background: `radial-gradient(circle at ${mousePosition.x}px ${
           mousePosition.y
+        }px, rgba(91, 69, 231, 0.215), transparent 80%), radial-gradient(circle at ${
+          mousePosition.x
+        }px ${
+          mousePosition.y
         }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
           window.innerWidth - mousePosition.x
         }px ${

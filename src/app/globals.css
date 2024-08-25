@@ -130,14 +130,14 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2); /* Semi-transparent track */
+  background: rgba(0, 0, 0, 0); /* Semi-transparent track */
   border-radius: 10px;
 }
 
 /* Firefox */
 html {
   scrollbar-width: thin;
-  scrollbar-color: #ffffff rgba(0, 0, 0, 0.2); /* White thumb on a semi-transparent track */
+  scrollbar-color: #ffffff rgba(0, 0, 0, 0); /* White thumb on a semi-transparent track */
 }
 
 /* Edge and IE */
@@ -151,6 +151,6 @@ html {
 }
 
 ::-ms-scrollbar-track {
-  background: rgba(0, 0, 0, 0.2); /* Semi-transparent track */
+  background: rgba(0, 0, 0, 0); /* Semi-transparent track */
   border-radius: 10px;
 }
