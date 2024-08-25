@@ -18,6 +18,7 @@ export type JobExperience = {
   skills?: string[];    // An array of technologies used in the job (optional)
   achievements?: string[];    // An array of notable achievements during the job (optional)
   techStack?: TechStack[];
+  logoUrl?: string;
 };
 
 export type Education = {

@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import Modal from "./Modal";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const CARD_WIDTH = 700;
 const CARD_MARGIN = 24;
@@ -42,6 +43,35 @@ export default function JobCard({
           width: CARD_WIDTH,
         }}
       >
+        {(jobExperience.logoUrl || jobExperience.techStack) && (
+          <div className="flex mb-4">
+            {jobExperience.logoUrl && (
+              <img
+                src={jobExperience.logoUrl}
+                alt={jobExperience.companyName}
+                className="h-10 w-auto"
+              />
+            )}
+            {jobExperience.techStack && (
+              <div className="flex flex-wrap gap-2 ml-auto">
+                {jobExperience.techStack.map((tech, tIdx) => (
+                  <Tooltip key={tIdx}>
+                    <TooltipTrigger>
+                      <a
+                        target="_blank"
+                        href={tech.url}
+                        rel="noopener noreferrer"
+                      >
+                        {tech.icon({ size: 24, color: "white" })}
+                      </a>
+                    </TooltipTrigger>
+                    <TooltipContent>{tech.name}</TooltipContent>
+                  </Tooltip>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
         <ReactMarkdown remarkPlugins={[remarkGfm]}>
           {jobExperience.jobDescription}
         </ReactMarkdown>
