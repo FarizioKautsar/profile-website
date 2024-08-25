@@ -30,8 +30,13 @@ export default function EducationCard({
           : ""}
       </p>
       <p className="text-xl font-bold">{education.degree}</p>
-      <p className="text-lg text-neutral-500">{education.name}</p>
+      <p className="text-lg text-neutral-300">{education.name}</p>
       <p>{education.fieldOfStudy}</p>
+      {
+        education.educationDescription && (
+          <p className="text-sm mt-2">{education.educationDescription}</p>
+        )
+      }
       {/* <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}

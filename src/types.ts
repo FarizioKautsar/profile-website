@@ -24,6 +24,7 @@ export type JobExperience = {
 export type Education = {
   name: string;                // The name of the school
   degree: string;              // The degree obtained
+  educationDescription?: string;
   fieldOfStudy: string;        // The field of study
   startDate: Date;             // The start date of the education period
   endDate: Date;               // The end date of the education period

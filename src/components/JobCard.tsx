@@ -31,7 +31,7 @@ export default function JobCard({
           : ""}
       </p>
       <p className="text-xl font-bold">{jobExperience.jobTitle}</p>
-      <p className="text-lg text-neutral-500">{jobExperience.companyName}</p>
+      <p className="text-lg text-neutral-300">{jobExperience.companyName}</p>
       <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}
