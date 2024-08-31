@@ -1,6 +1,6 @@
 import { TechStack } from "@/types";
 import { RiFirebaseFill, RiJavaFill, RiNextjsFill, RiReactjsFill, RiSvelteFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiBootstrap, SiExpress, SiGraphql, SiMaterialdesign, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
+import { SiBootstrap, SiExpo, SiExpress, SiGraphql, SiMaterialdesign, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
 import { BiLogoPostgresql, BiLogoSpringBoot } from "react-icons/bi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
@@ -124,6 +124,12 @@ const TECH_STACKS = {
     icon: SiMaterialdesign,
     url: "https://mui.com/",
     type: ["FRONTEND"],
+  } as TechStack,
+  EXPO: {
+    name: "Expo",
+    icon: SiExpo,
+    url: "https://expo.dev/",
+    type: ["FRONTEND", 'MOBILE'],
   } as TechStack,
 };
 
