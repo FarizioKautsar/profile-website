@@ -118,7 +118,7 @@ function Home() {
         }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
       }}
     >
-      <div className="w-full h-screen sticky top-0 flex justify-center items-center">
+      <div className="w-full h-screen sticky top-0 flex justify-center items-center cursor-default">
         <motion.div
           style={{
             filter: `blur(${blurVal}px)`,
@@ -139,7 +139,7 @@ function Home() {
                   delay: (lIdx + 5) * 0.1,
                   duration: 0.5,
                 }}
-                className="mx-0 hover:mx-5 ease-in-out transition-all"
+                className="mx-0 hover:!mx-5 ease-in-out duration-300 transition-all"
               >
                 {letter}
               </motion.span>
@@ -234,7 +234,7 @@ function Home() {
             My Ideas That Has Come to Life
           </p>
           <div className="grid grid-cols-3 gap-4">
-            {projects.map((project, pIdx) => (
+            {projects.sort((p1, p2) => p1.yearFrom - p2.yearFrom).map((project, pIdx) => (
               <ProjectCard project={project} key={pIdx} />
             ))}
           </div>

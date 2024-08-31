@@ -131,6 +131,23 @@ const projects: Project[] = [
       require("@/images/projects/gameoflife/gameoflife2.png"),
     ],
   },
+  {
+    name: "Counsely",
+    subTitle: "Congoing Consultation/Project Platform",
+    shortDescription:
+      "Counsely is a website dedicated as a meeting point between clients and freelancer",
+    description:
+      `I'm currently leading a team of 3 in building a website for a consultation platform company. Counsely is a professional platform designed to connect clients with freelancers. The website provides a user-friendly space for clients to post project or consultation requests and allows freelancers to efficiently find opportunities that align with their skills, preferences, and rates.`,
+    client: "KotakodeLabs - Counsely",
+    websiteUrl: "https://counsely.app/",
+    yearFrom: 2024,
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.EXPO, TECH_STACKS.NESTJS],
+    imageUrls: [
+      require("@/images/projects/counsely/counsely1.png"),
+      require("@/images/projects/counsely/counsely2.png"),
+      require("@/images/projects/counsely/counsely3.png"),
+    ],
+  },
 ];
 
 export default projects;
