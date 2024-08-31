@@ -98,14 +98,14 @@ const projects: Project[] = [
     ],
   },
   {
-    name: "TLDR.pls",
+    name: "TLDRpls",
     subTitle: "Personal Project",
     shortDescription:
-      "TLDR.pls is a place where you can talk to your favorite media.",
+      "TLDRpls is a place where you can talk to your favorite media.",
     description:
       "This is a personal project of mine that originates from my day-to-day problem. I have a hard time remembering the characters of a book or a TV show, so I often ask ChatGPT for those. Because I find myself often have to describe a media to ChatGPT, I decided just to make my own tool to ask around about the current book I'm reading.",
     client: "Myself",
-    websiteUrl: "https://tldrpls-fariziokautsars-projects.vercel.app/",
+    websiteUrl: "https://tldrpls.com",
     yearFrom: 2024,
     yearTo: 2024,
     techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.CHATGPT, TECH_STACKS.TAILWIND],
