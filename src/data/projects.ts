@@ -138,7 +138,7 @@ const projects: Project[] = [
     shortDescription:
       "Counsely is a website dedicated as a meeting point between clients and freelancer",
     description:
-      `I'm currently leading a team of 3 in building a website for a consultation platform company. Counsely is a professional platform designed to connect clients with freelancers. The website provides a user-friendly space for clients to post project or consultation requests and allows freelancers to efficiently find opportunities that align with their skills, preferences, and rates.`,
+      `I'm currently leading a team of 3 in building a website for a consultation platform company. Counsely is a professional platform designed to connect clients with freelancers. The website provides a user-friendly space for clients to post project or consultation requests and allows freelancers to efficiently find opportunities that align with their skills, preferences, and rates. The website is also integrated with a payment gateway called Xendit`,
     client: "KotakodeLabs - Counsely",
     websiteUrl: "https://counsely.app/",
     yearFrom: 2024,
