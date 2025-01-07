@@ -4,49 +4,26 @@ import TECH_STACKS from "./techStacks";
 const jobExperiences: JobExperience[] = [
   {
     companyName: "Kotakode Labs",
-    jobTitle: "Full Stack Developer/Intern Mentor",
+    jobTitle: "Full Stack Developer and Project Tech Lead",
     startDate: new Date("2023-02-01"),
-    endDate: null,  // null indicates the job is current,
+    endDate: new Date("2024-12-31"),  // null indicates the job is current,
     logoUrl: "https://labs.kotakode.com/_next/static/media/Logo-Horizontal.85e2d8be.svg",
     jobDescription: 
-      "* Building reusable codes and components for an easier and smoother development.\n" +
-      "* Intense focus on building reusable code-bases and components to streamline the development process.\n" +
-      "* Currently creating a finance web application for a school and a profile website for a digital community.\n" +
-      "* Creating a profile website and a marketplace for a fashion company.\n" +
-      "* Supervising and mentoring interns for a project.\n" +
-      "* Building a highly customizable student grading system for an international school.\n" +
-      "* Made KotakodeLabs' company profile website that is responsive and packed with smooth animations (klabs.dev).\n" +
-      "* Created a billing and invoicing system for a web application which will be used for an international school.\n" +
-      "* Supervising and mentoring two highly capable college students in a web development project.\n", 
+      "* Created the profile websites for a gas and energy company ([timas.com](https://timas.com)), an NFT project ([vimb.io](https://vimb.io)), and KotakodeLabs ([klabs.dev](https://klabs.dev)) as the sole developer. Collaborated closely with clients to ensure their satisfaction and delivered modern, sophisticated web applications.\n" +
+      "* Engineered a comprehensive learning management system and human resource information system for an international school of 300+ students, featuring a flexible grading system and an integrated finance management system ([klabs.dev/bbs-lms](https://klabs.dev/bbs-lms)).\n" + 
+      "* Led a team of 3 in building a web and mobile app using Expo for a consultation platform (counsely.app), which now supports 200+ active users.",
+      // "* Building reusable codes and components for an easier and smoother development.\n" +
+      // "* Intense focus on building reusable code-bases and components to streamline the development process.\n" +
+      // "* Currently creating a finance web application for a school and a profile website for a digital community.\n" +
+      // "* Creating a profile website and a marketplace for a fashion company.\n" +
+      // "* Supervising and mentoring interns for a project.\n" +
+      // "* Building a highly customizable student grading system for an international school.\n" +
+      // "* Made KotakodeLabs' company profile website that is responsive and packed with smooth animations (klabs.dev).\n" +
+      // "* Created a billing and invoicing system for a web application which will be used for an international school.\n" +
+      // "* Supervising and mentoring two highly capable college students in a web development project.\n", 
     location: "Jakarta, Indonesia · Remote",
     skills: ["User Interface Design", "Software Development", "Web Development", "Front-End Development", "Team Management"],
-    achievements: [
-      "Building reusable codes and components for an easier and smoother development.\n",
-      "Intense focus on building reusable code-bases and components to streamline the development process.\n",
-      "Currently creating a finance web application for a school and a profile website for a digital community.\n",
-      "Creating a profile website and a marketplace for a fashion company.\n",
-      "Supervising and mentoring interns for a project.\n",
-      "Building a highly customizable student grading system for an international school.\n",
-      "Made KotakodeLabs' company profile website that is responsive and packed with smooth animations (klabs.dev).\n",
-      "Created a billing and invoicing system for a web application which will be used for an international school.\n",
-      "Supervising and mentoring two highly capable college students in a web development project.\n"
-    ],
-    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.NESTJS, TECH_STACKS.POSTGRESQL]
-  },
-  {
-    companyName: "Kotakode",
-    jobTitle: "Full-stack Developer",
-    logoUrl: "https://labs.kotakode.com/_next/static/media/Logo-Horizontal.85e2d8be.svg",
-    startDate: new Date("2022-05-01"),
-    endDate: new Date("2023-01-31"),
-    jobDescription: 
-      "* Created front end implementation for a company’s profile website alongside its backend website.\n" +
-      "* Creating a learning management system for a school.\n" +
-      "* Creates model and backend implementation for some feature.\n",
-    location: "Jakarta, Indonesia · Remote",
-    skills: ["Software Development", "Web Development", "Front-End Development"],
-    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.POSTGRESQL]
-
+    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.NESTJS, TECH_STACKS.POSTGRESQL, TECH_STACKS.EXPO, TECH_STACKS.TAILWIND]
   },
   {
     companyName: "Lembaga Pengelola Dana Pendidikan",
@@ -68,11 +45,8 @@ const jobExperiences: JobExperience[] = [
     startDate: new Date("2021-12-01"),
     endDate: new Date("2022-06-30"),
     jobDescription: 
-      "* Worked on a number of voucher improvements.\n" +
-      "* Contributed to Sayurbox's Tebus Murah Campaigns.\n" +
-      "* Contributed to Sayurbox's Sayurfluencer program.\n" +
-      "* Fixed a number of problems in Sayurbox's internal CMS.\n" +
-      "* Worked with Springboot, Svelte, and GraphQL.\n",
+      "* Enhanced voucher features and optimized “Tebus Murah” campaigns to boost user engagement, while developing scalable solutions for the Sayurfluencer promotion program to support marketing initiatives, increasing user engagement by 15%.\n" +
+      "* Resolved critical bugs and improved the internal CMS web app used by a 15-member team, ensuring seamless and efficient operations.",
     location: "Jakarta, Indonesia · Remote",
     skills: ["Spring Boot", "Svelte", "Software Development", "Front-End Development", "Java", "Back-End Web Development"],
     techStack: [TECH_STACKS.SPRING_BOOT, TECH_STACKS.JAVA, TECH_STACKS.GRAPHQL, TECH_STACKS.SVELTE]
@@ -83,12 +57,12 @@ const jobExperiences: JobExperience[] = [
     startDate: new Date("2021-07-01"),
     endDate: new Date("2021-11-30"),
     jobDescription: 
-      "* Implemented Kotakode's design guideline to their website by creating consistent and documented React UI components.\n" +
-      "* Initialized the Kotakode Back Office front-end and integrated it with the existing back-end.\n" +
-      "* Developed Kotakode Academy's back-end and front-end codebase.\n",
+      "* Implemented a sitewide revamp by creating reusable and documented React UI components, aligning with Kotakode’s design guidelines.\n" +
+      "* Developed the internal CMS website and seamlessly integrated it with the existing back-end.\n" +
+      "* Built the full-stack Kotakode Academy feature, which enabled 1,000+ users to find and enroll in their favorite online courses.\n",
     location: "Jakarta, Indonesia · Remote",
     skills: ["Software Development"],
-    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.MATERIAL_UI]
+    techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.MATERIAL_UI, TECH_STACKS.BOOTSTRAP]
   },
   {
     companyName: "Bukit Vista Hospitality Services",
@@ -97,8 +71,8 @@ const jobExperiences: JobExperience[] = [
     startDate: new Date("2021-03-01"),
     endDate: new Date("2021-07-31"),
     jobDescription: 
-      "* Developed parts of Bukit Vista's BIGRR platform with React and Redux.\n" +
-      "* Managed their WordPress website: Setting timeline, collecting team, and monitoring progress.\n",
+      "* Developed interactive analytics visualizations for the BIGRR platform, empowering the HR team to analyze and forecast talent acquisition.\n" +
+      "* Managed the WordPress website timeline, coordinated with team members, and monitored progress to meet project goals.\n",
     location: "Bali, Indonesia · Remote",
     techStack: [TECH_STACKS.REACTJS, TECH_STACKS.TAILWIND, TECH_STACKS.WORDPRESS]
   }

@@ -12,21 +12,21 @@ const educations: Education[] = [
   {
     name: "University of Indonesia",
     degree: "Bachelor of Business Information System",
-    educationDescription: "Graduated with a GPA of 3.40. Grade A in Information System Development Project, Internship, and Enterprise Application Architecture & Programming.",
+    educationDescription: "Graduated with a GPA of 3.40. Top grades in Information System Development Project, Internship, and Enterprise Application Architecture & Programming.",
     fieldOfStudy: "Computer and Information Sciences and Support Services",
     startDate: new Date("2018-01-01"),
     endDate: new Date("2022-12-31"),
     grade: 3.40,
     skills: ["Software Development", "React Native", "Teamwork", "Communication"]
   },
-  {
-    name: "SMAN 1 JAKARTA",
-    degree: "High School Diploma",
-    fieldOfStudy: "Science",
-    startDate: new Date("2015-01-01"),
-    endDate: new Date("2018-12-31"),
-    activitiesAndSocieties: "Graphic Design"
-  }
+  // {
+  //   name: "SMAN 1 JAKARTA",
+  //   degree: "High School Diploma",
+  //   fieldOfStudy: "Science",
+  //   startDate: new Date("2015-01-01"),
+  //   endDate: new Date("2018-12-31"),
+  //   activitiesAndSocieties: "Graphic Design"
+  // }
 ];
 
 export default educations;
