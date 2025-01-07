@@ -50,21 +50,21 @@ const projects: Project[] = [
       require("@/images/projects/klabs/klabs3.png"),
     ],
   },
-  {
-    name: "My Profile Website",
-    subTitle: "Company Profile Website",
-    shortDescription:
-      "The website I use to showcase my experiences and portfolio.",
-    description: "The website I use to showcase my experiences and portfolio.",
-    client: "Myself",
-    yearFrom: 2024,
-    yearTo: 2024,
-    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.SHADCN],
-    imageUrls: [
-      require("@/images/projects/personal-website/personal-website1.png"),
-      require("@/images/projects/personal-website/personal-website2.png"),
-    ],
-  },
+  // {
+  //   name: "My Profile Website",
+  //   subTitle: "Company Profile Website",
+  //   shortDescription:
+  //     "The website I use to showcase my experiences and portfolio.",
+  //   description: "The website I use to showcase my experiences and portfolio.",
+  //   client: "Myself",
+  //   yearFrom: 2024,
+  //   yearTo: 2024,
+  //   techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.SHADCN],
+  //   imageUrls: [
+  //     require("@/images/projects/personal-website/personal-website1.png"),
+  //     require("@/images/projects/personal-website/personal-website2.png"),
+  //   ],
+  // },
   {
     name: "Bina Bangsa LMS",
     subTitle: "Learning Management System",
@@ -107,6 +107,7 @@ const projects: Project[] = [
       "This is a personal project of mine that originates from my day-to-day problem. I have a hard time remembering the characters of a book or a TV show, so I often ask ChatGPT for those. Because I find myself often have to describe a media to ChatGPT, I decided just to make my own tool to ask around about the current book I'm reading.",
     client: "Myself",
     websiteUrl: "https://tldrpls.com",
+    githubUrl: "https://github.com/FarizioKautsar/summarize-this",
     yearFrom: 2024,
     yearTo: 2024,
     techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.CHATGPT, TECH_STACKS.TAILWIND],
@@ -124,6 +125,7 @@ const projects: Project[] = [
       `This is a challenge I put on to myself. I've watched a Veritasium video about the issue of computer predictability. In said video, he explains John Conway's Game of Life, which is a zero-player game (a game that does not need any player). This is a simple "game" in which a cell came to life if it has less than 2 or more than 3 neighbors and dies if it has exactly 3 neighbors. With how simple the game is, we would think that we can predict if the game would stop or goes on forever. The thing is, just as Turing Machine paradox showcase, it is impossible for any algorithm to predict if it'll go on forever or not. Neat (for me).`,
     client: "Myself",
     websiteUrl: "https://game-of-life-fariziokautsar.vercel.app/",
+    githubUrl: "https://github.com/FarizioKautsar/game-of-life",
     yearFrom: 2024,
     yearTo: 2024,
     techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.CHATGPT, TECH_STACKS.TAILWIND],
@@ -134,11 +136,12 @@ const projects: Project[] = [
   },
   {
     name: "Counsely",
-    subTitle: "Congoing Consultation/Project Platform",
+    subTitle: "Consultation/Freelancing Platform",
     shortDescription:
       "Counsely is a website dedicated as a meeting point between clients and freelancer",
     description:
-      `I'm currently leading a team of 3 in building a website for a consultation platform company. Counsely is a professional platform designed to connect clients with freelancers. The website provides a user-friendly space for clients to post project or consultation requests and allows freelancers to efficiently find opportunities that align with their skills, preferences, and rates. The website is also integrated with a payment gateway called Xendit`,
+      `I led a team of 3 in developing a website for a consultation platform company. Counsely was designed as a professional platform to connect clients with freelancers, offering a user-friendly experience. The platform allowed clients to post project or consultation requests and enabled freelancers to efficiently find opportunities that matched their skills, preferences, and rates.
+The website was built using modern technologies, including Expo for the front end and Tailwind CSS for styling, ensuring a responsive and visually appealing design. It was also integrated with Xendit as the payment gateway, providing secure and seamless transactions for both clients and freelancers.`,
     client: "KotakodeLabs - Counsely",
     websiteUrl: "https://counsely.app/",
     yearFrom: 2024,

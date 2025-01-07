@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import ProjectPicture from "./ProjectPicture";
+import { FaGithub } from "react-icons/fa";
 
 const ProjectModal = ({
   onClose,
@@ -126,16 +127,29 @@ const ProjectModal = ({
               ))}
             </div>
             <p className="mb-4">{project.description}</p>
-            {project.websiteUrl && (
-              <a
-                target="_blank"
-                href={project.websiteUrl}
-                rel="noopener noreferrer"
-                className="mt-4"
-              >
-                <Button color="white">Visit Website</Button>
-              </a>
-            )}
+            <div className="flex flex-row gap-4">
+              {project.githubUrl && (
+                <a
+                  target="_blank"
+                  href={project.githubUrl}
+                  rel="noopener noreferrer"
+                >
+                  <Button color="white">
+                  <FaGithub size={24} className="inline-block mr-2" />
+                    GitHub
+                    </Button>
+                </a>
+              )}
+              {project.websiteUrl && (
+                <a
+                  target="_blank"
+                  href={project.websiteUrl}
+                  rel="noopener noreferrer"
+                >
+                  <Button color="white">Visit Website</Button>
+                </a>
+              )}
+            </div>
           </div>
         </div>
       </motion.div>

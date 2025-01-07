@@ -40,6 +40,7 @@ export type Project = {
   shortDescription?: string;
   description?: string | React.ReactNode;
   websiteUrl?: string;
+  githubUrl?: string;
   yearFrom: number;
   yearTo?: number;
   techStack: TechStack[];
