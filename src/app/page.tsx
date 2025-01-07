@@ -20,7 +20,7 @@ import projects from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import dynamic from "next/dynamic";
 import ContactLink from "@/components/ContactLink";
-import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
 
 function Home() {
@@ -234,9 +234,11 @@ function Home() {
             My Ideas That Has Come to Life
           </p>
           <div className="grid grid-cols-3 gap-4">
-            {projects.sort((p1, p2) => p1.yearFrom - p2.yearFrom).map((project, pIdx) => (
-              <ProjectCard project={project} key={pIdx} />
-            ))}
+            {projects
+              .sort((p1, p2) => p1.yearFrom - p2.yearFrom)
+              .map((project, pIdx) => (
+                <ProjectCard project={project} key={pIdx} />
+              ))}
           </div>
         </div>
         <div className="h-dvh text-left w-full z-20 col-span-3 flex flex-col items-center justify-center">
@@ -244,7 +246,12 @@ function Home() {
           <span className="font-serif text-4xl mb-8">
             Feel free to get in touch!
           </span>
-          <div className="flex gap-8">
+          <div className="grid grid-cols-2 gap-8">
+            <ContactLink
+              href="https://github.com/FarizioKautsar"
+              label="GitHub"
+              icon={FaGithub}
+            />
             <ContactLink
               href="mailto:kheruzy@gmail.com"
               label="Email Me"
@@ -256,7 +263,7 @@ function Home() {
               icon={FaWhatsapp}
             />
             <ContactLink
-              href="https://docs.google.com/document/d/1Sppdy_wIc2ddyFRqmI4iFYf_G0nLr5nm1o-Pnoy79ZE"
+              href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
               label="View My CV"
               icon={IoDocumentAttachOutline}
             />

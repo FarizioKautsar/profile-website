@@ -72,7 +72,7 @@ export default function ContactLink({ href, icon, label }: ContactLinkProps) {
           opacity,
         }}
       />
-      {icon && <span className="mr-2">{icon({ size: 48 })}</span>}
+      {icon && <span>{icon({ size: 48 })}</span>}
       {label}
     </motion.a>
   );
