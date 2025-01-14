@@ -6,7 +6,7 @@ import {
   useTransform,
   motion,
 } from "framer-motion";
-import { useEffect, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import ProfilePic from "@/images/ProfilePic.png";
 import DescribeMe from "./DescribeMe";
@@ -31,6 +31,34 @@ function Home() {
   const scale = useTransform(scrollY, [0, window.innerHeight / 2], [1, 0.9]);
   const opacity = useTransform(scrollY, [0, window.innerHeight], [1, 0]);
 
+  const jobExperiencesRef = useRef<HTMLDivElement>(null);
+  const educationsRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+
+  const [projectsOffsetTop, setProjectsOffsetTop] = useState<number>(0);
+  const [educationsOffsetTop, setEducationsOffsetTop] = useState<number>(0);
+  const [jobExperiencesOffsetTop, setJobExperiencesOffsetTop] = useState<number>(0);
+
+  useEffect(() => {
+    const calculateOffset = () => {
+      if (projectsRef.current) {
+        setProjectsOffsetTop(projectsRef.current.offsetTop);
+      }
+      if (educationsRef.current) {
+        setEducationsOffsetTop(educationsRef.current.offsetTop);
+      }
+      if (jobExperiencesRef.current) {
+        setJobExperiencesOffsetTop(jobExperiencesRef.current.offsetTop);
+      }
+    };
+
+    calculateOffset();
+
+    // Recalculate on window resize
+    window.addEventListener('resize', calculateOffset);
+    return () => window.removeEventListener('resize', calculateOffset);
+  }, []);
+
   const picMarginTop = useTransform(
     scrollY,
     [window.innerHeight, window.innerHeight * 2],
@@ -38,29 +66,52 @@ function Home() {
   );
   const picBlur = useTransform(
     scrollY,
-    [window.innerHeight, window.innerHeight * 2],
-    [10, 0]
+    [
+      window.innerHeight,
+      window.innerHeight * 2,
+      (projectsOffsetTop || window.innerHeight * 5) - window.innerHeight,
+      (projectsOffsetTop || window.innerHeight * 5),
+    ],
+    [10, 0, 0, 10]
   );
-  const picBlurOut = useTransform(
-    scrollY,
-    [window.innerHeight * 4, window.innerHeight * 5],
-    [0, 10]
-  );
+
   const picOpacity = useTransform(
     scrollY,
     [
       window.innerHeight,
       window.innerHeight * 2,
-      window.innerHeight * 4,
-      window.innerHeight * 5,
+      (projectsOffsetTop || window.innerHeight * 5) - window.innerHeight,
+      (projectsOffsetTop || window.innerHeight * 5),
+    ],
+    [0, 1, 1, 0]
+  );
+
+  const picBlurMobile = useTransform(
+    scrollY,
+    [
+      window.innerHeight,
+      window.innerHeight * 2,
+      (jobExperiencesOffsetTop || window.innerHeight * 5) - window.innerHeight,
+      (jobExperiencesOffsetTop || window.innerHeight * 5),
+    ],
+    [10, 0, 0, 10]
+  );
+
+  const picOpacityMobile = useTransform(
+    scrollY,
+    [
+      window.innerHeight,
+      window.innerHeight * 2,
+      (jobExperiencesOffsetTop || window.innerHeight * 5) - window.innerHeight,
+      (jobExperiencesOffsetTop || window.innerHeight * 5),
     ],
     [0, 1, 1, 0]
   );
 
   const x = useTransform(
     scrollY,
-    [window.innerHeight * 2, window.innerHeight * 3, window.innerHeight * 4],
-    [100, -200, 200]
+    [window.innerHeight * 2, jobExperiencesOffsetTop , educationsOffsetTop, projectsOffsetTop],
+    [100, -200, 200, 100]
   );
 
   const [blurVal, setBlurVal] = useState(0);
@@ -71,10 +122,6 @@ function Home() {
   });
 
   useMotionValueEvent(picBlur, "change", (latest) => {
-    setPicBlurVal(latest);
-  });
-
-  useMotionValueEvent(picBlurOut, "change", (latest) => {
     setPicBlurVal(latest);
   });
 
@@ -101,6 +148,19 @@ function Home() {
     };
   }, []);
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div
       className="relative"
@@ -118,7 +178,7 @@ function Home() {
         }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
       }}
     >
-      <div className="w-full h-screen sticky top-0 flex justify-center items-center cursor-default">
+      <div className="w-full sticky h-dvh top-1 flex justify-center items-center cursor-default">
         <motion.div
           style={{
             filter: `blur(${blurVal}px)`,
@@ -148,7 +208,7 @@ function Home() {
         </motion.div>
       </div>
       <div className="w-full">
-        <div className="container mx-auto px-4 text-9xl text-center">
+        <div className="container mx-auto px-4 text-4xl lg:text-9xl text-center">
           <span>welcome to</span>
           <br />
           <span className="font-bold">my world</span>
@@ -158,18 +218,18 @@ function Home() {
         <motion.div
           style={{
             marginTop: picMarginTop,
-            filter: `blur(${picBlurVal}px)`,
-            opacity: picOpacity,
+            filter: `blur(${isMobile ? picBlurMobile : picBlurVal}px)`,
+            opacity: (isMobile ? picOpacityMobile : picOpacity) || 0,
             x,
           }}
-          className="relative w-50 h-full "
+          className="relative w-50 h-full"
         >
           <Image
             src={ProfilePic.src}
             fill
             alt="Farizio Kautsar Heruzy"
-            objectFit="contain"
-            className="!grayscale"
+            // objectFit="cover"
+            className="!grayscale overflow-visible object-cover md:object-contain"
           />
           {/* <div
             className="z-50 w-full h-full"
@@ -191,16 +251,16 @@ function Home() {
         </motion.div>
       </div>
       <div className="container mx-auto grid grid-cols-3">
-        <div className="col-span-2 h-dvh">
+        <div className="col-span-3 md:col-span-2 h-dvh">
           <p className="text-2xl mb-3">*pause*</p>
           <p className="text-4xl mb-8">Yep, that&apos;s me</p>
-          <p className="text-8xl">
+          <p className="text-4xl lg:text-8xl">
             People usually describe me as <DescribeMe />
           </p>
         </div>
         <div />
-        <div className="col-span-2" />
-        <div className="min-h-dvh text-right z-20">
+        <div className="col-span-0 md:col-span-2" />
+        <div className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1" ref={jobExperiencesRef}>
           <p className="text-4xl mb-3 font-serif">Where Have I Left My Mark?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
             <motion.div
@@ -214,7 +274,7 @@ function Home() {
             </motion.div>
           ))}
         </div>
-        <div className="min-h-dvh w-full text-left z-20">
+        <div className="min-h-dvh w-full text-left z-20 col-span-3 md:col-span-1" ref={educationsRef}>
           <p className="text-4xl mb-3 font-serif">And What Brought Me Here?</p>
           {educations.map((education, eIdx) => (
             <motion.div
@@ -229,11 +289,11 @@ function Home() {
           ))}
         </div>
         <div className="col-span-2" />
-        <div className="h-dvh text-left w-full z-20 col-span-3">
+        <div className="min-h-dvh text-left w-full z-20 col-span-3" ref={projectsRef}>
           <p className="text-4xl mb-8 font-serif text-center">
             My Ideas That Has Come to Life
           </p>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {projects
               .sort((p1, p2) => p1.yearFrom - p2.yearFrom)
               .map((project, pIdx) => (
@@ -241,7 +301,7 @@ function Home() {
               ))}
           </div>
         </div>
-        <div className="h-dvh text-left w-full z-20 col-span-3 flex flex-col items-center justify-center">
+        <div className="h-dvh z-20 col-span-3 flex flex-col items-center justify-center">
           <h1 className="text-2xl mb-4">Interested in working together?</h1>
           <span className="font-serif text-4xl mb-8">
             Feel free to get in touch!
