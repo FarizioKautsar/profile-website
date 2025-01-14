@@ -37,7 +37,8 @@ function Home() {
 
   const [projectsOffsetTop, setProjectsOffsetTop] = useState<number>(0);
   const [educationsOffsetTop, setEducationsOffsetTop] = useState<number>(0);
-  const [jobExperiencesOffsetTop, setJobExperiencesOffsetTop] = useState<number>(0);
+  const [jobExperiencesOffsetTop, setJobExperiencesOffsetTop] =
+    useState<number>(0);
 
   useEffect(() => {
     const calculateOffset = () => {
@@ -55,8 +56,8 @@ function Home() {
     calculateOffset();
 
     // Recalculate on window resize
-    window.addEventListener('resize', calculateOffset);
-    return () => window.removeEventListener('resize', calculateOffset);
+    window.addEventListener("resize", calculateOffset);
+    return () => window.removeEventListener("resize", calculateOffset);
   }, []);
 
   const picMarginTop = useTransform(
@@ -70,7 +71,7 @@ function Home() {
       window.innerHeight,
       window.innerHeight * 2,
       (projectsOffsetTop || window.innerHeight * 5) - window.innerHeight,
-      (projectsOffsetTop || window.innerHeight * 5),
+      projectsOffsetTop || window.innerHeight * 5,
     ],
     [10, 0, 0, 10]
   );
@@ -81,7 +82,7 @@ function Home() {
       window.innerHeight,
       window.innerHeight * 2,
       (projectsOffsetTop || window.innerHeight * 5) - window.innerHeight,
-      (projectsOffsetTop || window.innerHeight * 5),
+      projectsOffsetTop || window.innerHeight * 5,
     ],
     [0, 1, 1, 0]
   );
@@ -92,7 +93,7 @@ function Home() {
       window.innerHeight,
       window.innerHeight * 2,
       (jobExperiencesOffsetTop || window.innerHeight * 5) - window.innerHeight,
-      (jobExperiencesOffsetTop || window.innerHeight * 5),
+      jobExperiencesOffsetTop || window.innerHeight * 5,
     ],
     [10, 0, 0, 10]
   );
@@ -103,14 +104,19 @@ function Home() {
       window.innerHeight,
       window.innerHeight * 2,
       (jobExperiencesOffsetTop || window.innerHeight * 5) - window.innerHeight,
-      (jobExperiencesOffsetTop || window.innerHeight * 5),
+      jobExperiencesOffsetTop || window.innerHeight * 5,
     ],
     [0, 1, 1, 0]
   );
 
   const x = useTransform(
     scrollY,
-    [window.innerHeight * 2, jobExperiencesOffsetTop , educationsOffsetTop, projectsOffsetTop],
+    [
+      window.innerHeight * 2,
+      jobExperiencesOffsetTop,
+      educationsOffsetTop,
+      projectsOffsetTop,
+    ],
     [100, -200, 200, 100]
   );
 
@@ -260,21 +266,19 @@ function Home() {
         </div>
         <div />
         <div className="col-span-0 md:col-span-2" />
-        <div className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1" ref={jobExperiencesRef}>
+        <div
+          className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1"
+          ref={jobExperiencesRef}
+        >
           <p className="text-4xl mb-3 font-serif">Where Have I Left My Mark?</p>
           {jobExperiences.map((jobExperience, jeIdx) => (
-            <motion.div
-              key={jeIdx}
-              initial={{ x: "100%", opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              className="pointer-events-auto"
-            >
-              <JobCard jobExperience={jobExperience} />
-            </motion.div>
+            <JobCard jobExperience={jobExperience} key={jeIdx} />
           ))}
         </div>
-        <div className="min-h-dvh w-full text-left z-20 col-span-3 md:col-span-1" ref={educationsRef}>
+        <div
+          className="min-h-dvh w-full text-left col-span-3 md:col-span-1"
+          ref={educationsRef}
+        >
           <p className="text-4xl mb-3 font-serif">And What Brought Me Here?</p>
           {educations.map((education, eIdx) => (
             <motion.div
@@ -289,7 +293,10 @@ function Home() {
           ))}
         </div>
         <div className="col-span-2" />
-        <div className="min-h-dvh text-left w-full z-20 col-span-3" ref={projectsRef}>
+        <div
+          className="min-h-dvh text-left w-full z-20 col-span-3"
+          ref={projectsRef}
+        >
           <p className="text-4xl mb-8 font-serif text-center">
             My Ideas That Has Come to Life
           </p>
