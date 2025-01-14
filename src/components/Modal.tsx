@@ -93,7 +93,7 @@ export default function Modal({
       />
       <div
         className={clsx(
-          "rounded-xl border-neutral-500 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4",
+          "rounded-xl border-neutral-500 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4 z-50 text-left",
           "bg-gradient-to-tr from-blue-900/40 to-black/60 border "
         )}
       >

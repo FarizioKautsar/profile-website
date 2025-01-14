@@ -1,10 +1,10 @@
 import { JobExperience } from "@/types";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-
+import { motion } from "framer-motion";
 const CARD_WIDTH = 700;
 const CARD_MARGIN = 24;
 
@@ -17,43 +17,46 @@ export default function JobCard({
 
   const cardRef = useRef<HTMLDivElement>(null);
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
-    <div
-      className="text-left mb-4"
-      ref={cardRef}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
-    >
-      <p className="text-sm text-neutral-500">
-        {jobExperience.startDate.getFullYear()}{" "}
-        {jobExperience.endDate
-          ? " - " + jobExperience.endDate.getFullYear()
-          : ""}
-      </p>
-      <p className="text-xl font-bold">{jobExperience.jobTitle}</p>
-      <p className="text-lg text-neutral-300">{jobExperience.companyName}</p>
+    <div className="relative">
       <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}
         style={{
           top: cardRef.current?.offsetTop || 0,
-          left: cardRef.current
+          left: !isMobile && cardRef.current
             ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px`
             : 0,
-          width: CARD_WIDTH,
+          width: isMobile ? 'auto' : CARD_WIDTH,
         }}
       >
         {(jobExperience.logoUrl || jobExperience.techStack) && (
-          <div className="flex mb-4">
+          <div className="flex flex-col justify-between md:flex-row gap-4 mb-4">
             {jobExperience.logoUrl && (
+              // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={jobExperience.logoUrl}
                 alt={jobExperience.companyName}
-                className="h-10 w-auto"
+                className="h-10 w-fit"
               />
             )}
             {jobExperience.techStack && (
-              <div className="flex flex-wrap gap-2 ml-auto">
+              <div className="flex flex-wrap gap-2">
                 {jobExperience.techStack.map((tech, tIdx) => (
                   <Tooltip key={tIdx}>
                     <TooltipTrigger>
@@ -72,7 +75,7 @@ export default function JobCard({
             )}
           </div>
         )}
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+        <ReactMarkdown className="text-left" remarkPlugins={[remarkGfm]}>
           {jobExperience.jobDescription}
         </ReactMarkdown>
         {jobExperience.skills && (
@@ -81,6 +84,30 @@ export default function JobCard({
           </div>
         )}
       </Modal>
+      <motion.div
+        initial={{ x: "100%", opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        viewport={{ once: true }}
+        className="pointer-events-auto z-0"
+      >
+        <div
+          className="text-left mb-4 -z-10"
+          ref={cardRef}
+          onMouseEnter={() => setIsHovering(true)}
+          onMouseLeave={() => setIsHovering(false)}
+        >
+          <p className="text-sm text-neutral-500">
+            {jobExperience.startDate.getFullYear()}{" "}
+            {jobExperience.endDate
+              ? " - " + jobExperience.endDate.getFullYear()
+              : ""}
+          </p>
+          <p className="text-xl font-bold">{jobExperience.jobTitle}</p>
+          <p className="text-lg text-neutral-300">
+            {jobExperience.companyName}
+          </p>
+        </div>
+      </motion.div>
     </div>
   );
 }
