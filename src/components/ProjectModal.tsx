@@ -54,7 +54,7 @@ const ProjectModal = ({
       data-lenis-ignore
     >
       <motion.div
-        className="backdrop-blur-md border border-neutral-300 bg-opacity-30 bg-black rounded-2xl p-8 z-40 overflow-hidden"
+        className="backdrop-blur-md border border-neutral-300 bg-opacity-30 bg-black rounded-2xl p-8 z-40 overflow-hidden overflow-y-scroll"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         initial={{
           x: cardRect
@@ -84,9 +84,9 @@ const ProjectModal = ({
         }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <div className="grid grid-cols-4 gap-8 h-full">
+        <div className="md:grid grid-cols-4 gap-8 h-full">
           {project.imageUrls && (
-            <div className="h-full overflow-y-scroll" data-lenis-prevent-wheel>
+            <div className="md:h-full overflow-y-scroll grid grid-cols-2 gap-2 md:block" data-lenis-prevent-wheel>
               {project.imageUrls.map((url, index) => (
                 <motion.div
                   key={index}
@@ -94,7 +94,7 @@ const ProjectModal = ({
                   animate={{ opacity: 1, y: 0 }} // Slide to its original position
                   exit={{ opacity: 0, y: 100 }} // Slide out when exiting
                   transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
-                  className="mb-6"
+                  className="mb-6 w-full object-cover"
                 >
                   <ProjectPicture
                     project={project}
@@ -127,7 +127,7 @@ const ProjectModal = ({
               ))}
             </div>
             <p className="mb-4">{project.description}</p>
-            <div className="flex flex-row gap-4">
+            <div className="flex flex-row gap-4 pb-8">
               {project.githubUrl && (
                 <a
                   target="_blank"
