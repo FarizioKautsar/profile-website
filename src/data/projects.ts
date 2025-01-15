@@ -14,7 +14,7 @@ const projects: Project[] = [
     shortDescription:
       "Through KotakodeLabs, I've implemented a profile website for an Indonesian gas company",
     description:
-      "Timas Suplindo is an Indonesian company specializing in providing comprehensive engineering, procurement, construction, and installation (EPCI) services for the oil and gas industry. With expertise in both offshore and onshore projects, the company offers solutions for subsea pipelines, platforms, and related infrastructure, focusing on delivering high-quality and reliable services to its clients in the energy sector.",
+      "I developed the company profile website for Timas Suplindo, an Indonesian leader in engineering, procurement, construction, and installation (EPCI) services for the oil and gas industry. Leveraging React for the frontend and Express.js for the backend, I created a seamless and professional platform that effectively showcases their expertise in offshore and onshore projects. Additionally, I built a custom Content Management System (CMS) using CoreUI, enabling the Timas team to easily manage and update their content. The website combines functionality and professionalism, reflecting Timas Suplindo's commitment to delivering high-quality and reliable solutions in the energy sector.",
     client: "Timas",
     websiteUrl: "https://www.timas.com/",
     yearFrom: 2022,
@@ -38,7 +38,7 @@ const projects: Project[] = [
     shortDescription:
       "KotakodeLabs is the company I work for as of now. We're specializing in building company profile website and web apps",
     description:
-      "KotakodeLabs is the company I work for as of now. We're specializing in building company profile website and web apps. The website provides upcoming client with the process and services we provide while also showcasing our portfolio.",
+      "KotakodeLabs is the company I've worked for the longest, and it holds a special place in my professional journey. I built a visually stunning and dynamic company profile website using Next.js for the frontend, Strapi for the backend, and Framer Motion for sleek, engaging animations. Designed to be as flashy and eye-catching as possible, the website serves as a showcase for our capabilities, highlighting our services, development process, and portfolio in a way that captivates prospective clients while demonstrating our commitment to modern, cutting-edge web design.",
     client: "KotakodeLabs",
     websiteUrl: "https://labs.kotakode.com/",
     yearFrom: 2023,
@@ -71,7 +71,7 @@ const projects: Project[] = [
     shortDescription:
       "With KotakodeLabs, I've contributed a number of features in the LMS.",
     description:
-      "As a part of KotakodeLabs, we take pride in showcasing our ongoing project, a cutting-edge Learning Management System (LMS) web application designed specifically for an international school. Our tailored solution empowers educational institutions with a suite of features that redefine the learning experience. The web-app consists of four portals: student portal, teacher portal, admin portal, and finance department portal.",
+      "At KotakodeLabs, I had the privilege of leading the development of a cutting-edge Learning Management System (LMS) web application tailored for an international school. This project was a transformative solution for the institution, offering a suite of features designed to enhance the learning experience. I played a key role in creating and integrating four dedicated portals: a student portal for seamless access to coursework, a teacher portal for managing classes and grading, an admin portal for system management, and a finance department portal for efficient financial operations. This project reflects my commitment to building impactful solutions that address real-world needs in education.",
     client: "Bina Bangsa School",
     websiteUrl: "https://labs.kotakode.com/",
     yearFrom: 2023,
@@ -141,7 +141,7 @@ const projects: Project[] = [
       "Counsely is a website dedicated as a meeting point between clients and freelancer",
     description:
       `I led a team of 3 in developing a website for a consultation platform company. Counsely was designed as a professional platform to connect clients with freelancers, offering a user-friendly experience. The platform allowed clients to post project or consultation requests and enabled freelancers to efficiently find opportunities that matched their skills, preferences, and rates.
-The website was built using modern technologies, including Expo for the front end and Tailwind CSS for styling, ensuring a responsive and visually appealing design. It was also integrated with Xendit as the payment gateway, providing secure and seamless transactions for both clients and freelancers.`,
+The website was built using modern technologies, including Expo for the front-end and Tailwind CSS for styling, ensuring a responsive and visually appealing design. It was also integrated with Xendit as the payment gateway, providing secure and seamless transactions for both clients and freelancers.`,
     client: "KotakodeLabs - Counsely",
     websiteUrl: "https://counsely.app/",
     yearFrom: 2024,

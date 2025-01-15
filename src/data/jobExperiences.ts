@@ -12,15 +12,6 @@ const jobExperiences: JobExperience[] = [
       "* Created the profile websites for a gas and energy company ([timas.com](https://timas.com)), an NFT project ([vimb.io](https://vimb.io)), and KotakodeLabs ([klabs.dev](https://klabs.dev)) as the sole developer. Collaborated closely with clients to ensure their satisfaction and delivered modern, sophisticated web applications.\n" +
       "* Engineered a comprehensive learning management system and human resource information system for an international school of 300+ students, featuring a flexible grading system and an integrated finance management system ([klabs.dev/bbs-lms](https://klabs.dev/bbs-lms)).\n" + 
       "* Led a team of 3 in building a web and mobile app using Expo for a consultation platform (counsely.app), which now supports 200+ active users.",
-      // "* Building reusable codes and components for an easier and smoother development.\n" +
-      // "* Intense focus on building reusable code-bases and components to streamline the development process.\n" +
-      // "* Currently creating a finance web application for a school and a profile website for a digital community.\n" +
-      // "* Creating a profile website and a marketplace for a fashion company.\n" +
-      // "* Supervising and mentoring interns for a project.\n" +
-      // "* Building a highly customizable student grading system for an international school.\n" +
-      // "* Made KotakodeLabs' company profile website that is responsive and packed with smooth animations (klabs.dev).\n" +
-      // "* Created a billing and invoicing system for a web application which will be used for an international school.\n" +
-      // "* Supervising and mentoring two highly capable college students in a web development project.\n", 
     location: "Jakarta, Indonesia · Remote",
     skills: ["User Interface Design", "Software Development", "Web Development", "Front-End Development", "Team Management"],
     techStack: [TECH_STACKS.REACTJS, TECH_STACKS.EXPRESSJS, TECH_STACKS.NESTJS, TECH_STACKS.POSTGRESQL, TECH_STACKS.EXPO, TECH_STACKS.TAILWIND]
