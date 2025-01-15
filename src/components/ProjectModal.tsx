@@ -85,7 +85,10 @@ const ProjectModal = ({
       >
         <div className="md:grid grid-cols-4 gap-8 h-full">
           {project.imageUrls && (
-            <div className="md:h-full overflow-y-scroll grid grid-cols-2 gap-2 md:block" data-lenis-prevent-wheel>
+            <div
+              className="md:h-full overflow-y-scroll grid grid-cols-2 gap-2 md:block"
+              data-lenis-prevent-wheel
+            >
               {project.imageUrls.map((url, index) => (
                 <motion.div
                   key={index}
@@ -95,10 +98,7 @@ const ProjectModal = ({
                   transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered animation
                   className="mb-6 w-full object-cover"
                 >
-                  <ProjectPicture
-                    project={project}
-                    url={url}
-                  />
+                  <ProjectPicture project={project} url={url} />
                 </motion.div>
               ))}
             </div>
@@ -112,8 +112,12 @@ const ProjectModal = ({
             className={clsx(project.imageUrls ? "col-span-3" : "col-span-3")}
           >
             <h2 className="text-3xl mb-2 font-bold">{project.name}</h2>
-            <h3 className="text-xl"><b>{project.client}</b> - {project.subTitle}</h3>
-            <h3 className="text-sm mt-2">{project.yearFrom} - {project.yearTo}</h3>
+            <h3 className="text-xl">
+              <b>{project.client}</b> - {project.subTitle}
+            </h3>
+            <h3 className="text-sm mt-2">
+              {project.yearFrom} - {project.yearTo}
+            </h3>
             <div className="flex flex-wrap gap-2 my-4">
               {project.techStack.map((tech, tIdx) => (
                 <Tooltip key={tIdx}>
@@ -139,9 +143,9 @@ const ProjectModal = ({
                   rel="noopener noreferrer"
                 >
                   <Button color="white">
-                  <FaGithub size={24} className="inline-block mr-2" />
+                    <FaGithub size={24} className="inline-block mr-2" />
                     GitHub
-                    </Button>
+                  </Button>
                 </a>
               )}
               {project.websiteUrl && (
@@ -150,7 +154,9 @@ const ProjectModal = ({
                   href={project.websiteUrl}
                   rel="noopener noreferrer"
                 >
-                  <Button color="white">Visit Website</Button>
+                  <Button color="white">
+                    {project.ctaLabel || "Visit Website"}
+                  </Button>
                 </a>
               )}
             </div>
