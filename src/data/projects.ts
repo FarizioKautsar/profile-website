@@ -145,12 +145,34 @@ The website was built using modern technologies, including Expo for the front-en
     client: "KotakodeLabs - Counsely",
     websiteUrl: "https://counsely.app/",
     yearFrom: 2024,
+    yearTo: 2025,
     techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.EXPO, TECH_STACKS.NESTJS],
     imageUrls: [
       require("@/images/projects/counsely/counsely1.png"),
       require("@/images/projects/counsely/counsely2.png"),
       require("@/images/projects/counsely/counsely3.png"),
     ],
+  },
+  {
+    name: "SkillBite",
+    subTitle: "Bite-Sized Educational Platform",
+    shortDescription:
+      "Counsely is a website dedicated as a meeting point between clients and freelancer",
+    description:
+      `SkillBite is a planned bite-sized educational platform that offers a wide range of courses and learning materials. It features a bite-sized content sharing, a gamified learning, exclusive content, AI-assisted editing. The app was designed entirely in Figma from scratch, without relying on a UI library, ensuring a minimalist design and an intuitive user experience. While we didn't secure the top spot, the journey provided valuable business insights and opportunities to expand our professional network.`,
+    client: "My Team",
+    websiteUrl: "https://www.figma.com/proto/ZAojb0VtpA310AormJadxy/SkillBite?node-id=4-534&t=6XxK0WpR2S3M6c1B-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=4%3A534",
+    yearFrom: 2024,
+    yearTo: 2024,
+    techStack: [TECH_STACKS.FIGMA],
+    imageUrls: [
+      require("@/images/projects/skillbite/skillbite1.png"),
+      require("@/images/projects/skillbite/skillbite2.png"),
+      require("@/images/projects/skillbite/skillbite3.png"),
+      require("@/images/projects/skillbite/skillbite4.png"),
+      require("@/images/projects/skillbite/skillbite5.png"),
+    ],
+    ctaLabel: "View in Figma",
   },
 ];
 

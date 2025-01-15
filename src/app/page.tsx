@@ -298,7 +298,7 @@ function Home() {
           ref={projectsRef}
         >
           <p className="text-4xl mb-8 font-serif text-center">
-            My Ideas That Has Come to Life
+            Check out my works!
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {projects
