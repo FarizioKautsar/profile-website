@@ -1,6 +1,26 @@
 import { TechStack } from "@/types";
-import { RiFirebaseFill, RiJavaFill, RiNextjsFill, RiReactjsFill, RiSvelteFill, RiTailwindCssFill } from "react-icons/ri";
-import { SiBootstrap, SiExpo, SiExpress, SiGraphql, SiMaterialdesign, SiMongodb, SiNestjs, SiShadcnui, SiStrapi, SiTypeform, SiWordpress } from "react-icons/si";
+import {
+  RiFirebaseFill,
+  RiJavaFill,
+  RiNextjsFill,
+  RiReactjsFill,
+  RiSvelteFill,
+  RiTailwindCssFill,
+} from "react-icons/ri";
+import {
+  SiBootstrap,
+  SiExpo,
+  SiExpress,
+  SiFigma,
+  SiGraphql,
+  SiMaterialdesign,
+  SiMongodb,
+  SiNestjs,
+  SiShadcnui,
+  SiStrapi,
+  SiTypeform,
+  SiWordpress,
+} from "react-icons/si";
 import { BiLogoPostgresql, BiLogoSpringBoot } from "react-icons/bi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 
@@ -129,7 +149,13 @@ const TECH_STACKS = {
     name: "Expo",
     icon: SiExpo,
     url: "https://expo.dev/",
-    type: ["FRONTEND", 'MOBILE'],
+    type: ["FRONTEND", "MOBILE"],
+  } as TechStack,
+  FIGMA: {
+    name: "Figma",
+    icon: SiFigma,
+    url: "https://www.figma.com/",
+    type: ["DESIGN", "UI/UX"],
   } as TechStack,
 };
 
