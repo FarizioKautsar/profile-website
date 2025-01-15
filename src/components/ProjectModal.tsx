@@ -1,7 +1,6 @@
 import { Project } from "@/types";
 import clsx from "clsx";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
@@ -20,7 +19,7 @@ const ProjectModal = ({
   // Get the card's position and size
   const [modalSize, setModalSize] = useState<{ width: number; height: number }>(
     {
-      width: window.innerWidth * 0.8,
+      width: window.innerWidth * 0.9,
       height: window.innerHeight * 0.8,
     }
   );
@@ -29,7 +28,7 @@ const ProjectModal = ({
   useEffect(() => {
     const handleResize = () => {
       setModalSize({
-        width: window.innerWidth * 0.8,
+        width: window.innerWidth * 0.9,
         height: window.innerHeight * 0.8,
       });
     };
@@ -46,7 +45,7 @@ const ProjectModal = ({
 
   return (
     <motion.div
-      className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-opacity-50 z-30 h-dvh w-screen"
+      className="fixed inset-0 flex items-center justify-center backdrop-blur-md bg-opacity-50 z-50 h-dvh w-screen"
       onClick={onClose}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -104,6 +103,11 @@ const ProjectModal = ({
               ))}
             </div>
           )}
+          {/* {project.imageUrls && (
+            <Carousel
+              imageUrls={project.imageUrls}
+            />
+          )} */}
           <div
             className={clsx(project.imageUrls ? "col-span-3" : "col-span-3")}
           >

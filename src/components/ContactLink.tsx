@@ -53,7 +53,7 @@ export default function ContactLink({ href, icon, label }: ContactLinkProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex flex-col items-center justify-center px-4 py-8 text-white transition rounded-xl border border-neutral-300 w-full`}
+      className={`flex flex-col items-center justify-center px-4 py-8 text-white transition rounded-xl border border-neutral-300 w-full text-center gap-3`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

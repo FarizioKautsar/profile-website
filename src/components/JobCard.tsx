@@ -33,16 +33,21 @@ export default function JobCard({
   }, []);
 
   return (
-    <div className="relative">
+    <div
+      className="relative"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
       <Modal
         isOpen={isHovering}
         onClose={() => setIsHovering(false)}
         style={{
           top: cardRef.current?.offsetTop || 0,
-          left: !isMobile && cardRef.current
-            ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px`
-            : 0,
-          width: isMobile ? 'auto' : CARD_WIDTH,
+          left:
+            !isMobile && cardRef.current
+              ? `${cardRef.current.offsetLeft - (CARD_WIDTH + CARD_MARGIN)}px`
+              : 0,
+          width: isMobile ? "auto" : CARD_WIDTH,
         }}
       >
         {(jobExperience.logoUrl || jobExperience.techStack) && (
@@ -52,7 +57,7 @@ export default function JobCard({
               <img
                 src={jobExperience.logoUrl}
                 alt={jobExperience.companyName}
-                className="h-10 w-fit"
+                className="h-10 w-auto object-contain"
               />
             )}
             {jobExperience.techStack && (
@@ -90,12 +95,7 @@ export default function JobCard({
         viewport={{ once: true }}
         className="pointer-events-auto z-0"
       >
-        <div
-          className="text-left mb-4 -z-10"
-          ref={cardRef}
-          onMouseEnter={() => setIsHovering(true)}
-          onMouseLeave={() => setIsHovering(false)}
-        >
+        <div className="text-left mb-4 -z-10" ref={cardRef}>
           <p className="text-sm text-neutral-500">
             {jobExperience.startDate.getFullYear()}{" "}
             {jobExperience.endDate
