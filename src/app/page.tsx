@@ -5,6 +5,7 @@ import {
   useScroll,
   useTransform,
   motion,
+  useInView,
 } from "framer-motion";
 import { use, useEffect, useRef, useState } from "react";
 import Image from "next/image";
@@ -24,6 +25,19 @@ import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
 import InquiryForm from "@/components/InquiryForm";
 import ProfileSlideshow from "@/components/ProfileSlideshow";
+import { Button } from "@/components/ui/button";
+import { ButtonHTMLAttributes } from "react";
+import { RiCloseLine } from "react-icons/ri";
+
+interface XButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
+
+const XButton: React.FC<XButtonProps> = (props) => {
+  return (
+    <button {...props} className={`p-2 text-neutral-400 border-neutral-300 flex items-center justify-center rounded-full ${props.className}`}>
+      <RiCloseLine/>
+    </button>
+  );
+};
 
 function Home() {
   const { scrollY } = useScroll();
@@ -169,6 +183,29 @@ function Home() {
     };
   }, []);
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const profilePicRef = useRef<HTMLDivElement>(null);
+  const contactMeRef = useRef<HTMLDivElement>(null);
+
+  const profilePicVisible = useInView(profilePicRef, { amount: 'all' });
+  const contactMeVisible = useInView(contactMeRef, { amount: 'some' });
+
+  const [showCta, setShowCta] = useState(false);
+
+  useEffect(() => {
+    setShowCta(profilePicVisible && !contactMeVisible);
+  }, [profilePicVisible, contactMeVisible]);
+
+  function handleWorkTogether() {
+    if (contactMeRef.current) {
+      contactMeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+
+  function handleCloseCta() {
+    setShowCta(false);
+  }
+
   return (
     <div
       className="relative"
@@ -185,8 +222,23 @@ function Home() {
           window.innerHeight - mousePosition.y
         }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
       }}
+      ref={containerRef}
     >
-      <div className="w-full sticky h-dvh top-1 flex justify-center items-center cursor-default">
+      <motion.div
+        initial={{ y: "100%", opacity: 0 }}
+        animate={showCta ? { y: -20, opacity: 1 } : { y: "100%", opacity: 0 }}
+        transition={{ duration: 0.5 }}
+        className="fixed flex items-center justify-center bottom-0 w-full z-50"
+      >
+        <div className="bg-white p-2 flex flex-col md:flex-row items-center gap-3 rounded-[24px] md:rounded-full text-neutral-800 shadow-lg">
+          <div className="flex items-center md:flex-row-reverse">
+          <p className="ml-3 md:ml-0">Like what you see?</p>
+          <XButton onClick={handleCloseCta}/>
+          </div>
+          <Button variant="secondary" className="rounded-full w-full md:w-fit" onClick={handleWorkTogether}>Let&apos;s work together!</Button>
+        </div>
+      </motion.div>
+      <div className="w-full sticky h-dvh top-1 flex justify-center items-center cursor-default overflow-x-hidden">
         <motion.div
           style={{
             filter: `blur(${blurVal}px)`,
@@ -222,7 +274,7 @@ function Home() {
           <span className="font-bold">my world</span>
         </div>
       </div>
-      <div className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-x-hidden">
+      <div className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-x-hidden" ref={profilePicRef}>
         <motion.div
           style={{
             marginTop: picMarginTop,
@@ -238,7 +290,7 @@ function Home() {
             alt="Farizio Kautsar Heruzy"
             className="!grayscale overflow-visible object-cover md:object-contain"
           /> */}
-          <ProfileSlideshow/>
+          <ProfileSlideshow />
         </motion.div>
       </div>
       <div className="container mx-auto grid grid-cols-3">
@@ -293,8 +345,10 @@ function Home() {
               ))}
           </div>
         </div>
-        <div className="min-h-dvh z-20 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10">
-          <h1 className="text-2xl mb-8 text-center">Interested in working together?</h1>
+        <div className="min-h-dvh z-20 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10" ref={contactMeRef}>
+          <h1 className="text-2xl mb-8 text-center">
+            Interested in working together?
+          </h1>
           <div>
             <p className="font-serif text-3xl mb-8 w-full text-center">
               Feel free to get in touch!
