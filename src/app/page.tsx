@@ -309,13 +309,13 @@ function Home() {
               ))}
           </div>
         </div>
-        <div className="min-h-dvh z-20 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center">
-          <h1 className="text-2xl mb-8">Interested in working together?</h1>
+        <div className="min-h-dvh z-20 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10">
+          <h1 className="text-2xl mb-8 text-center">Interested in working together?</h1>
           <div>
             <p className="font-serif text-3xl mb-8 w-full text-center">
               Feel free to get in touch!
             </p>
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <ContactLink
                 href="https://github.com/FarizioKautsar"
                 label="GitHub"
