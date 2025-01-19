@@ -47,7 +47,11 @@ const InquiryForm: React.FC = () => {
 
   const onSubmit: SubmitHandler<InquiryFormInputs> = (data) => {
     setIsSubmitting(true);
-    addDoc(collection(db, "inquiries"), data)
+    const payload = {
+      ...data,
+      createdAt: new Date(),
+    }
+    addDoc(collection(db, "inquiries"), payload)
       .then(() => {
         console.log("Inquiry successfully submitted!");
       })
