@@ -1,4 +1,3 @@
-// pages/inquiry-form.tsx
 import React from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -7,8 +6,10 @@ import Input from "./ui/input";
 import Select from "./ui/select";
 import Textarea from "./ui/textarea";
 import { Button } from "./ui/button";
+import { db } from "@/lib/firebase";
+import { addDoc, collection } from "firebase/firestore";
+import { motion } from "framer-motion";
 
-// Form Validation Schema
 const inquirySchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
@@ -36,18 +37,34 @@ const InquiryForm: React.FC = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<InquiryFormInputs>({
     resolver: yupResolver(inquirySchema),
   });
 
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+
   const onSubmit: SubmitHandler<InquiryFormInputs> = (data) => {
-    console.log(data);
-    alert("Form submitted successfully!");
+    setIsSubmitting(true);
+    addDoc(collection(db, "inquiries"), data)
+      .then(() => {
+        console.log("Inquiry successfully submitted!");
+      })
+      .catch((error) => {
+        console.error("Error submitting inquiry: ", error);
+      })
+      .finally(() => {
+        setTimeout(() => setIsSubmitting(false), 1000);
+      });
   };
 
+  const formIsFilled = Object.entries(watch()).every(
+    ([key, value]) => key === "phone" || (value !== undefined && value !== "")
+  );
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full">
+    <form onSubmit={handleSubmit(onSubmit)} className="w-full relative">
       <Input
         label="Name"
         id="name"
@@ -126,12 +143,39 @@ const InquiryForm: React.FC = () => {
         register={register("projectDescription")}
         error={errors.projectDescription}
       />
-      <Button
-        type="submit"
-        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+      <motion.div
+        className="absolute"
+        initial={{ y: 0, scale: 1, zIndex: 0 }}
+        animate={
+          isSubmitting
+            ? {
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                scale: 1.2,
+                zIndex: 50,
+                width: "fit-content",
+              }
+            : {
+                top: "auto",
+                left: "auto",
+                transform: "none",
+                scale: 1,
+                zIndex: 0,
+                width: "100%",
+              }
+        }
+        transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
-        Submit
-      </Button>
+        <Button
+          type="submit"
+          className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+          disabled={!formIsFilled}
+          isLoading={isSubmitting}
+        >
+          Make Magic Happen
+        </Button>
+      </motion.div>
     </form>
   );
 };
