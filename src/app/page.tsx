@@ -22,6 +22,7 @@ import dynamic from "next/dynamic";
 import ContactLink from "@/components/ContactLink";
 import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
+import InquiryForm from "@/components/InquiryForm";
 
 function Home() {
   const { scrollY } = useScroll();
@@ -308,32 +309,40 @@ function Home() {
               ))}
           </div>
         </div>
-        <div className="h-dvh z-20 col-span-3 flex flex-col items-center justify-center">
-          <h1 className="text-2xl mb-4">Interested in working together?</h1>
-          <span className="font-serif text-4xl mb-8">
-            Feel free to get in touch!
-          </span>
-          <div className="grid grid-cols-2 gap-8">
-            <ContactLink
-              href="https://github.com/FarizioKautsar"
-              label="GitHub"
-              icon={FaGithub}
-            />
-            <ContactLink
-              href="mailto:kheruzy@gmail.com"
-              label="Email Me"
-              icon={FaEnvelope}
-            />
-            <ContactLink
-              href="https://wa.me/6281282100255"
-              label="WhatsApp Me"
-              icon={FaWhatsapp}
-            />
-            <ContactLink
-              href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
-              label="View My CV"
-              icon={IoDocumentAttachOutline}
-            />
+        <div className="min-h-dvh z-20 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center">
+          <h1 className="text-2xl mb-8">Interested in working together?</h1>
+          <div>
+            <p className="font-serif text-3xl mb-8 w-full text-center">
+              Feel free to get in touch!
+            </p>
+            <div className="grid grid-cols-4 gap-8">
+              <ContactLink
+                href="https://github.com/FarizioKautsar"
+                label="GitHub"
+                icon={FaGithub}
+              />
+              <ContactLink
+                href="mailto:kheruzy@gmail.com"
+                label="Email Me"
+                icon={FaEnvelope}
+              />
+              <ContactLink
+                href="https://wa.me/6281282100255"
+                label="WhatsApp Me"
+                icon={FaWhatsapp}
+              />
+              <ContactLink
+                href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
+                label="View My CV"
+                icon={IoDocumentAttachOutline}
+              />
+            </div>
+          </div>
+          <div className="mt-8">
+            <p className="font-serif text-3xl mb-6 text-center w-full">
+              ...or tell me about your next big idea!
+            </p>
+            <InquiryForm />
           </div>
         </div>
       </div>
