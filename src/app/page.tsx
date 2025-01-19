@@ -23,6 +23,7 @@ import ContactLink from "@/components/ContactLink";
 import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
 import InquiryForm from "@/components/InquiryForm";
+import ProfileSlideshow from "@/components/ProfileSlideshow";
 
 function Home() {
   const { scrollY } = useScroll();
@@ -231,30 +232,13 @@ function Home() {
           }}
           className="relative w-50 h-full"
         >
-          <Image
+          {/* <Image
             src={ProfilePic.src}
             fill
             alt="Farizio Kautsar Heruzy"
-            // objectFit="cover"
             className="!grayscale overflow-visible object-cover md:object-contain"
-          />
-          {/* <div
-            className="z-50 w-full h-full"
-            style={{
-              background: `radial-gradient(circle at ${mousePosition.x}px ${
-                mousePosition.y
-              }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
-                window.innerWidth - mousePosition.x
-              }px ${
-                window.innerHeight - mousePosition.y
-              }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
-              WebkitMaskImage: `url(${ProfilePic.src})`, // Use the image as the mask
-              WebkitMaskSize: "contain", // Ensure the mask covers the entire div
-              WebkitMaskRepeat: "no-repeat", // Prevent the mask from repeating
-              WebkitMaskPosition: "center", // Center the mask
-              zIndex: 1000,
-            }}
           /> */}
+          <ProfileSlideshow/>
         </motion.div>
       </div>
       <div className="container mx-auto grid grid-cols-3">
