@@ -89,7 +89,7 @@ const projects: Project[] = [
     description:
       "Voice In My Brain is an NFT project that consists of a collection of 6969 digital expressions. The project speaks about our thoughts and the world in new ways of communication and expression. Voice In My Brain was founded by Sojoo and created by thelameshit. They came to us with an idea on how to depict their work in a way that can be felt more deeply in terms of concept and understanding. We created a web 3.0 website to convey an immersive experience about this project.",
     client: "VIMB (Voices in My Brain)",
-    websiteUrl: "https://klabs.dev/bbs-lms",
+    websiteUrl: "https://vimb.io",
     yearFrom: 2023,
     yearTo: 2023,
     techStack: [TECH_STACKS.REACTJS, TECH_STACKS.MONGODB],
