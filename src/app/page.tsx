@@ -196,7 +196,7 @@ function Home() {
 
   return (
     <div
-      className="relative"
+      className="relative w-screen overflow-x-hidden"
       style={{
         background: `radial-gradient(circle at ${mousePosition.x}px ${
           mousePosition.y
