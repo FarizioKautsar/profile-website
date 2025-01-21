@@ -196,7 +196,7 @@ function Home() {
 
   return (
     <div
-      className="relative w-screen overflow-x-hidden"
+      className="relative w-screen"
       style={{
         background: `radial-gradient(circle at ${mousePosition.x}px ${
           mousePosition.y
@@ -283,7 +283,7 @@ function Home() {
         <div />
         <div className="col-span-0 md:col-span-2" />
         <div
-          className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1"
+          className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1 w-full overflow-x-hidden"
           ref={jobExperiencesRef}
         >
           <p className="text-4xl mb-3 font-serif">Where Have I Left My Mark?</p>
