@@ -25,19 +25,7 @@ import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
 import InquiryForm from "@/components/InquiryForm";
 import ProfileSlideshow from "@/components/ProfileSlideshow";
-import { Button } from "@/components/ui/button";
-import { ButtonHTMLAttributes } from "react";
-import { RiCloseLine } from "react-icons/ri";
-
-interface XButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
-
-const XButton: React.FC<XButtonProps> = (props) => {
-  return (
-    <button {...props} className={`p-2 text-neutral-400 border-neutral-300 flex items-center justify-center rounded-full ${props.className}`}>
-      <RiCloseLine/>
-    </button>
-  );
-};
+import CTAToast from "@/components/CTAToast";
 
 function Home() {
   const { scrollY } = useScroll();
@@ -224,20 +212,11 @@ function Home() {
       }}
       ref={containerRef}
     >
-      <motion.div
-        initial={{ y: "100%", opacity: 0 }}
-        animate={showCta ? { y: -20, opacity: 1 } : { y: "100%", opacity: 0 }}
-        transition={{ duration: 0.5 }}
-        className="fixed flex items-center justify-center bottom-0 w-full z-50"
-      >
-        <div className="bg-white p-2 flex flex-col md:flex-row items-center gap-3 rounded-[24px] md:rounded-full text-neutral-800 shadow-lg">
-          <div className="flex items-center md:flex-row-reverse">
-          <p className="ml-3 md:ml-0">Like what you see?</p>
-          <XButton onClick={handleCloseCta}/>
-          </div>
-          <Button variant="secondary" className="rounded-full w-full md:w-fit" onClick={handleWorkTogether}>Let&apos;s work together!</Button>
-        </div>
-      </motion.div>
+      <CTAToast
+        show={showCta}
+        onClose={handleCloseCta}
+        onClickAction={handleWorkTogether}
+      />
       <div className="w-full sticky h-dvh top-1 flex justify-center items-center cursor-default overflow-x-hidden">
         <motion.div
           style={{
