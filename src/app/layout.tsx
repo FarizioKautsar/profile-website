@@ -16,7 +16,7 @@ const yesevaOne = Yeseva_One({
 
 export const metadata: Metadata = {
   title: "Farizio - Web Developer",
-  description: "Welcome to Farizio's Profile Website! Feel free to look around.",
+  description: "Hi, I'm Farizio! I build tools that empower businesses and communities. Need a web developer? I'm your guy!",
 };
 
 export default function RootLayout({
