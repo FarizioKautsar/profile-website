@@ -1,39 +1,39 @@
 "use client";
 
 import PackageCard from "@/components/rates/PackageCard";
-import { Button } from "@/components/ui/button";
 import { packages } from "@/data/packages";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BiChevronLeft } from "react-icons/bi";
 
 export default function RatesPage() {
-  const getRandomPosition = () => {
-    if (window) {
-      return {
-        x: Math.random() * window.innerWidth,
-        y: Math.random() * window.innerHeight,
-      };
-    } else {
-      return { x: 0, y: 0 };
-    }
-  };
+  const [style, setStyle] = useState({});
 
-  const mousePosition = getRandomPosition(); // Randomize mouse position
+  useEffect(() => {
+    const getRandomPosition = () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+    });
 
-  const style = {
-    background: `radial-gradient(circle at ${mousePosition.x}px ${
-      mousePosition.y
-    }px, rgba(91, 69, 231, 0.215), transparent 80%), 
-                 radial-gradient(circle at ${mousePosition.x}px ${
-      mousePosition.y
-    }px, rgba(53, 117, 219, 0.2), transparent 80%), 
-                 radial-gradient(circle at ${
-                   window?.innerWidth - mousePosition.x
-                 }px ${
-      window?.innerHeight - mousePosition.y
-    }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
-  };
+    const mousePosition = getRandomPosition();
+
+    const updatedStyle = {
+      background: `radial-gradient(circle at ${mousePosition.x}px ${
+        mousePosition.y
+      }px, rgba(91, 69, 231, 0.215), transparent 80%), 
+                   radial-gradient(circle at ${mousePosition.x}px ${
+        mousePosition.y
+      }px, rgba(53, 117, 219, 0.2), transparent 80%), 
+                   radial-gradient(circle at ${
+                     window.innerWidth - mousePosition.x
+                   }px ${
+        window.innerHeight - mousePosition.y
+      }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+    };
+
+    setStyle(updatedStyle);
+  }, []);
+
   return (
     <div style={style}>
       <div
@@ -46,11 +46,14 @@ export default function RatesPage() {
       >
         <Link href="/">
           <div className="flex items-center mb-8 cursor-pointer">
-        <BiChevronLeft className="size-4 mr-4" />
-            Back to Home</div>
+            <BiChevronLeft className="size-4 mr-4" />
+            Back to Home
+          </div>
         </Link>
         {/* Title */}
-        <h1 className="text-3xl font-bold mb-6 font-serif">Farizio — Rate Card</h1>
+        <h1 className="text-3xl font-bold mb-6 font-serif">
+          Farizio — Rate Card
+        </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section>
@@ -110,7 +113,9 @@ export default function RatesPage() {
 
           {/* Add-Ons / Extras */}
           <section>
-            <h2 className="text-xl font-semibold mb-2 font-serif">4. Add-Ons / Extras</h2>
+            <h2 className="text-xl font-semibold mb-2 font-serif">
+              4. Add-Ons / Extras
+            </h2>
             <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>UI/UX Design Consultation:</strong> AUD 24/hr
@@ -128,7 +133,9 @@ export default function RatesPage() {
           {/* Important Notes */}
         </div>
         <section className="mt-8">
-          <h2 className="text-xl font-semibold mb-2 font-serif">Important Notes</h2>
+          <h2 className="text-xl font-semibold mb-2 font-serif">
+            Important Notes
+          </h2>
           <ul className="list-disc list-inside space-y-2">
             <li>
               <strong>GST & ABN:</strong> If you&apos;re in Australia, consider
