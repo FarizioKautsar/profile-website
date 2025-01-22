@@ -9,10 +9,14 @@ import { BiChevronLeft } from "react-icons/bi";
 
 export default function RatesPage() {
   const getRandomPosition = () => {
-    return {
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-    };
+    if (window) {
+      return {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+      };
+    } else {
+      return { x: 0, y: 0 };
+    }
   };
 
   const mousePosition = getRandomPosition(); // Randomize mouse position
@@ -25,9 +29,9 @@ export default function RatesPage() {
       mousePosition.y
     }px, rgba(53, 117, 219, 0.2), transparent 80%), 
                  radial-gradient(circle at ${
-                   window.innerWidth - mousePosition.x
+                   window?.innerWidth - mousePosition.x
                  }px ${
-      window.innerHeight - mousePosition.y
+      window?.innerHeight - mousePosition.y
     }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
   };
   return (
@@ -127,7 +131,7 @@ export default function RatesPage() {
           <h2 className="text-xl font-semibold mb-2 font-serif">Important Notes</h2>
           <ul className="list-disc list-inside space-y-2">
             <li>
-              <strong>GST & ABN:</strong> If you're in Australia, consider
+              <strong>GST & ABN:</strong> If you&apos;re in Australia, consider
               applying for an ABN. Make it clear whether rates include GST (if
               applicable).
             </li>
