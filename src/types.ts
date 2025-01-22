@@ -47,3 +47,11 @@ export type Project = {
   imageUrls?: string[];
   ctaLabel?: string;
 }
+
+export type ProjectPackage = {
+  name: string;
+  timeframe: string;
+  priceRange: string;
+  description?: string;
+  features?: string[];
+};
