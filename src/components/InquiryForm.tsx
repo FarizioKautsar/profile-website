@@ -122,10 +122,10 @@ const InquiryForm: React.FC = () => {
                 label: "Basic Business Website",
               },
               { value: "E-Commerce / Web App", label: "E-Commerce / Web App" },
-              {
-                value: "Mobile App Development",
-                label: "Mobile App Development",
-              },
+              // {
+              //   value: "Mobile App Development",
+              //   label: "Mobile App Development",
+              // },
               { value: "UI/UX Design", label: "UI/UX Design" },
               {
                 value: "Maintenance / Retainer",
