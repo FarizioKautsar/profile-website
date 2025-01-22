@@ -34,15 +34,36 @@ export default function RatesPage() {
     setStyle(updatedStyle);
   }, []);
 
+  const [isIndonesian, setIsIndonesian] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchLocation = async () => {
+      try {
+        const response = await fetch(`https://ipinfo.io/json?token=${process.env.NEXT_PUBLIC_IPINFO_TOKEN}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch location');
+        }
+        const data = await response.json();
+        setIsIndonesian(['ID', 'SG'].includes(data.country));
+      } catch (err) {
+        console.error(err);
+        setError('Unable to determine location');
+      }
+    };
+
+    fetchLocation();
+  }, []);
+
   return (
     <div style={style}>
       <div
         className="
-          min-h-screen 
-          py-10 
-          px-4 
-          container
-        "
+        min-h-screen 
+        py-10 
+        px-4 
+        container
+      "
       >
         <Link href="/">
           <div className="flex items-center mb-8 cursor-pointer">
@@ -50,6 +71,7 @@ export default function RatesPage() {
             Back to Home
           </div>
         </Link>
+
         {/* Title */}
         <h1 className="text-3xl font-bold mb-6 font-serif">
           Farizio — Rate Card
@@ -62,10 +84,12 @@ export default function RatesPage() {
             </h2>
             <ul className="list-disc list-inside space-y-1">
               <li>
-                <strong>Hourly Rate:</strong> AUD 24
+                <strong>Hourly Rate:</strong>{" "}
+                {isIndonesian ? "Rp170,000" : "AUD 24"}
               </li>
               <li>
-                <strong>Daily Rate:</strong> AUD 192 / day
+                <strong>Daily Rate:</strong>{" "}
+                {isIndonesian ? "Rp1,360,000 / day" : "AUD 192 / day"}
               </li>
             </ul>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -82,7 +106,15 @@ export default function RatesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {packages.map((pack) => (
-                <PackageCard key={pack.name} pack={pack} />
+                <PackageCard
+                  key={pack.name}
+                  pack={{
+                    ...pack,
+                    priceRange: isIndonesian
+                      ? (pack.idrPriceRange || pack.priceRange)
+                      : pack.priceRange,
+                  }}
+                />
               ))}
             </div>
           </section>
@@ -94,12 +126,12 @@ export default function RatesPage() {
             </h2>
             <ul className="list-disc list-inside space-y-2">
               <li>
-                <strong>Basic Retainer (up to 5 hrs/month):</strong> ~AUD
-                120/month
+                <strong>Basic Retainer (up to 5 hrs/month):</strong>{" "}
+                {isIndonesian ? "Rp1.200.000/month" : "~AUD 120/month"}
               </li>
               <li>
-                <strong>Standard Retainer (up to 10 hrs/month):</strong> ~AUD
-                240/month
+                <strong>Standard Retainer (up to 10 hrs/month):</strong>{" "}
+                {isIndonesian ? "Rp2,000,000/month" : "~AUD 240/month"}
               </li>
               <li>
                 <strong>Custom Retainer:</strong> Price on request
@@ -118,7 +150,8 @@ export default function RatesPage() {
             </h2>
             <ul className="list-disc list-inside space-y-1">
               <li>
-                <strong>UI/UX Design Consultation:</strong> AUD 24/hr
+                <strong>UI/UX Design Consultation:</strong>{" "}
+                {isIndonesian ? "Rp170,000/hr" : "AUD 24/hr"}
               </li>
               <li>
                 <strong>Branding / Visual Assets:</strong> Price on request
@@ -129,9 +162,9 @@ export default function RatesPage() {
               </li>
             </ul>
           </section>
-
-          {/* Important Notes */}
         </div>
+
+        {/* Important Notes */}
         <section className="mt-8">
           <h2 className="text-xl font-semibold mb-2 font-serif">
             Important Notes
@@ -153,7 +186,6 @@ export default function RatesPage() {
             </li>
           </ul>
         </section>
-        {/* Hourly / Day Rates */}
       </div>
     </div>
   );

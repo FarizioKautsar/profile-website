@@ -52,6 +52,8 @@ export type ProjectPackage = {
   name: string;
   timeframe: string;
   priceRange: string;
+  idrPriceRange?: string;
+  audPriceRange?: string;
   description?: string;
   features?: string[];
   note?: string;

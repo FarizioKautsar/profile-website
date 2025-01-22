@@ -5,6 +5,7 @@ export const packages: ProjectPackage[] = [
     name: "Portfolio Website Package",
     timeframe: "~1-2 weeks",
     priceRange: "AUD 400 - 640",
+    idrPriceRange: "IDR 2,900,000 - 4,600,000",
     description: "Visually appealing design showcasing your work.",
     features: [
       "3-5 sections/pages",
@@ -16,6 +17,7 @@ export const packages: ProjectPackage[] = [
     name: "Basic Website Package",
     timeframe: "~2-3 weeks",
     priceRange: "AUD 560 - 800",
+    idrPriceRange: "IDR 4,000,000 - 5,700,000",
     description:
       "Up to 5 content pages, mobile-responsive design, and a simple CMS.",
     features: [
@@ -28,6 +30,7 @@ export const packages: ProjectPackage[] = [
     name: "Standard Business Website",
     timeframe: "~3-5 weeks",
     priceRange: "AUD 800 - 1,600",
+    idrPriceRange: "IDR 5,700,000 - 11,400,000",
     description:
       "Up to 10 pages, intermediate animations, lead capture forms, etc.",
     features: [
@@ -53,6 +56,7 @@ export const packages: ProjectPackage[] = [
     name: "E-Commerce / Web App",
     timeframe: "~6-10 weeks",
     priceRange: "Starting at AUD 2,000+",
+    idrPriceRange: "IDR 14,200,000+",
     description:
       "Next.js + Strapi/NestJS, e-commerce or interactive features, payment gateway, etc.",
     features: [
