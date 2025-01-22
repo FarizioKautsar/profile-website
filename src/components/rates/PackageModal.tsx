@@ -2,7 +2,7 @@
 import { ProjectPackage } from "@/types";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FaCalendar, FaTag } from "react-icons/fa";
+import { FaCalendar, FaInfoCircle, FaTag } from "react-icons/fa";
 
 const PackageModal = ({
   onClose,
@@ -111,6 +111,13 @@ const PackageModal = ({
               </ul>
             )}
           </div>
+
+          {pack.note && (
+            <div className="mt-4 text-sm p-4 rounded-lg flex items-start gap-2">
+              <FaInfoCircle className="size-4" />
+              <p className="flex-1">{pack.note}</p>
+            </div>
+          )}
 
           {/* Close Button */}
           <div className="flex items-center justify-end mt-4">

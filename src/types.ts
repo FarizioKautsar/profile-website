@@ -54,4 +54,5 @@ export type ProjectPackage = {
   priceRange: string;
   description?: string;
   features?: string[];
+  note?: string;
 };

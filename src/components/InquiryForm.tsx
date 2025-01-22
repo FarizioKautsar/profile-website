@@ -9,6 +9,8 @@ import { Button } from "./ui/button";
 import { db } from "@/lib/firebase";
 import { addDoc, collection } from "firebase/firestore";
 import { motion } from "framer-motion";
+import Link from "next/link";
+import { FaTag } from "react-icons/fa";
 
 const inquirySchema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -52,7 +54,7 @@ const InquiryForm: React.FC = () => {
     const payload = {
       ...data,
       createdAt: new Date(),
-    }
+    };
     addDoc(collection(db, "inquiries"), payload)
       .then(() => {
         setTimeout(() => setHasSubmitted(true), 1000);
@@ -77,12 +79,13 @@ const InquiryForm: React.FC = () => {
 
   return (
     <div>
-      <motion.form 
+      <motion.form
         initial={{ height: "auto" }}
-        animate={hasSubmitted ? { height: 0, overflow: 'hidden' } : {}}
+        animate={hasSubmitted ? { height: 0, overflow: "hidden" } : {}}
         transition={{ duration: 0.5 }}
-
-      onSubmit={handleSubmit(onSubmit)} className="w-full relative">
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full relative"
+      >
         <Input
           label="Name"
           id="name"
@@ -113,47 +116,72 @@ const InquiryForm: React.FC = () => {
             label="Project Type"
             id="projectType"
             options={[
-              { value: "Website Development", label: "Website Development" },
-              { value: "Web App Development", label: "Web App Development" },
+              { value: "Portfolio Website", label: "Portfolio Website" },
+              {
+                value: "Basic Business Website",
+                label: "Basic Business Website",
+              },
+              { value: "E-Commerce / Web App", label: "E-Commerce / Web App" },
               {
                 value: "Mobile App Development",
                 label: "Mobile App Development",
               },
               { value: "UI/UX Design", label: "UI/UX Design" },
-              { value: "E-commerce", label: "E-commerce" },
+              {
+                value: "Maintenance / Retainer",
+                label: "Maintenance / Retainer",
+              },
               { value: "Other", label: "Other" },
             ]}
             placeholder="Select a project type"
             register={register("projectType")}
             error={errors.projectType}
           />
+
           <Select
             label="Budget"
             id="budget"
             options={[
+              {
+                value: "Less than $1,000",
+                label: "Less than $1,000 (Portfolio/Basic)",
+              },
+              { value: "$1,000 - $2,000", label: "$1,000 - $2,000 (Standard)" },
+              {
+                value: "$2,000 - $3,000",
+                label: "$2,000 - $3,000 (Advanced Site)",
+              },
+              { value: "$3,000+", label: "$3,000+ (Large-Scale/E-Commerce)" },
               { value: "Let's negotiate", label: "Let's negotiate" },
-              { value: "Less than $1,000", label: "Less than $1,000" },
-              { value: "$1,000-$5,000", label: "$1,000-$5,000" },
-              { value: "$5,000-$10,000", label: "$5,000-$10,000" },
-              { value: "$10,000+", label: "$10,000+" },
             ]}
             placeholder="Select your budget range"
             register={register("budget")}
             error={errors.budget}
           />
+
           <Select
             label="Timeline"
             id="timeline"
             options={[
               { value: "1–2 weeks", label: "1–2 weeks" },
-              { value: "1 month", label: "1 month" },
-              { value: "2–3 months", label: "2–3 months" },
+              { value: "2–3 weeks", label: "2–3 weeks" },
+              { value: "3–5 weeks", label: "3–5 weeks" },
+              { value: "6–10 weeks", label: "6–10 weeks" },
               { value: "Flexible", label: "Flexible" },
             ]}
             placeholder="Select a timeline"
             register={register("timeline")}
             error={errors.timeline}
           />
+          <div className="col-span-3 -mt-3 text-center">
+            <Link
+              href="/rates"
+              className="hover:underline"
+            >
+              <FaTag className="inline-block mr-2" />
+              View rates & packages
+            </Link>
+          </div>
         </div>
         <Textarea
           label="Project Description"
@@ -201,20 +229,13 @@ const InquiryForm: React.FC = () => {
         animate={hasSubmitted ? { height: "auto" } : { height: 0 }}
         transition={{ duration: 0.5 }}
         className="overflow-hidden"
-        >
-          {hasSubmitted && (
-            <div className="text-center text-lg">
-              <p className="mb-3">
-                Message sent. Prepare for launch 🚀!
-              </p>
-              <Button
-                onClick={handleReset}
-              >
-                Awesome!
-              </Button>
-            </div>
-          )}
-
+      >
+        {hasSubmitted && (
+          <div className="text-center text-lg">
+            <p className="mb-3">Message sent. Prepare for launch 🚀!</p>
+            <Button onClick={handleReset}>Awesome!</Button>
+          </div>
+        )}
       </motion.div>
     </div>
   );

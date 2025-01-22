@@ -36,6 +36,19 @@ export const packages: ProjectPackage[] = [
       "Lead capture or basic user login",
     ],
   },
+  // {
+  //   name: "Mobile App Development",
+  //   timeframe: "~4-8 weeks",
+  //   priceRange: "Starting at AUD 2,000+",
+  //   description:
+  //     "Cross-platform or native app development with basic to mid-level functionality.",
+  //   features: [
+  //     "User authentication & basic data management",
+  //     "Simple integrations (e.g., push notifications, payment gateways)",
+  //     "Performance optimization & store deployment (App Store/Play Store)",
+  //   ],
+  //   note: "Actual costs can easily exceed AUD 2,000 depending on feature complexity (e.g., real-time chat, advanced animations, offline support, etc.).",
+  // },
   {
     name: "E-Commerce / Web App",
     timeframe: "~6-10 weeks",
