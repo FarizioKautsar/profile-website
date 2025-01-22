@@ -131,9 +131,10 @@ const InquiryForm: React.FC = () => {
             label="Budget"
             id="budget"
             options={[
+              { value: "Let's negotiate", label: "Let's negotiate" },
               { value: "Less than $1,000", label: "Less than $1,000" },
-              { value: "$1,000–$5,000", label: "$1,000–$5,000" },
-              { value: "$5,000–$10,000", label: "$5,000–$10,000" },
+              { value: "$1,000-$5,000", label: "$1,000-$5,000" },
+              { value: "$5,000-$10,000", label: "$5,000-$10,000" },
               { value: "$10,000+", label: "$10,000+" },
             ]}
             placeholder="Select your budget range"
