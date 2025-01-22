@@ -324,7 +324,7 @@ function Home() {
               ))}
           </div>
         </div>
-        <div className="min-h-dvh col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10" ref={contactMeRef}>
+        <div className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10" ref={contactMeRef}>
           <h1 className="text-2xl mb-8 text-center">
             Interested in working together?
           </h1>
