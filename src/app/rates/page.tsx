@@ -45,7 +45,7 @@ export default function RatesPage() {
           throw new Error('Failed to fetch location');
         }
         const data = await response.json();
-        setIsIndonesian(['ID', 'SG'].includes(data.country));
+        // setIsIndonesian(['ID', 'SG'].includes(data.country));
       } catch (err) {
         console.error(err);
         setError('Unable to determine location');
@@ -85,11 +85,11 @@ export default function RatesPage() {
             <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>Hourly Rate:</strong>{" "}
-                {isIndonesian ? "Rp170,000" : "AUD 24"}
+                {isIndonesian ? "Rp170,000" : "AUD 30"}
               </li>
               <li>
                 <strong>Daily Rate:</strong>{" "}
-                {isIndonesian ? "Rp1,360,000 / day" : "AUD 192 / day"}
+                {isIndonesian ? "Rp1,360,000 / day" : "AUD 240 / day"}
               </li>
             </ul>
             <p className="text-sm text-gray-500 dark:text-gray-400 mt-2">
@@ -127,11 +127,11 @@ export default function RatesPage() {
             <ul className="list-disc list-inside space-y-2">
               <li>
                 <strong>Basic Retainer (up to 5 hrs/month):</strong>{" "}
-                {isIndonesian ? "Rp1.200.000/month" : "~AUD 120/month"}
+                {isIndonesian ? "Rp1.200.000/month" : "~AUD 150/month"}
               </li>
               <li>
                 <strong>Standard Retainer (up to 10 hrs/month):</strong>{" "}
-                {isIndonesian ? "Rp2,000,000/month" : "~AUD 240/month"}
+                {isIndonesian ? "Rp2,000,000/month" : "~AUD 300/month"}
               </li>
               <li>
                 <strong>Custom Retainer:</strong> Price on request
@@ -151,7 +151,7 @@ export default function RatesPage() {
             <ul className="list-disc list-inside space-y-1">
               <li>
                 <strong>UI/UX Design Consultation:</strong>{" "}
-                {isIndonesian ? "Rp170,000/hr" : "AUD 24/hr"}
+                {isIndonesian ? "Rp170,000/hr" : "AUD 30/hr"}
               </li>
               <li>
                 <strong>Branding / Visual Assets:</strong> Price on request
