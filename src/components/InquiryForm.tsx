@@ -173,7 +173,7 @@ const InquiryForm: React.FC = () => {
             register={register("timeline")}
             error={errors.timeline}
           />
-          <div className="col-span-3 -mt-3 text-center">
+          <div className="md:col-span-3 -mt-3 mb-5 text-center">
             <Link
               href="/rates"
               className="hover:underline"

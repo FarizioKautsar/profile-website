@@ -18,6 +18,7 @@ import {
   SiNestjs,
   SiShadcnui,
   SiStrapi,
+  SiThreedotjs,
   SiTypeform,
   SiWordpress,
 } from "react-icons/si";
@@ -157,6 +158,12 @@ const TECH_STACKS = {
     url: "https://www.figma.com/",
     type: ["DESIGN", "UI/UX"],
   } as TechStack,
+  THREEJS: {
+    name: "Three.js",
+    icon: SiThreedotjs,
+    url: "https://threejs.org/",
+    type: ["FRONTEND"],
+  } as TechStack
 };
 
 export default TECH_STACKS;

@@ -210,6 +210,20 @@ The website was built using modern technologies, including Expo for the front-en
       require("@/images/projects/rantauready/rantauready3.png"),
     ],
   },
+  {
+    name: 'Farizio.ai',
+    subTitle: 'Interactive AI Avatar Portfolio Website',
+    client: 'Myself',
+    yearFrom: 2025,
+    yearTo: 2025,
+    websiteUrl: 'https://chat.farizio.io',
+    description: 'I recently developed an interactive AI-powered portfolio to showcase my work in a more engaging way. Rather than a traditional resume, this platform allows users to have a conversation with my AI avatar, which can provide insights into my projects, career history, and experience. Built with Next.js, OpenAI, Amazon Polly, and Three.js, the avatar responds to voice input through microphone interaction, delivering answers with realistic speech. This was also my first time using Three.js, making it an exciting opportunity to integrate 3D visuals into the experience.',
+    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.CHATGPT, TECH_STACKS.THREEJS],
+    imageUrls: [
+      require("@/images/projects/3davatar/3davatar1.png"),
+      require("@/images/projects/3davatar/3davatar2.png"),
+    ],
+  }
 ];
 
 export default projects;
