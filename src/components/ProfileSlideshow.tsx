@@ -14,11 +14,15 @@ const ProfileSlideshow = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 200);
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    return () => clearInterval(intervalId);
+    if (!isSafari) {
+      const intervalId = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+      }, 200);
+
+      return () => clearInterval(intervalId);
+    }
   }, []);
 
   return (
