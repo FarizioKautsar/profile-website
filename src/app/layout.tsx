@@ -15,9 +15,48 @@ const yesevaOne = Yeseva_One({
 });
 
 export const metadata: Metadata = {
-  title: "Farizio - Web Developer",
-  description: "Hi, I'm Farizio! I build tools that empower businesses and communities. Need a web developer? I'm your guy!",
+  title: "Farizio Kautsar Heruzy - Web Developer & Designer",
+  description:
+    "Hi! I'm Farizio Kautsar Heruzy, a passionate web developer and designer. Explore my portfolio to see my interactive and engaging web projects. Need a web developer? I'm your guy!",
+  keywords: ["web developer", "frontend developer", "Next.js", "React", "portfolio"],
+  openGraph: {
+    title: "Farizio Kautsar Heruzy - Web Developer & Designer",
+    description: "Hi! I'm Farizio. Check out my web development projects and experiences.",
+    url: "https://farizio.io",
+    images: [
+      {
+        url: "/og-image.jpg", // Ensure this file is in your `/public` folder
+        width: 1200,
+        height: 630,
+        alt: "Farizio Kautsar Heruzy Portfolio",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farizio Kautsar Heruzy - Web Developer & Designer",
+    description: "Hi! I'm Farizio. Check out my web development projects and experiences.",
+    images: ["/og-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://farizio.io",
+  },
+  other: {
+    "script[type='application/ld+json']": JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: "Farizio Kautsar Heruzy",
+      jobTitle: "Web Developer",
+      url: "https://farizio.io",
+      sameAs: [
+        "https://github.com/FarizioKautsar",
+        "https://linkedin.com/in/FarizioKautsar",
+      ],
+    }),
+  },
 };
+
 
 export default function RootLayout({
   children,

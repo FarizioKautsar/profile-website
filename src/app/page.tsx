@@ -7,9 +7,7 @@ import {
   motion,
   useInView,
 } from "framer-motion";
-import { use, useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import ProfilePic from "@/images/ProfilePic.png";
+import { useEffect, useRef, useState } from "react";
 import DescribeMe from "./DescribeMe";
 import jobExperiences from "@/data/jobExperiences";
 import JobCard from "@/components/JobCard";
@@ -171,12 +169,11 @@ function Home() {
     };
   }, []);
 
-  const containerRef = useRef<HTMLDivElement>(null);
   const profilePicRef = useRef<HTMLDivElement>(null);
   const contactMeRef = useRef<HTMLDivElement>(null);
 
-  const profilePicVisible = useInView(profilePicRef, { amount: 'all' });
-  const contactMeVisible = useInView(contactMeRef, { amount: 'some' });
+  const profilePicVisible = useInView(profilePicRef, { amount: "all" });
+  const contactMeVisible = useInView(contactMeRef, { amount: "some" });
 
   const [showCta, setShowCta] = useState(false);
 
@@ -210,7 +207,6 @@ function Home() {
           window.innerHeight - mousePosition.y
         }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
       }}
-      ref={containerRef}
     >
       <CTAToast
         show={showCta}
@@ -253,7 +249,10 @@ function Home() {
           <span className="font-bold">my world</span>
         </div>
       </div>
-      <div className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-x-hidden" ref={profilePicRef}>
+      <div
+        className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-x-hidden"
+        ref={profilePicRef}
+      >
         <motion.div
           style={{
             marginTop: picMarginTop,
@@ -273,16 +272,16 @@ function Home() {
         </motion.div>
       </div>
       <div className="container mx-auto grid grid-cols-3">
-        <div className="col-span-3 md:col-span-2 h-dvh">
+        <section className="col-span-3 md:col-span-2 h-dvh">
           <p className="text-2xl mb-3">*pause*</p>
           <p className="text-4xl mb-8">Yep, that&apos;s me</p>
           <p className="text-4xl lg:text-8xl">
             People usually describe me as <DescribeMe />
           </p>
-        </div>
+        </section>
         <div />
         <div className="col-span-0 md:col-span-2" />
-        <div
+        <section
           className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1 w-full overflow-x-hidden"
           ref={jobExperiencesRef}
         >
@@ -290,8 +289,8 @@ function Home() {
           {jobExperiences.map((jobExperience, jeIdx) => (
             <JobCard jobExperience={jobExperience} key={jeIdx} />
           ))}
-        </div>
-        <div
+        </section>
+        <section
           className="min-h-dvh w-full text-left col-span-3 md:col-span-1"
           ref={educationsRef}
         >
@@ -307,9 +306,9 @@ function Home() {
               <EducationCard key={eIdx} education={education} />
             </motion.div>
           ))}
-        </div>
+        </section>
         <div className="col-span-2" />
-        <div
+        <section
           className="min-h-dvh text-left w-full z-20 col-span-3"
           ref={projectsRef}
         >
@@ -323,8 +322,11 @@ function Home() {
                 <ProjectCard project={project} key={pIdx} />
               ))}
           </div>
-        </div>
-        <div className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10" ref={contactMeRef}>
+        </section>
+        <section
+          className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10"
+          ref={contactMeRef}
+        >
           <h1 className="text-2xl mb-8 text-center">
             Interested in working together?
           </h1>
@@ -361,7 +363,7 @@ function Home() {
             </p>
             <InquiryForm />
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
