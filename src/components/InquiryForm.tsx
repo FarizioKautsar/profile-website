@@ -58,7 +58,6 @@ const InquiryForm: React.FC = () => {
     addDoc(collection(db, "inquiries"), payload)
       .then(() => {
         setTimeout(() => setHasSubmitted(true), 1000);
-        console.log("Inquiry successfully submitted!");
       })
       .catch((error) => {
         console.error("Error submitting inquiry: ", error);
