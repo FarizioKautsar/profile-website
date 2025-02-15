@@ -37,7 +37,7 @@ const Select: React.FC<SelectProps> = ({
         <select
           id={id}
           {...register}
-          className={`block w-full transition-all rounded-md bg-transparent text-gray-300 focus:outline-none border-yellow-600 border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 appearance-none ${
+          className={`block w-full transition-all rounded-md bg-transparent text-gray-300 focus:outline-none border-yellow-400 border shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm px-4 py-2 appearance-none ${
             error
               ? "!border-red-500 focus:border-red-500 focus:ring-red-500"
               : ""

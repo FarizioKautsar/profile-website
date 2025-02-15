@@ -8,7 +8,7 @@ interface XButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const XButton: React.FC<XButtonProps> = (props) => {
   return (
-    <button {...props} className={`p-2 text-neutral-400 border-neutral-300 flex items-center justify-center rounded-full ${props.className}`}>
+    <button {...props} className={`p-2 text-black border-neutral-300 flex items-center justify-center rounded-full ${props.className}`}>
       <RiCloseLine/>
     </button>
   );
@@ -42,12 +42,12 @@ export default function CTAToast({
     className="fixed flex items-center justify-center bottom-0 w-full z-50"
     {...bind() as any}
   >
-    <div className="bg-white p-2 flex flex-col md:flex-row items-center gap-3 rounded-[24px] md:rounded-full text-neutral-800 shadow-lg">
+    <div className="bg-yellow-400 p-2 flex flex-col md:flex-row items-center gap-3 text-neutral-800 shadow-lg">
       <div className="flex items-center md:flex-row-reverse">
-      <p className="ml-3 md:ml-0">Like what you see?</p>
+      <p className="ml-3 md:ml-0 font-bold">Like what you see?</p>
       <XButton onClick={onClose}/>
       </div>
-      <Button variant="secondary" className="rounded-full w-full md:w-fit" onClick={onClickAction}>Let&apos;s work together!</Button>
+      <Button className="w-full md:w-fit" onClick={onClickAction}>Let&apos;s work together!</Button>
     </div>
   </motion.div>
   )

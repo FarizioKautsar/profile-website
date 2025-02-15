@@ -4,7 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
-import { motion } from "framer-motion";
+import {
+  motion,
+  useAnimate,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import clsx from "clsx";
 // const CARD_WIDTH = 700;
 // const CARD_MARGIN = 24;
@@ -35,11 +41,51 @@ export default function JobCard({
     };
   }, []);
 
+  const [ref, animate] = useAnimate();
+
+  const mouseX = useMotionValue(150);
+  const mouseY = useMotionValue(150);
+
+  const springX = useSpring(mouseX, { stiffness: 300, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 300, damping: 20 });
+
+  const rotateX = useTransform(springY, [0, 300], [5, -5]);
+  const rotateY = useTransform(springX, [0, 300], [-5, 5]);
+
+  const opacity = useSpring(0, { stiffness: 300, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    const card = ref.current;
+    if (card) {
+      const rect = card.getBoundingClientRect();
+      mouseX.set(e.clientX - rect.left);
+      mouseY.set(e.clientY - rect.top);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    opacity.set(1);
+    setIsHovering(true);
+  };
+
+  const handleMouseLeave = () => {
+    opacity.set(0);
+    springX.set(150);
+    springY.set(150);
+    setIsHovering(false);
+  };
+
+  const background = useTransform([springX, springY], ([latestX, latestY]) => {
+    const gradientX = ref.current?.offsetWidth! - Number(latestX);
+    const gradientY = ref.current?.offsetHeight! - Number(latestY);
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(254, 249, 195, 0.2), transparent 80%)`;
+  });
+
   return (
     <div
       className="relative"
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       {/* <Modal
         // isOpen={isHovering}
@@ -131,12 +177,26 @@ export default function JobCard({
             </p>
           </div>
           <p className="text-xl font-bold">{jobExperience.jobTitle}</p>
-          <div
-            className={clsx(
-              "max-h-0 overflow-hidden transition-all duration-500 mt-4",
-              isHovering && "max-h-[900px] border border-yellow-400"
-            )}
+          <motion.div
+            layout
+            initial={{ height: 0, opacity: 0 }}
+            animate={{
+              height: isHovering ? "auto" : 0,
+              opacity: isHovering ? 1 : 0,
+            }}
+            ref={ref}
+            onMouseMove={handleMouseMove}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+            style={{ rotateX, rotateY, transformPerspective: 1800 }}
+            className="overflow-hidden mt-4 bg-yellow-400 text-black"
           >
+              <motion.div
+                className="absolute inset-0"
+                style={{
+                  background,
+                  opacity,
+                }}
+              />
             <div className="p-8">
               <div className="flex flex-col justify-between md:flex-row gap-4 mb-4">
                 {jobExperience.logoUrl && (
@@ -157,7 +217,7 @@ export default function JobCard({
                             href={tech.url}
                             rel="noopener noreferrer"
                           >
-                            {tech.icon({ size: 24, color: "white" })}
+                            {tech.icon({ size: 24 })}
                           </a>
                         </TooltipTrigger>
                         <TooltipContent>{tech.name}</TooltipContent>
@@ -175,7 +235,7 @@ export default function JobCard({
                 </div>
               )}
             </div>
-          </div>
+          </motion.div>
         </div>
       </motion.div>
     </div>
