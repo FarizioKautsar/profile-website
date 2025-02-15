@@ -80,7 +80,7 @@ export default function PackageCard({ pack }: { pack: ProjectPackage }) {
         ref={cardRef}
         className={clsx(
           "rounded-md border border-slate-300 overflow-hidden",
-          "bg-gradient-to-tr from-transparent to-blue-900/40",
+          "bg-gradient-to-tr from-transparent to-yellow-900/40",
           "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
           "hover:cursor-pointer p-4"
         )}

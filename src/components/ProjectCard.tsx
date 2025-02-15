@@ -16,6 +16,7 @@ export default function ProjectCard({ project }: { project: Project }) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalExiting, setIsModalExiting] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
 
   const mouseX = useMotionValue(150);
   const mouseY = useMotionValue(150);
@@ -41,12 +42,13 @@ export default function ProjectCard({ project }: { project: Project }) {
   const background = useTransform([springX, springY], ([latestX, latestY]) => {
     const gradientX = cardRef.current?.offsetWidth! - Number(latestX);
     const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
-    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`;
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(254, 249, 195, 0.2), transparent 80%)`;
   });
 
   const handleMouseEnter = () => {
     opacity.set(1);
     scale.set(1.1);
+    setIsHovering(true);
   };
 
   const handleMouseLeave = () => {
@@ -54,6 +56,7 @@ export default function ProjectCard({ project }: { project: Project }) {
     opacity.set(0);
     springX.set(150);
     springY.set(150);
+    setIsHovering(false);
   };
 
   const handleCardClick = () => {
@@ -73,10 +76,10 @@ export default function ProjectCard({ project }: { project: Project }) {
       <motion.div
         ref={cardRef}
         className={clsx(
-          "rounded-md border border-slate-300 overflow-hidden",
-          "bg-gradient-to-tr from-transparent to-blue-900/40",
+          "hover:border hover:border-yellow-400 overflow-hidden",
+          // "bg-gradient-to-tr from-transparent to-yellow-900/40",
           "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
-          "hover:cursor-pointer"
+          "hover:cursor-pointer h-72"
         )}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
@@ -90,6 +93,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           transformPerspective: 1000,
         }}
       >
+        {/* Hover Gloss Effect */}
         <motion.div
           className="absolute inset-0"
           style={{
@@ -97,20 +101,23 @@ export default function ProjectCard({ project }: { project: Project }) {
             opacity,
           }}
         />
-        {project.imageUrls && (
-          <Image
-            src={project.imageUrls[0]}
-            alt={project.name}
-            // height={200}
-            className="h-52"
-            style={{
-              objectFit: "cover",
-            }}
-          />
-        )}
-        <div className="p-3">
+        <div className={clsx("transition-all duration-300 relative h-72", isHovering && "!h-0")}>
+          {project.imageUrls && (
+            <Image
+              src={project.imageUrls[0]}
+              alt={project.name}
+              fill
+              className="h-52"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          )}
+        </div>
+        <div className={clsx("h-72 bg-yellow-300 text-black p-8 flex flex-col")}>
           <div className="text-2xl font-bold">{project.name}</div>
           <div>{project.subTitle}</div>
+          <div className="flex-1 mt-4">{project.shortDescription}</div>
         </div>
       </motion.div>
       <AnimatePresence>

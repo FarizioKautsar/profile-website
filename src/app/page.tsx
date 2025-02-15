@@ -6,6 +6,7 @@ import {
   useTransform,
   motion,
   useInView,
+  useMotionValue,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import DescribeMe from "./DescribeMe";
@@ -111,16 +112,16 @@ function Home() {
     [0, 1, 1, 0]
   );
 
-  const x = useTransform(
-    scrollY,
-    [
-      window.innerHeight * 2,
-      jobExperiencesOffsetTop,
-      educationsOffsetTop,
-      projectsOffsetTop,
-    ],
-    [100, -200, 200, 100]
-  );
+  // const x = useTransform(
+  //   scrollY,
+  //   [
+  //     window.innerHeight * 2,
+  //     jobExperiencesOffsetTop,
+  //     educationsOffsetTop,
+  //     projectsOffsetTop,
+  //   ],
+  //   [100, -200, 200, 100]
+  // );
 
   const [blurVal, setBlurVal] = useState(0);
   const [picBlurVal, setPicBlurVal] = useState(0);
@@ -142,19 +143,19 @@ function Home() {
     requestAnimationFrame(raf);
   }, []);
 
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  // const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-  // Update the mouse position state on mouse move
-  const handleMouseMove = (e: MouseEvent) => {
-    setMousePosition({ x: e.pageX, y: e.pageY });
-  };
+  // // Update the mouse position state on mouse move
+  // const handleMouseMove = (e: MouseEvent) => {
+  //   setMousePosition({ x: e.pageX, y: e.pageY });
+  // };
 
-  useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("mousemove", handleMouseMove);
+  //   return () => {
+  //     window.removeEventListener("mousemove", handleMouseMove);
+  //   };
+  // }, []);
 
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
@@ -194,19 +195,19 @@ function Home() {
   return (
     <div
       className="relative w-screen"
-      style={{
-        background: `radial-gradient(circle at ${mousePosition.x}px ${
-          mousePosition.y
-        }px, rgba(91, 69, 231, 0.215), transparent 80%), radial-gradient(circle at ${
-          mousePosition.x
-        }px ${
-          mousePosition.y
-        }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
-          window.innerWidth - mousePosition.x
-        }px ${
-          window.innerHeight - mousePosition.y
-        }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
-      }}
+      // style={{
+      //   background: `radial-gradient(circle at ${mousePosition.x}px ${
+      //     mousePosition.y
+      //   }px, rgba(91, 69, 231, 0.215), transparent 80%), radial-gradient(circle at ${
+      //     mousePosition.x
+      //   }px ${
+      //     mousePosition.y
+      //   }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
+      //     window.innerWidth - mousePosition.x
+      //   }px ${
+      //     window.innerHeight - mousePosition.y
+      //   }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+      // }}
     >
       <CTAToast
         show={showCta}
@@ -234,7 +235,7 @@ function Home() {
                   delay: (lIdx + 5) * 0.1,
                   duration: 0.5,
                 }}
-                className="mx-0 hover:!mx-5 ease-in-out duration-300 transition-all"
+                className="mx-0 hover:!mx-5 ease-in-out duration-300 transition-all text-yellow-400"
               >
                 {letter}
               </motion.span>
@@ -246,7 +247,7 @@ function Home() {
         <div className="container mx-auto px-4 text-4xl lg:text-9xl text-center">
           <span>welcome to</span>
           <br />
-          <span className="font-bold">my world</span>
+          <span className="font-bold text-yellow-400">my world</span>
         </div>
       </div>
       <div
@@ -258,7 +259,7 @@ function Home() {
             marginTop: picMarginTop,
             filter: `blur(${isMobile ? picBlurMobile : picBlurVal}px)`,
             opacity: (isMobile ? picOpacityMobile : picOpacity) || 0,
-            x,
+            // x,
           }}
           className="relative w-50 h-full"
         >
@@ -279,91 +280,98 @@ function Home() {
             People usually describe me as <DescribeMe />
           </p>
         </section>
-        <div />
-        <div className="col-span-0 md:col-span-2" />
-        <section
-          className="min-h-dvh md:text-right z-20 col-span-3 md:col-span-1 w-full overflow-x-hidden"
-          ref={jobExperiencesRef}
-        >
-          <p className="text-4xl mb-3 font-serif">Where Have I Left My Mark?</p>
-          {jobExperiences.map((jobExperience, jeIdx) => (
-            <JobCard jobExperience={jobExperience} key={jeIdx} />
-          ))}
-        </section>
-        <section
-          className="min-h-dvh w-full text-left col-span-3 md:col-span-1"
-          ref={educationsRef}
-        >
-          <p className="text-4xl mb-3 font-serif">And What Brought Me Here?</p>
-          {educations.map((education, eIdx) => (
-            <motion.div
-              key={eIdx}
-              initial={{ x: "-100%", opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              viewport={{ once: true }}
-              className="pointer-events-auto"
-            >
-              <EducationCard key={eIdx} education={education} />
-            </motion.div>
-          ))}
-        </section>
-        <div className="col-span-2" />
-        <section
-          className="min-h-dvh text-left w-full z-20 col-span-3"
-          ref={projectsRef}
-        >
-          <p className="text-4xl mb-8 font-serif text-center">
-            Check out my works!
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {projects
-              .sort((p1, p2) => p2.yearFrom - p1.yearFrom)
-              .map((project, pIdx) => (
-                <ProjectCard project={project} key={pIdx} />
+      </div>
+      <div className="bg-neutral-800 z-50 sticky top-0 w-full py-12">
+        <div className="container mx-auto space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+            <section ref={jobExperiencesRef}>
+              <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+              <p className="text-4xl mb-3 font-serif">
+                Where Have I Left My Mark?
+              </p>
+              {jobExperiences.map((jobExperience, jeIdx) => (
+                <JobCard
+                  jobExperience={jobExperience}
+                  key={jeIdx}
+                  isLast={jobExperiences.length === jeIdx + 1}
+                />
               ))}
+            </section>
+            <section ref={educationsRef}>
+              <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+              <p className="text-4xl mb-3 font-serif">
+                And What Brought Me Here?
+              </p>
+              {educations.map((education, eIdx) => (
+                <motion.div
+                  key={eIdx}
+                  initial={{ x: "-100%", opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  viewport={{ once: true }}
+                  className="pointer-events-auto"
+                >
+                  <EducationCard key={eIdx} education={education} isLast={educations.length === eIdx + 1} />
+                </motion.div>
+              ))}
+            </section>
           </div>
-        </section>
-        <section
-          className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10"
-          ref={contactMeRef}
-        >
-          <h1 className="text-2xl mb-8 text-center">
-            Interested in working together?
-          </h1>
-          <div>
-            <p className="font-serif text-3xl mb-8 w-full text-center">
-              Feel free to get in touch!
-            </p>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              <ContactLink
-                href="https://github.com/FarizioKautsar"
-                label="GitHub"
-                icon={FaGithub}
-              />
-              <ContactLink
-                href="mailto:kheruzy@gmail.com"
-                label="Email Me"
-                icon={FaEnvelope}
-              />
-              <ContactLink
-                href="https://wa.me/6281282100255"
-                label="WhatsApp Me"
-                icon={FaWhatsapp}
-              />
-              <ContactLink
-                href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
-                label="View My CV"
-                icon={IoDocumentAttachOutline}
-              />
+          <section
+            className="min-h-dvh text-left w-full z-20 col-span-3"
+            ref={projectsRef}
+          >
+            <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+
+            <p className="text-4xl mb-8 font-serif ">Check out my works!</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {projects
+                .sort((p1, p2) => p2.yearFrom - p1.yearFrom)
+                .map((project, pIdx) => (
+                  <ProjectCard project={project} key={pIdx} />
+                ))}
             </div>
-          </div>
-          <div className="mt-8">
-            <p className="font-serif text-3xl mb-6 text-center w-full">
-              ...or tell me about your next big idea!
-            </p>
-            <InquiryForm />
-          </div>
-        </section>
+          </section>
+          <section
+            className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10"
+            ref={contactMeRef}
+          >
+            <h1 className="text-2xl mb-8 text-center">
+              Interested in working together?
+            </h1>
+            <div>
+              <p className="font-serif text-3xl mb-8 w-full text-center">
+                Feel free to get in touch!
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <ContactLink
+                  href="https://github.com/FarizioKautsar"
+                  label="GitHub"
+                  icon={FaGithub}
+                />
+                <ContactLink
+                  href="mailto:kheruzy@gmail.com"
+                  label="Email Me"
+                  icon={FaEnvelope}
+                />
+                <ContactLink
+                  href="https://wa.me/6281282100255"
+                  label="WhatsApp Me"
+                  icon={FaWhatsapp}
+                />
+                <ContactLink
+                  href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
+                  label="View My CV"
+                  icon={IoDocumentAttachOutline}
+                />
+              </div>
+            </div>
+            <div className="mt-8">
+              <p className="font-serif text-3xl mb-6 text-center w-full">
+                ...or tell me about your next big idea!
+              </p>
+              <InquiryForm />
+            </div>
+          </section>
+        </div>
       </div>
     </div>
   );

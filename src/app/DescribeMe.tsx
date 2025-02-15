@@ -28,7 +28,7 @@ export default function DescribeMe() {
             repeat: 99999,
           }}
           key={dIdx}
-          className="overflow-y-hidden font-bold font-serif"
+          className="overflow-y-hidden font-bold font-serif text-yellow-400"
         >
           {desc}.
         </motion.div>

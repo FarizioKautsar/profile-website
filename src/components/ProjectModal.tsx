@@ -53,7 +53,7 @@ const ProjectModal = ({
       data-lenis-ignore
     >
       <motion.div
-        className="backdrop-blur-md border border-neutral-300 bg-opacity-30 bg-black rounded-2xl p-8 z-40 overflow-hidden overflow-y-scroll"
+        className="backdrop-blur-md border border-yellow-400 bg-opacity-30 bg-black p-8 z-40 overflow-hidden overflow-y-scroll"
         onClick={(e) => e.stopPropagation()} // Prevent click from closing modal
         initial={{
           x: cardRect

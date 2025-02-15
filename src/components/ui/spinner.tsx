@@ -6,7 +6,7 @@ interface SpinnerProps {
   color?: string;
 }
 
-const Spinner: React.FC<SpinnerProps> = ({ size = "md", color = "text-blue-700" }) => {
+const Spinner: React.FC<SpinnerProps> = ({ size = "md", color = "text-yellow-700" }) => {
   const sizeClasses = {
     sm: "h-4 w-4 border-2",
     md: "h-6 w-6 border-4",

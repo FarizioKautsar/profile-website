@@ -72,7 +72,7 @@ export default function Modal({
   const background = useTransform([springX, springY], ([latestX, latestY]) => {
     const gradientX = ref.current?.offsetWidth! - Number(latestX);
     const gradientY = ref.current?.offsetHeight! - Number(latestY);
-    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`;
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(254, 249, 195, 0.2), transparent 80%)`;
   });
 
   return (
@@ -93,8 +93,8 @@ export default function Modal({
       />
       <div
         className={clsx(
-          "rounded-xl border-neutral-500 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4 z-50 text-left",
-          "bg-gradient-to-tr from-blue-900/40 to-black/60 border "
+          "border-yellow-400 transition-all duration-300 overflow-y-scroll scrollbar-hide p-4 z-50 text-left",
+          "bg-gradient-to-tr from-yello-900/40 to-black/60 border "
         )}
       >
         {children}
