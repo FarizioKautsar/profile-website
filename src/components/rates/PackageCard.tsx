@@ -44,7 +44,7 @@ export default function PackageCard({ pack }: { pack: ProjectPackage }) {
       const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
       return `radial-gradient(
         circle at ${gradientX}px ${gradientY}px,
-        rgba(152, 156, 231, 0.2),
+        rgba(254, 249, 195, 0.2),
         transparent 80%
       )`;
     }
@@ -79,8 +79,8 @@ export default function PackageCard({ pack }: { pack: ProjectPackage }) {
       <motion.div
         ref={cardRef}
         className={clsx(
-          "rounded-md border border-slate-300 overflow-hidden",
-          "bg-gradient-to-tr from-transparent to-yellow-900/40",
+          "border border-yellow-400 overflow-hidden",
+          // "bg-gradient-to-tr from-transparent to-yellow-900/40",
           "hover:scale-105 transition-all backdrop-blur-md hover:z-20 z-10",
           "hover:cursor-pointer p-4"
         )}

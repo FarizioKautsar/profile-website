@@ -9,30 +9,30 @@ import { BiChevronLeft } from "react-icons/bi";
 export default function RatesPage() {
   const [style, setStyle] = useState({});
 
-  useEffect(() => {
-    const getRandomPosition = () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-    });
+  // useEffect(() => {
+  //   const getRandomPosition = () => ({
+  //     x: Math.random() * window.innerWidth,
+  //     y: Math.random() * window.innerHeight,
+  //   });
 
-    const mousePosition = getRandomPosition();
+  //   const mousePosition = getRandomPosition();
 
-    const updatedStyle = {
-      background: `radial-gradient(circle at ${mousePosition.x}px ${
-        mousePosition.y
-      }px, rgba(91, 69, 231, 0.215), transparent 80%), 
-                   radial-gradient(circle at ${mousePosition.x}px ${
-        mousePosition.y
-      }px, rgba(53, 117, 219, 0.2), transparent 80%), 
-                   radial-gradient(circle at ${
-                     window.innerWidth - mousePosition.x
-                   }px ${
-        window.innerHeight - mousePosition.y
-      }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
-    };
+  //   const updatedStyle = {
+  //     background: `radial-gradient(circle at ${mousePosition.x}px ${
+  //       mousePosition.y
+  //     }px, rgba(91, 69, 231, 0.215), transparent 80%), 
+  //                  radial-gradient(circle at ${mousePosition.x}px ${
+  //       mousePosition.y
+  //     }px, rgba(53, 117, 219, 0.2), transparent 80%), 
+  //                  radial-gradient(circle at ${
+  //                    window.innerWidth - mousePosition.x
+  //                  }px ${
+  //       window.innerHeight - mousePosition.y
+  //     }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
+  //   };
 
-    setStyle(updatedStyle);
-  }, []);
+  //   setStyle(updatedStyle);
+  // }, []);
 
   const [isIndonesian, setIsIndonesian] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -79,7 +79,7 @@ export default function RatesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section>
-            <h2 className="text-xl font-semibold mb-2 font-serif">
+            <h2 className="text-yellow-400 text-xl font-semibold mb-2 font-serif">
               1. Hourly / Daily Rates
             </h2>
             <ul className="list-disc list-inside space-y-1">
@@ -100,7 +100,7 @@ export default function RatesPage() {
 
           {/* Project-Based Packages */}
           <section>
-            <h2 className="text-xl font-semibold mb-2 font-serif">
+            <h2 className="text-yellow-400 text-xl font-semibold mb-2 font-serif">
               2. Project-Based Packages
             </h2>
 
@@ -121,7 +121,7 @@ export default function RatesPage() {
 
           {/* Maintenance & Retainer Packages */}
           <section>
-            <h2 className="text-xl font-semibold mb-2 font-serif">
+            <h2 className="text-yellow-400 text-xl font-semibold mb-2 font-serif">
               3. Maintenance & Retainer Packages
             </h2>
             <ul className="list-disc list-inside space-y-2">
@@ -145,7 +145,7 @@ export default function RatesPage() {
 
           {/* Add-Ons / Extras */}
           <section>
-            <h2 className="text-xl font-semibold mb-2 font-serif">
+            <h2 className="text-yellow-400 text-xl font-semibold mb-2 font-serif">
               4. Add-Ons / Extras
             </h2>
             <ul className="list-disc list-inside space-y-1">
@@ -166,7 +166,7 @@ export default function RatesPage() {
 
         {/* Important Notes */}
         <section className="mt-8">
-          <h2 className="text-xl font-semibold mb-2 font-serif">
+          <h2 className="text-yellow-400 text-xl font-semibold mb-2 font-serif">
             Important Notes
           </h2>
           <ul className="list-disc list-inside space-y-2">
