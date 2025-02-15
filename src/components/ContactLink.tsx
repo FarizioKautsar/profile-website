@@ -46,14 +46,14 @@ export default function ContactLink({ href, icon, label }: ContactLinkProps) {
   const background = useTransform([springX, springY], ([latestX, latestY]) => {
     const gradientX = cardRef.current?.offsetWidth! - Number(latestX);
     const gradientY = cardRef.current?.offsetHeight! - Number(latestY);
-    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(152, 156, 231, 0.2), transparent 80%)`;
+    return `radial-gradient(circle at ${gradientX}px ${gradientY}px, rgba(254, 249, 195, 0.2), transparent 80%)`;
   });
   return (
     <motion.a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className={`flex flex-col items-center justify-center px-4 py-8 text-white transition rounded-xl border border-neutral-300 w-full text-center gap-3`}
+      className={`flex flex-col items-center justify-center px-4 py-8 text-white transition border border-yellow-400 w-full text-center gap-3`}
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}

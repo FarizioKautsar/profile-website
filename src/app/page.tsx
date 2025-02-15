@@ -39,18 +39,33 @@ function Home() {
   const projectsRef = useRef<HTMLDivElement>(null);
 
   const [projectsOffsetTop, setProjectsOffsetTop] = useState<number>(0);
-  const [educationsOffsetTop, setEducationsOffsetTop] = useState<number>(0);
+  // const [educationsOffsetTop, setEducationsOffsetTop] = useState<number>(0);
   const [jobExperiencesOffsetTop, setJobExperiencesOffsetTop] =
     useState<number>(0);
+
+  const [showSlideshow, setShowSlideshow] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (jobExperiencesRef.current) {
+        const jobExperiencesTop =
+          jobExperiencesRef.current.getBoundingClientRect().top;
+        setShowSlideshow(jobExperiencesTop > 0); // Hide when it reaches the top
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const calculateOffset = () => {
       if (projectsRef.current) {
         setProjectsOffsetTop(projectsRef.current.offsetTop);
       }
-      if (educationsRef.current) {
-        setEducationsOffsetTop(educationsRef.current.offsetTop);
-      }
+      // if (educationsRef.current) {
+      //   setEducationsOffsetTop(educationsRef.current.offsetTop);
+      // }
       if (jobExperiencesRef.current) {
         setJobExperiencesOffsetTop(jobExperiencesRef.current.offsetTop);
       }
@@ -254,23 +269,25 @@ function Home() {
         className="sticky top-0 h-dvh w-full flex flex-col justify-center overflow-x-hidden"
         ref={profilePicRef}
       >
-        <motion.div
-          style={{
-            marginTop: picMarginTop,
-            filter: `blur(${isMobile ? picBlurMobile : picBlurVal}px)`,
-            opacity: (isMobile ? picOpacityMobile : picOpacity) || 0,
-            // x,
-          }}
-          className="relative w-50 h-full"
-        >
-          {/* <Image
+        {showSlideshow && (
+          <motion.div
+            style={{
+              marginTop: picMarginTop,
+              filter: `blur(${isMobile ? picBlurMobile : picBlurVal}px)`,
+              opacity: (isMobile ? picOpacityMobile : picOpacity) || 0,
+              // x,
+            }}
+            className="relative w-50 h-full"
+          >
+            {/* <Image
             src={ProfilePic.src}
             fill
             alt="Farizio Kautsar Heruzy"
             className="!grayscale overflow-visible object-cover md:object-contain"
           /> */}
-          <ProfileSlideshow />
-        </motion.div>
+            <ProfileSlideshow />
+          </motion.div>
+        )}
       </div>
       <div className="container mx-auto grid grid-cols-3">
         <section className="col-span-3 md:col-span-2 h-dvh">
@@ -310,7 +327,11 @@ function Home() {
                   viewport={{ once: true }}
                   className="pointer-events-auto"
                 >
-                  <EducationCard key={eIdx} education={education} isLast={educations.length === eIdx + 1} />
+                  <EducationCard
+                    key={eIdx}
+                    education={education}
+                    isLast={educations.length === eIdx + 1}
+                  />
                 </motion.div>
               ))}
             </section>
