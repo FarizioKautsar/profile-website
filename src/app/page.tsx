@@ -25,6 +25,8 @@ import { IoDocumentAttachOutline } from "react-icons/io5";
 import InquiryForm from "@/components/InquiryForm";
 import ProfileSlideshow from "@/components/ProfileSlideshow";
 import CTAToast from "@/components/CTAToast";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 
 function Home() {
   const { scrollY } = useScroll();
@@ -207,23 +209,65 @@ function Home() {
     setShowCta(false);
   }
 
+  const parallax1 = useTransform(scrollY, [0, 4000], [0, 1500]);
+  const parallax2 = useTransform(scrollY, [0, 4000], [0, 1300]);
+  const parallax3 = useTransform(scrollY, [0, 4000], [0, 1000]);
+  const parallax4 = useTransform(scrollY, [0, 4000], [0, 800]);
+
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const shownProjects = isMobile ? showAllProjects ? projects : projects.slice(0, 3) : projects;
+
   return (
-    <div
-      className="relative w-screen"
-      // style={{
-      //   background: `radial-gradient(circle at ${mousePosition.x}px ${
-      //     mousePosition.y
-      //   }px, rgba(91, 69, 231, 0.215), transparent 80%), radial-gradient(circle at ${
-      //     mousePosition.x
-      //   }px ${
-      //     mousePosition.y
-      //   }px, rgba(53, 117, 219, 0.2), transparent 80%), radial-gradient(circle at ${
-      //     window.innerWidth - mousePosition.x
-      //   }px ${
-      //     window.innerHeight - mousePosition.y
-      //   }px, rgba(114, 53, 219, 0.2), transparent 80%)`,
-      // }}
-    >
+    <div>
+      <div className="max-w-screen overflow-x-hidden hidden md:block">
+        <motion.div
+          className="absolute -z-50 top-[2000px] right-96 size-96 opacity-15"
+          style={{ y: parallax1 }}
+        >
+          <Image
+            src="/decoratives/lines_bright.svg"
+            alt="Decorative Lines Bright"
+            layout="fill"
+            objectFit="cover"
+          />
+        </motion.div>
+
+        <motion.div
+          className="absolute -z-50 top-72 left-96 size-[960px]"
+          style={{ y: parallax2 }}
+        >
+          <Image
+            src="/decoratives/lines.svg"
+            alt="Decorative Lines"
+            layout="fill"
+            objectFit="cover"
+          />
+        </motion.div>
+
+        <motion.div
+          className="absolute -z-50 top-96 right-96 size-96 opacity-15"
+          style={{ y: parallax3 }}
+        >
+          <Image
+            src="/decoratives/polka_bright.svg"
+            alt="Decorative Polka Bright"
+            layout="fill"
+            objectFit="cover"
+          />
+        </motion.div>
+
+        <motion.div
+          className="absolute -z-50 top-[3000px] left-96 size-96"
+          style={{ y: parallax4 }}
+        >
+          <Image
+            src="/decoratives/polka.svg"
+            alt="Decorative Polka"
+            layout="fill"
+            objectFit="cover"
+          />
+        </motion.div>
+      </div>
       <CTAToast
         show={showCta}
         onClose={handleCloseCta}
@@ -274,7 +318,7 @@ function Home() {
             style={{
               marginTop: picMarginTop,
               filter: `blur(${isMobile ? picBlurMobile : picBlurVal}px)`,
-              opacity: (isMobile ? picOpacityMobile : picOpacity) || 0,
+              opacity: picOpacity || 0,
               // x,
             }}
             className="relative w-50 h-full"
@@ -298,61 +342,97 @@ function Home() {
           </p>
         </section>
       </div>
-      <div className="bg-neutral-800 z-50 sticky top-0 w-full py-12">
-        <div className="container mx-auto space-y-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-            <section ref={jobExperiencesRef}>
-              <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
-              <p className="text-4xl mb-3 font-serif">
-                Where Have I Left My Mark?
-              </p>
-              {jobExperiences.map((jobExperience, jeIdx) => (
-                <JobCard
-                  jobExperience={jobExperience}
-                  key={jeIdx}
-                  isLast={jobExperiences.length === jeIdx + 1}
-                />
-              ))}
-            </section>
-            <section ref={educationsRef}>
-              <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
-              <p className="text-4xl mb-3 font-serif">
-                And What Brought Me Here?
-              </p>
-              {educations.map((education, eIdx) => (
-                <motion.div
-                  key={eIdx}
-                  initial={{ x: "-100%", opacity: 0 }}
-                  whileInView={{ x: 0, opacity: 1 }}
-                  viewport={{ once: true }}
-                  className="pointer-events-auto"
-                >
-                  <EducationCard
-                    key={eIdx}
-                    education={education}
-                    isLast={educations.length === eIdx + 1}
+      <div className="bg-neutral-800 z-10 sticky top-0 w-full">
+        <div className="">
+          <div className="relative overflow-hidden">
+            <div className="absolute inset-0 flex flex-col justify-center items-start text-5xl md:text-8xl font-serif bg-no-repeat bg-center bg-cover bg-fixed -z-50 text-stroke-1 text-stroke-white text-transparent opacity-15">
+              {Array(isMobile ? 40 : 20)
+                .fill("EXPERIENCES")
+                .map((text, index) => (
+                  <div key={index}>{text}</div>
+                ))}
+            </div>
+            <div
+              className="absolute inset-0 bg-no-repeat bg-center bg-cover bg-fixed -z-50"
+              style={{
+                backgroundImage: `url('/decoratives/lines.svg')`,
+              }}
+            />
+
+            <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4 py-12">
+              <section ref={jobExperiencesRef}>
+                <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+                <p className="text-4xl mb-3 font-serif">
+                  Where Have I Left My Mark?
+                </p>
+                {jobExperiences.map((jobExperience, jeIdx) => (
+                  <JobCard
+                    jobExperience={jobExperience}
+                    key={jeIdx}
+                    isLast={jobExperiences.length === jeIdx + 1}
                   />
-                </motion.div>
-              ))}
+                ))}
+              </section>
+              <section ref={educationsRef}>
+                <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+                <p className="text-4xl mb-3 font-serif">
+                  And What Brought Me Here?
+                </p>
+                {educations.map((education, eIdx) => (
+                  <motion.div
+                    key={eIdx}
+                    initial={{ x: "-100%", opacity: 0 }}
+                    whileInView={{ x: 0, opacity: 1 }}
+                    viewport={{ once: true }}
+                    className="pointer-events-auto"
+                  >
+                    <EducationCard
+                      key={eIdx}
+                      education={education}
+                      isLast={educations.length === eIdx + 1}
+                    />
+                  </motion.div>
+                ))}
+              </section>
+            </div>
+          </div>
+          <div className="relative overflow-hidden">
+          <div className="absolute inset-0 flex flex-col justify-center items-end text-6xl md:text-8xl font-serif bg-no-repeat bg-center bg-cover bg-fixed -z-50 text-stroke-1 text-stroke-white text-transparent opacity-15">
+              {Array(isMobile && showAllProjects ? 50 : 20)
+                .fill("PROJECTS")
+                .map((text, index) => (
+                  <div key={index}>{text}</div>
+                ))}
+            </div>
+            <div
+              className="absolute inset-0 bg-no-repeat bg-center bg-cover bg-fixed -z-50"
+              style={{
+                backgroundImage: `url('/decoratives/lines_rotated.svg')`,
+              }}
+            />
+            <section
+              className="min-h-dvh text-left w-full z-20 container mx-auto py-12"
+              ref={projectsRef}
+            >
+              <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
+
+              <p className="text-4xl mb-8 font-serif ">Check out my works!</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {shownProjects
+                  .sort((p1, p2) => p2.yearFrom - p1.yearFrom)
+                  .map((project, pIdx) => (
+                    <ProjectCard project={project} key={pIdx} />
+                  ))}
+              </div>
+              <div className="md:hidden">
+                <Button className="mt-8 w-full" onClick={() => setShowAllProjects((prev) => !prev)}>
+                  {showAllProjects ? "Show Less" : "Show More"}
+                </Button>
+              </div>
             </section>
           </div>
           <section
-            className="min-h-dvh text-left w-full z-20 col-span-3"
-            ref={projectsRef}
-          >
-            <div className="w-1/4 md:w-1/6 lg:w-1/8 h-1 bg-yellow-400 mb-8" />
-
-            <p className="text-4xl mb-8 font-serif ">Check out my works!</p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {projects
-                .sort((p1, p2) => p2.yearFrom - p1.yearFrom)
-                .map((project, pIdx) => (
-                  <ProjectCard project={project} key={pIdx} />
-                ))}
-            </div>
-          </section>
-          <section
-            className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl mx-auto justify-center py-10"
+            className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl justify-center py-10 container mx-auto"
             ref={contactMeRef}
           >
             <h1 className="text-2xl mb-8 text-center">

@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        serif: ['var(--font-yeseva)', 'sans-serif']
+        serif: ["var(--font-yeseva)", "sans-serif"],
       },
       listStyleType: {
         disc: "disc",
@@ -78,16 +78,30 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textStrokeWidth: {
+        1: "1px",
+        2: "2px",
+      },
+      textStrokeColor: {
+        black: "black",
+        white: "white",
+      },
     },
   },
   plugins: [
     require("tailwindcss-animate"),
-    function ({ addBase }: any) {
+    function ({ addBase, addUtilities }: any) {
       addBase({
         ul: {
           listStyleType: "disc",
-          marginLeft: "1rem", // Optional: Adds default left margin
+          marginLeft: "1rem",
         },
+      });
+      addUtilities({
+        ".text-stroke-1": { "-webkit-text-stroke-width": "1px" },
+        ".text-stroke-2": { "-webkit-text-stroke-width": "2px" },
+        ".text-stroke-black": { "-webkit-text-stroke-color": "black" },
+        ".text-stroke-white": { "-webkit-text-stroke-color": "white" },
       });
     },
   ],

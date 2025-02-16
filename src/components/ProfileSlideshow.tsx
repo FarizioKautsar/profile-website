@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const ProfileSlideshow = () => {
   const images = [
-    "/profiles/profile1.png",
     "/profiles/profile2.png",
     "/profiles/profile3.png",
     "/profiles/profile4.png",
     "/profiles/profile5.png",
     "/profiles/profile6.png",
+    "/profiles/profile1.png",
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
