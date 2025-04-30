@@ -13,17 +13,17 @@ const ProfileSlideshow = () => {
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  useEffect(() => {
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  // useEffect(() => {
+  //   const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    if (!isSafari) {
-      const intervalId = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 200);
+  //   if (!isSafari) {
+  //     const intervalId = setInterval(() => {
+  //       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  //     }, 200);
 
-      return () => clearInterval(intervalId);
-    }
-  }, []);
+  //     return () => clearInterval(intervalId);
+  //   }
+  // }, []);
 
   return (
     <Image
