@@ -3,6 +3,33 @@ import TECH_STACKS from "./techStacks";
 
 const jobExperiences: JobExperience[] = [
   {
+    companyName: "LifeformAI",
+    jobTitle: "Front End Developer Intern",
+    startDate: new Date("2025-02-01"),
+    endDate: new Date("2025-04-30"),
+    location: "Sydney, Australia · Remote",
+    logoUrl: "https://chat.lifeformai.com/favicon.ico",
+    jobDescription:
+      "* Built a 3D chatbot avatar named Atlas, integrated with ChatGPT and Gemini to enable natural, AI-driven conversations ([chat.lifeformai.com](https://chat.lifeformai.com)).\n" +
+      "* Developed realistic lip sync using Oculus Visemes and voice synthesis with Azure Speech and Amazon Polly.\n" +
+      "* Animated the avatar using Mixamo and rendered it in the browser with Three.js, creating a highly interactive experience.\n" +
+      "* The product is still under construction and being actively improved.",
+    skills: [
+      "Three.js",
+      "3D Animation",
+      "Speech Synthesis",
+      "AI Integration",
+      "Web Development"
+    ],
+    techStack: [
+      TECH_STACKS.THREEJS,
+      TECH_STACKS.NEXTJS,
+      TECH_STACKS.TAILWIND,
+      TECH_STACKS.GEMINI,
+      TECH_STACKS.AZURE_SPEECH,
+    ]
+  },
+  {
     companyName: "Kotakode Labs",
     jobTitle: "Full Stack Developer and Project Tech Lead",
     startDate: new Date("2023-02-01"),

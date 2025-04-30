@@ -24,6 +24,8 @@ import {
 } from "react-icons/si";
 import { BiLogoPostgresql, BiLogoSpringBoot } from "react-icons/bi";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { RiGeminiFill } from "react-icons/ri";
+import { VscAzure } from "react-icons/vsc";
 
 const TECH_STACKS = {
   NEXTJS: {
@@ -114,7 +116,7 @@ const TECH_STACKS = {
     name: "ChatGPT",
     icon: IoChatbubbleEllipsesOutline,
     url: "https://chatgpt.com/",
-    type: ["BACKEND"],
+    type: ["AI"],
   } as TechStack,
   JAVA: {
     name: "Java",
@@ -163,7 +165,19 @@ const TECH_STACKS = {
     icon: SiThreedotjs,
     url: "https://threejs.org/",
     type: ["FRONTEND"],
-  } as TechStack
+  } as TechStack,
+  GEMINI: {
+    name: "Gemini",
+    icon: RiGeminiFill,
+    url: "https://gemini.google.com/",
+    type: ["AI"],
+  } as TechStack,
+  AZURE_SPEECH: {
+    name: "Azure Speech",
+    icon: VscAzure,
+    url: "https://azure.microsoft.com/en-us/products/ai-services/ai-speech/",
+    type: ["AI"],
+  } as TechStack,
 };
 
 export default TECH_STACKS;
