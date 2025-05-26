@@ -3,14 +3,14 @@ import TECH_STACKS from "./techStacks";
 
 const jobExperiences: JobExperience[] = [
   {
-    companyName: "LifeformAI",
+    companyName: "AI Sport Coaching Company",
     jobTitle: "Front End Developer Intern",
     startDate: new Date("2025-02-01"),
     endDate: new Date("2025-04-30"),
     location: "Sydney, Australia · Remote",
     logoUrl: "https://chat.lifeformai.com/favicon.ico",
     jobDescription:
-      "* Built a 3D chatbot avatar named Atlas, integrated with ChatGPT and Gemini to enable natural, AI-driven conversations ([chat.lifeformai.com](https://chat.lifeformai.com)).\n" +
+      "* Built a 3D chatbot avatar, integrated with ChatGPT and Gemini to enable natural, AI-driven conversations.\n" +
       "* Developed realistic lip sync using Oculus Visemes and voice synthesis with Azure Speech and Amazon Polly.\n" +
       "* Animated the avatar using Mixamo and rendered it in the browser with Three.js, creating a highly interactive experience.\n" +
       "* The product is still under construction and being actively improved.",
