@@ -3,10 +3,9 @@ import TECH_STACKS from "./techStacks";
 
 const jobExperiences: JobExperience[] = [
   {
-    companyName: "AI Sport Coaching Company",
-    jobTitle: "Front End Developer Intern",
+    companyName: "LifeformAI",
+    jobTitle: "Front End Developer Intern and Contractor",
     startDate: new Date("2025-02-01"),
-    endDate: new Date("2025-04-30"),
     location: "Sydney, Australia · Remote",
     logoUrl: "https://chat.lifeformai.com/favicon.ico",
     jobDescription:
