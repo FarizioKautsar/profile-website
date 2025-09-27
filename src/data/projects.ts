@@ -241,7 +241,7 @@ The website was built using modern technologies, including Expo for the front-en
   {
     name: "SweetSpots",
     shortDescription: "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
-    description: `SweetSpots is a travelling app where users can find local spots and hidden gems by swiping through them Tinder-style. Users can swipe right to like a spot, or swipe left to skip it. If they like a spot, they can save it to their list of favorite spots. Users can also auto-build itinerary with the places that they liked. This business/app is part of my FastTrack startup class in Monash University.`,
+    description: `SweetSpots is a travelling app where users can find local spots and hidden gems by swiping through them Tinder-style. Users can swipe right to like a spot, or swipe left to skip it. If they like a spot, they can save it to their list of favorite spots. Users can also auto-build itinerary with the places that they liked. This business/app is part of my Fastrack startup class in Monash University.`,
     subTitle: "Travelling App",
     client: "My Team",
     yearFrom: 2025,
@@ -255,7 +255,7 @@ The website was built using modern technologies, including Expo for the front-en
     imageUrls: [
       require("@/images/projects/sweetspots/sweetspots1.png"),
       require("@/images/projects/sweetspots/sweetspots2.png"),
-      // require("@/images/projects/sweetspots/sweetspots3.png"),
+      require("@/images/projects/sweetspots/sweetspots3.png"),
     ],
   }
 ];
