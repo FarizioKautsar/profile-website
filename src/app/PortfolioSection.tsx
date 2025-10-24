@@ -3,8 +3,6 @@ import { default as projectsData } from "@/data/projects";
 export default function PortfolioSection() {
   const projects = [
     ...projectsData,
-    ...projectsData,
-    ...projectsData,
   ];
   return (
     <div className="w-full h-screen py-36">

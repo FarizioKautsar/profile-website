@@ -159,6 +159,17 @@ const ProjectModal = ({
                   </Button>
                 </a>
               )}
+                            {project.appUrl && (
+                <a
+                  target="_blank"
+                  href={project.appUrl}
+                  rel="noopener noreferrer"
+                >
+                  <Button color="white">
+                    {project.ctaLabel || "Visit App"}
+                  </Button>
+                </a>
+              )}
             </div>
           </div>
         </div>

@@ -206,7 +206,7 @@ The website was built using modern technologies, including Expo for the front-en
     client: "Myself",
     yearFrom: 2025,
     yearTo: 2025,
-    websiteUrl: "https://chat.farizio.io",
+    websiteUrl: "https://chat.farizio.dev",
     description:
       "I recently developed an interactive AI-powered portfolio to showcase my work in a more engaging way. Rather than a traditional resume, this platform allows users to have a conversation with my AI avatar, which can provide insights into my projects, career history, and experience. Built with Next.js, OpenAI, Amazon Polly, and Three.js, the avatar responds to voice input through microphone interaction, delivering answers with realistic speech. This was also my first time using Three.js, making it an exciting opportunity to integrate 3D visuals into the experience.",
     techStack: [
@@ -225,11 +225,16 @@ The website was built using modern technologies, including Expo for the front-en
     shortDescription: "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
     description: `SweetSpots is a travelling app where users can find local spots and hidden gems by swiping through them Tinder-style. Users can swipe right to like a spot, or swipe left to skip it. If they like a spot, they can save it to their list of favorite spots. Users can also auto-build itinerary with the places that they liked. This business/app is part of my Fastrack startup class in Monash University.`,
     subTitle: "Travelling App",
-    client: "My Team",
+    client: "My Fastrack Team",
     yearFrom: 2025,
     websiteUrl: "https://sweetspotsapp.com",
+    appUrl: "https://app.sweetspotsapp.com",
     techStack: [
       TECH_STACKS.NEXTJS,
+      TECH_STACKS.REACT_NATIVE,
+      TECH_STACKS.EXPO,
+      TECH_STACKS.NESTJS,
+      TECH_STACKS.CHATGPT,
       TECH_STACKS.TAILWIND,
       TECH_STACKS.SHADCN,
       TECH_STACKS.POSTGRESQL,

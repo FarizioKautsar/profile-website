@@ -419,8 +419,13 @@ function Home() {
               <p className="text-4xl mb-8 font-serif ">Check out my works!</p>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {shownProjects
-                  .sort((p1, p2) => p2.yearFrom - p1.yearFrom)
-                  .map((project, pIdx) => (
+                  .map((project, idx) => ({ project, idx }))
+                  .sort((a, b) => {
+                    const yearDiff = b.project.yearFrom - a.project.yearFrom;
+                    if (yearDiff !== 0) return yearDiff;
+                    return b.idx - a.idx;
+                  })
+                  .map(({ project }, pIdx) => (
                     <ProjectCard project={project} key={pIdx} />
                   ))}
               </div>

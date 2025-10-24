@@ -40,12 +40,14 @@ export type Project = {
   shortDescription?: string;
   description?: string | React.ReactNode;
   websiteUrl?: string;
+  appUrl?: string;
   githubUrl?: string;
   yearFrom: number;
   yearTo?: number;
   techStack: TechStack[];
   imageUrls?: string[];
   ctaLabel?: string;
+  ctaAppLabel?: string;
 }
 
 export type ProjectPackage = {
