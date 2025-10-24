@@ -178,6 +178,12 @@ const TECH_STACKS = {
     url: "https://azure.microsoft.com/en-us/products/ai-services/ai-speech/",
     type: ["AI"],
   } as TechStack,
+  RECHART: {
+    name: "Rechart",
+    icon: RiReactjsFill,
+    url: "https://recharts.github.io/",
+    type: ["FRONTEND", "DATA_VISUALISATION"],
+  } as TechStack,
 };
 
 export default TECH_STACKS;

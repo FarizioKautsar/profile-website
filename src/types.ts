@@ -5,7 +5,7 @@ export type TechStack = {
   logoUrl?: string;
   url?: string;
   icon: IconType;
-  type: ("BACKEND" | "FRONTEND" | "FULLSTACK" | "UTILITY" | "UI_FRAMEWORK" | "MOBILE" | "DATABASE" | "DESIGN" | "UI/UX" | "AI")[]
+  type: ("BACKEND" | "FRONTEND" | "FULLSTACK" | "UTILITY" | "UI_FRAMEWORK" | "MOBILE" | "DATABASE" | "DESIGN" | "UI/UX" | "AI" | "DATA_VISUALISATION")[]
 }
 
 export type JobExperience = {

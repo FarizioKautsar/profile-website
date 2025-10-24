@@ -221,6 +221,26 @@ The website was built using modern technologies, including Expo for the front-en
     ],
   },
   {
+    name: "The Journey of Music",
+    shortDescription:
+      "The Journey of Music is an interactive web experience that explores the history and evolution of music through data visualization.",
+    description:
+      "The Journey of Music is my Data Visualisation Unit's final project at Monash University, built to explore the history and evolution of music. The web app allows users to interactively explore various aspects of music history, including genres, artists, and cultural influences, through engaging data visualizations. User can see how the popular genres changes from year to year, the profile of the most popular songs, which part of the world likes to listen to 'dancable' music, and many more. The project aims to provide an educational and entertaining experience for music enthusiasts and history buffs alike. All using Spotify's public dataset.",
+    client: "Monash University - Data Visualisation Project",
+    subTitle: "Interactive Music History Exploration",
+    yearFrom: 2025,
+    yearTo: 2025,
+    techStack: [
+      TECH_STACKS.REACTJS,
+      TECH_STACKS.NEXTJS,
+      TECH_STACKS.SHADCN,
+      TECH_STACKS.RECHART,
+    ],
+    websiteUrl: "https://dvp-project.vercel.app/",
+    githubUrl: "https://github.com/FarizioKautsar/dvp-project",
+    imageUrls: [require("@/images/projects/dvp/dvp1.png")],
+  },
+  {
     name: "SweetSpots",
     shortDescription:
       "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
