@@ -246,7 +246,7 @@ The website was built using modern technologies, including Expo for the front-en
       "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
     description: `SweetSpots is a travelling app where users can find local spots and hidden gems by swiping through them Tinder-style. Users can swipe right to like a spot, or swipe left to skip it. If they like a spot, they can save it to their list of favorite spots. Users can also auto-build itinerary with the places that they liked. This business/app is part of my Fastrack startup class in Monash University.`,
     subTitle: "Travelling App",
-    client: "My Fastrack Team",
+    client: "My Fastrack Team as CTO",
     yearFrom: 2025,
     websiteUrl: "https://sweetspotsapp.com",
     appUrl: "https://app.sweetspotsapp.com",
