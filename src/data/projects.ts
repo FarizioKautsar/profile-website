@@ -222,7 +222,8 @@ The website was built using modern technologies, including Expo for the front-en
   },
   {
     name: "SweetSpots",
-    shortDescription: "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
+    shortDescription:
+      "A travelling app where users can find local spots and hidden gems by swiping through them Tinder-style.",
     description: `SweetSpots is a travelling app where users can find local spots and hidden gems by swiping through them Tinder-style. Users can swipe right to like a spot, or swipe left to skip it. If they like a spot, they can save it to their list of favorite spots. Users can also auto-build itinerary with the places that they liked. This business/app is part of my Fastrack startup class in Monash University.`,
     subTitle: "Travelling App",
     client: "My Fastrack Team",
@@ -243,8 +244,34 @@ The website was built using modern technologies, including Expo for the front-en
       require("@/images/projects/sweetspots/sweetspots1.png"),
       require("@/images/projects/sweetspots/sweetspots2.png"),
       require("@/images/projects/sweetspots/sweetspots3.png"),
+      require("@/images/projects/sweetspots/sweetspots4.png"),
     ],
-  }
+  },
+  {
+    name: "HugHub",
+    shortDescription:
+      "HugHub is an AI-powered parenting app that helps families nurture healthier, happier kids. It tracks children's nutrition, mood, and daily habits while generating personalized recipes and insights using Australian Early Development Census (AEDC) and ABS data.",
+    description:
+      "HugHub is my Master's final project at Monash University, built to explore how data and AI can support child development. The app lets parents log meals, moods, and activities, then uses insights from the Australian Early Development Census (AEDC) and ABS datasets to provide personalized nutrition and wellbeing recommendations.",
+    client: "Monash University - Team HugHub",
+    subTitle: "Mood and Meal Tracking App for Parents",
+    yearFrom: 2025,
+    yearTo: 2025,
+    techStack: [
+      TECH_STACKS.REACT_NATIVE,
+      TECH_STACKS.EXPO,
+      TECH_STACKS.NESTJS,
+      TECH_STACKS.NESTJS,
+      TECH_STACKS.POSTGRESQL,
+    ],
+    appUrl: "https://hughubapp.com",
+    imageUrls: [
+      require("@/images/projects/hughub/hughub1.png"),
+      require("@/images/projects/hughub/hughub2.png"),
+      require("@/images/projects/hughub/hughub3.png"),
+      require("@/images/projects/hughub/hughub4.png"),
+    ],
+  },
 ];
 
 export default projects;
