@@ -172,7 +172,7 @@ const InquiryForm: React.FC = () => {
             register={register("timeline")}
             error={errors.timeline}
           />
-          <div className="md:col-span-3 -mt-3 mb-5 text-center">
+          {/* <div className="md:col-span-3 -mt-3 mb-5 text-center">
             <Link
               href="/rates"
               className="hover:underline"
@@ -180,7 +180,7 @@ const InquiryForm: React.FC = () => {
               <FaTag className="inline-block mr-2" />
               View rates & packages
             </Link>
-          </div>
+          </div> */}
         </div>
         <Textarea
           label="Project Description"

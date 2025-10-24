@@ -178,24 +178,6 @@ The website was built using modern technologies, including Expo for the front-en
     ctaLabel: "View in Figma",
   },
   {
-    name: "Counsely",
-    subTitle: "Consultation/Freelancing Platform",
-    shortDescription:
-      "Counsely is a website dedicated as a meeting point between clients and freelancer",
-    description: `I led a team of 3 in developing a website for a consultation platform company. Counsely was designed as a professional platform to connect clients with freelancers, offering a user-friendly experience. The platform allowed clients to post project or consultation requests and enabled freelancers to efficiently find opportunities that matched their skills, preferences, and rates.
-The website was built using modern technologies, including Expo for the front-end and Tailwind CSS for styling, ensuring a responsive and visually appealing design. It was also integrated with Xendit as the payment gateway, providing secure and seamless transactions for both clients and freelancers.`,
-    client: "KotakodeLabs - Counsely",
-    websiteUrl: "https://counsely.app/",
-    yearFrom: 2024,
-    yearTo: 2025,
-    techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.EXPO, TECH_STACKS.NESTJS],
-    imageUrls: [
-      require("@/images/projects/counsely/counsely1.png"),
-      require("@/images/projects/counsely/counsely2.png"),
-      require("@/images/projects/counsely/counsely3.png"),
-    ],
-  },
-  {
     name: "RantauReady",
     subTitle: "Website for Indonesian students in Melbourne",
     shortDescription:

@@ -20,7 +20,7 @@ import projects from "@/data/projects";
 import ProjectCard from "@/components/ProjectCard";
 import dynamic from "next/dynamic";
 import ContactLink from "@/components/ContactLink";
-import { FaEnvelope, FaGithub, FaWhatsapp } from "react-icons/fa";
+import { FaEnvelope, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { IoDocumentAttachOutline } from "react-icons/io5";
 import InquiryForm from "@/components/InquiryForm";
 import ProfileSlideshow from "@/components/ProfileSlideshow";
@@ -435,13 +435,13 @@ function Home() {
             className="min-h-dvh z-10 col-span-3 flex flex-col items-center max-w-3xl justify-center py-10 container mx-auto"
             ref={contactMeRef}
           >
-            <h1 className="text-2xl mb-8 text-center">
+            {/* <h1 className="text-2xl mb-8 text-center">
               Interested in working together?
-            </h1>
+            </h1> */}
             <div>
-              <p className="font-serif text-3xl mb-8 w-full text-center">
+              <h1 className="font-serif text-3xl mb-8 w-full text-center">
                 Feel free to get in touch!
-              </p>
+              </h1>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <ContactLink
                   href="https://github.com/FarizioKautsar"
@@ -454,9 +454,9 @@ function Home() {
                   icon={FaEnvelope}
                 />
                 <ContactLink
-                  href="https://wa.me/6281282100255"
-                  label="WhatsApp Me"
-                  icon={FaWhatsapp}
+                  href="https://www.linkedin.com/in/farizio-kautsar-heruzy/"
+                  label="LinkedIn"
+                  icon={FaLinkedin}
                 />
                 <ContactLink
                   href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
@@ -465,12 +465,12 @@ function Home() {
                 />
               </div>
             </div>
-            <div className="mt-8">
+            {/* <div className="mt-8">
               <p className="font-serif text-3xl mb-6 text-center w-full">
                 ...or tell me about your next big idea!
               </p>
               <InquiryForm />
-            </div>
+            </div> */}
           </section>
         </div>
       </div>
