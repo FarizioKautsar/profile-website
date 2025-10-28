@@ -464,7 +464,7 @@ function Home() {
                   icon={FaLinkedin}
                 />
                 <ContactLink
-                  href="https://docs.google.com/document/d/e/2PACX-1vSfkqU1matmxM9ONsbsjY_MRImRs9EAsiKDTXHogWORPbSk7G6hDwt7XazlA7TXPDrDqUu_bq8Y_jBT/pub"
+                  href="https://docs.google.com/document/d/e/2PACX-1vQLoybddGQRk5NduLexUmHe3c3loss5nQZ6VzrA-WHLaorCsXsXWwlQ9WUk3zwAd3YyefX7qSrXHL95/pub"
                   label="View My CV"
                   icon={IoDocumentAttachOutline}
                 />
