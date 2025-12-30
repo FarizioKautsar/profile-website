@@ -292,6 +292,28 @@ The website was built using modern technologies, including Expo for the front-en
       require("@/images/projects/hughub/hughub4.png"),
     ],
   },
+  // {
+  //   name: "Champion",
+  //   shortDescription: "Champion is LifeformAI's product where coaches can help athletes to improve their performance using AI.",
+  //   description:
+  //     "Champion is LifeformAI's product where coaches can help athletes to improve their performance using AI. As the Frontend Developer Intern and Contractor at LifeformAI, I was responsible for building the front-end and its backend (using Firebase) of Champion's web application. The web app allows coaches to create training programs, monitor athletes' progress, and provide personalized feedback using AI-driven insights. My role involved collaborating closely with the designer and the CEO to ensure a seamless user experience and robust functionality.",
+  //   subTitle: "AI-Powered Coaching Platform",
+  //   client: "LifeformAI - Champion",
+  //   yearFrom: 2025,
+  //   yearTo: 2025,
+  //   techStack: [
+  //     TECH_STACKS.NEXTJS,
+  //     TECH_STACKS.TAILWIND,
+  //     TECH_STACKS.FIREBASE,
+  //     TECH_STACKS.CHATGPT,
+  //   ],
+  //   imageUrls: [
+  //     require("@/images/projects/champion/champion1.png"),
+  //     require("@/images/projects/champion/champion2.png"),
+  //     require("@/images/projects/champion/champion3.png"),
+  //     require("@/images/projects/champion/champion4.png"),
+  //   ],
+  // }
 ];
 
 export default projects;

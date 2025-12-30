@@ -6,19 +6,21 @@ const jobExperiences: JobExperience[] = [
     companyName: "LifeformAI",
     jobTitle: "Front End Developer Intern and Contractor",
     startDate: new Date("2025-02-01"),
+    endDate: new Date("2025-11-30"),
     location: "Sydney, Australia · Remote",
     logoUrl: "https://chat.lifeformai.com/favicon.ico",
     jobDescription:
-      "* Built a 3D chatbot avatar, integrated with ChatGPT and Gemini to enable natural, AI-driven conversations.\n" +
-      "* Developed realistic lip sync using Oculus Visemes and voice synthesis with Azure Speech and Amazon Polly.\n" +
-      "* Animated the avatar using Mixamo and rendered it in the browser with Three.js, creating a highly interactive experience.\n" +
-      "* The product is still under construction and being actively improved.",
+      "* Built a 3D chatbot avatar integrated with VertexAI and Gemini for AI-driven conversations which garnered 100 sign ups from World Expo Tokyo 2025.\n" +
+      "* Animated using Mixamo and synced avatar lip movements using Oculus Visemes, Azure Speech, and Amazon Polly.\n" +
+      "* Integrated payment for user subscription through Stripe.\n" +
+      "* Developed an AI-supported training platform designed to assist coaches in athlete training which will be launched in January 2026.",
     skills: [
       "Three.js",
       "3D Animation",
       "Speech Synthesis",
       "AI Integration",
-      "Web Development"
+      "Web Development",
+      "Front-End Development",
     ],
     techStack: [
       TECH_STACKS.THREEJS,
