@@ -284,7 +284,7 @@ The website was built using modern technologies, including Expo for the front-en
       TECH_STACKS.NESTJS,
       TECH_STACKS.POSTGRESQL,
     ],
-    appUrl: "https://hughubapp.com",
+    appUrl: "https://hughub.app",
     imageUrls: [
       require("@/images/projects/hughub/hughub1.png"),
       require("@/images/projects/hughub/hughub2.png"),
