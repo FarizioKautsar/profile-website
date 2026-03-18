@@ -50,21 +50,6 @@ const projects: Project[] = [
       require("@/images/projects/klabs/klabs3.png"),
     ],
   },
-  // {
-  //   name: "My Profile Website",
-  //   subTitle: "Company Profile Website",
-  //   shortDescription:
-  //     "The website I use to showcase my experiences and portfolio.",
-  //   description: "The website I use to showcase my experiences and portfolio.",
-  //   client: "Myself",
-  //   yearFrom: 2024,
-  //   yearTo: 2024,
-  //   techStack: [TECH_STACKS.NEXTJS, TECH_STACKS.TAILWIND, TECH_STACKS.SHADCN],
-  //   imageUrls: [
-  //     require("@/images/projects/personal-website/personal-website1.png"),
-  //     require("@/images/projects/personal-website/personal-website2.png"),
-  //   ],
-  // },
   {
     name: "Bina Bangsa LMS",
     subTitle: "Learning Management System",
@@ -292,28 +277,24 @@ The website was built using modern technologies, including Expo for the front-en
       require("@/images/projects/hughub/hughub4.png"),
     ],
   },
-  // {
-  //   name: "Champion",
-  //   shortDescription: "Champion is LifeformAI's product where coaches can help athletes to improve their performance using AI.",
-  //   description:
-  //     "Champion is LifeformAI's product where coaches can help athletes to improve their performance using AI. As the Frontend Developer Intern and Contractor at LifeformAI, I was responsible for building the front-end and its backend (using Firebase) of Champion's web application. The web app allows coaches to create training programs, monitor athletes' progress, and provide personalized feedback using AI-driven insights. My role involved collaborating closely with the designer and the CEO to ensure a seamless user experience and robust functionality.",
-  //   subTitle: "AI-Powered Coaching Platform",
-  //   client: "LifeformAI - Champion",
-  //   yearFrom: 2025,
-  //   yearTo: 2025,
-  //   techStack: [
-  //     TECH_STACKS.NEXTJS,
-  //     TECH_STACKS.TAILWIND,
-  //     TECH_STACKS.FIREBASE,
-  //     TECH_STACKS.CHATGPT,
-  //   ],
-  //   imageUrls: [
-  //     require("@/images/projects/champion/champion1.png"),
-  //     require("@/images/projects/champion/champion2.png"),
-  //     require("@/images/projects/champion/champion3.png"),
-  //     require("@/images/projects/champion/champion4.png"),
-  //   ],
-  // }
+  {
+    name: "Pomohero",
+    shortDescription:
+      "A gamified productivity app blending a Pomodoro timer with RPG elements. Currently in closed beta.",
+    description:
+      "As the founder of Pomohero, I am building a gamified productivity app that merges a standard Pomodoro timer with engaging RPG elements like progression and leveling up. Developed alongside my collaborator, Khalif, we have recently pushed the project into its closed beta phase. To ensure a robust, maintainable architecture under the hood, I engineered the app using Flutter. I heavily utilize Riverpod for efficient state management and clean dependency injections, while relying on Drift to power a reliable, offline-first local database.",
+    client: "Founder",
+    subTitle: "Gamified Pomodoro App",
+    yearFrom: 2026,
+    techStack: [
+      TECH_STACKS.FLUTTER,
+      TECH_STACKS.FIRESTORE,
+    ],
+    imageUrls: [
+      require("@/images/projects/pomohero/pomohero1.png"),
+      require("@/images/projects/pomohero/pomohero2.png"),
+    ],
+  }
 ];
 
 export default projects;
