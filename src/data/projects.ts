@@ -277,22 +277,24 @@ The website was built using modern technologies, including Expo for the front-en
       require("@/images/projects/hughub/hughub4.png"),
     ],
   },
-  {
+{
     name: "Pomohero",
     shortDescription:
-      "A gamified productivity app blending a Pomodoro timer with RPG elements. Currently in closed beta.",
+      "A productivity application featuring an integrated RPG system to help users build focus habits. Currently in beta testing for iOS and Android.",
     description:
-      "As the founder of Pomohero, I am building a gamified productivity app that merges a standard Pomodoro timer with engaging RPG elements like progression and leveling up. Developed alongside my collaborator, Khalif, we have recently pushed the project into its closed beta phase. To ensure a robust, maintainable architecture under the hood, I engineered the app using Flutter. I heavily utilize Riverpod for efficient state management and clean dependency injections, while relying on Drift to power a reliable, offline-first local database.",
+      "As the founder of Pomohero, I am building a productivity application that features an integrated game. It merges a robust focus timer with RPG elements like character leveling and loot systems to encourage consistent work habits. Developed alongside my collaborator, Khalif, the app is currently in beta testing for the iOS App Store and Google Play Store. I engineered the cross-platform application using Flutter and Dart. The architecture relies on Riverpod for state management and Drift for an offline-first local database. To enhance the user experience, I implemented iOS Live Activities for real-time tracking. I also configured Fastlane for automated deployments and integrated Firebase to handle backend synchronization logic.",
     client: "Founder",
-    subTitle: "Gamified Pomodoro App",
+    subTitle: "Productivity App with RPG Elements",
     yearFrom: 2026,
     techStack: [
       TECH_STACKS.FLUTTER,
       TECH_STACKS.FIRESTORE,
+      TECH_STACKS.FIGMA
     ],
     imageUrls: [
       require("@/images/projects/pomohero/pomohero1.png"),
       require("@/images/projects/pomohero/pomohero2.png"),
+      require("@/images/projects/pomohero/pomohero3.png"),
     ],
   }
 ];
