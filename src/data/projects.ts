@@ -169,7 +169,7 @@ The website was built using modern technologies, including Expo for the front-en
       "A website for Indonesian students in Melbourne, featuring articles, a marketplace, and a settlement course, built with NextJS, Tailwind, and Drizzle ORM.",
     description: `RantauReady is a website I am currently developing, dedicated to Indonesian students in Melbourne. It will provide helpful articles and blogs offering the most up-to-date information to assist students in their journey. The website will also feature a marketplace where students can advertise accommodations and used items, as well as a course on settling down in Melbourne as an Indonesian student. The site will offer both dark and light modes with a fully responsive design. It is being built from the ground up using NextJS, Tailwind, Shadcn, and Drizzle ORM, with Neon as the database hosting.`,
     client: "My Team",
-    websiteUrl: "https://rantauready.com/",
+    websiteUrl: "https://rantau-ready.vercel.app/",
     yearFrom: 2025,
     techStack: [
       TECH_STACKS.NEXTJS,
